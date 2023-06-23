@@ -1,399 +1,221 @@
-{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+<style>
+    .EP-article-main {
+        margin-top: 50px;
+        min-height: 2000px;
+    }
 
-<article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when '@app' -%}
-        <div class="page-width page-width--narrow">
-          {% render block %}
+    .EP-article-main .EP--flex {
+        display: flex;
+    }
+
+    .EP-article-main .EP--justify--center {
+        justify-content: center;
+    } 
+
+    .EP-article-main .EP--flex--1 {
+        flex: 1;
+    }
+
+    .EP-article-main .EP--mb--24 {
+        margin-bottom: 24px;
+    }
+
+    .EP-article-main .EP--mb--22 {
+        margin-bottom: 22px;
+    }
+
+    .EP-article__hero {
+        background-image: url(https://res.cloudinary.com/duecvwrkz/image/upload/v1687508847/Eureka%20Pet/eureka-image37_ey0udc.png);
+        background-size: cover;
+        max-width: 1820px;
+        width: 90%;
+        margin: 0 auto;
+        background-color: #FDF5E9;
+        border-radius: 20px;
+        min-height: 740px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 152px;
+    }
+
+    .EP-article__hero h1 {
+        font-size: 60px !important;
+        line-height: 65px !important;
+    }
+
+    .EP-article__hero .EP-article__hero__col1 {
+        max-width: 50%;
+        font-family: var(--OSTR);
+    }
+
+    .EP-article__hero .EP-article__hero__col1 .EP--flex {
+        gap: 32px;
+        margin-top: 48px;
+    }
+
+    .EP-article__hero .EP-article__hero__col1 label {
+        font-family: inherit;
+        font-weight: 500;
+        color: #000;
+    }
+
+    .EP-article-main .EP-article__inner {
+        max-width: 1514px;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 82px;
+    }
+
+    .EP-article-main .EP-article__section__two {
+        display: flex;
+        gap: 55px;
+    }
+
+    .EP-article-main .EP-article__section__two .EP-article__section__two__left {
+        flex: 2;
+    }
+
+    .EP-article-main .EP-article__section__two .EP-article__section__two__left p,
+    .EP-article-main .EP-article__section__two .EP-article__section__two__right p {
+        color: #000;
+        font-size: 18px;
+    }
+
+    .EP-article-main .EP-article__section__two .EP-article__section__two__left h2 p {
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    .EP-article-main .EP-article__section__two .EP-article__section__two__right {
+        flex: 1;
+        background-color: #403D36;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .EP-article-main .EP-article__section__two .EP-article__section__two__right h3, 
+    .EP-article-main .EP-article__section__two .EP-article__section__two__right h5 {
+        color: #F6AF00;
+        font-family: var(--WIND) !important;
+    }
+
+    .EP-article-main .EP-article__section__two .EP-article__section__two__right img {
+        max-height: 550px;
+        width: auto;
+    }
+
+    .EP-article-main .EP-article__section__two__right__inner {
+        padding: 25px 25px 25px 75px;
+    }
+
+    .EP-article-main .EP-article__section__two__right__inner__row1 {
+        position: relative;
+        z-index: 2;
+    }
+
+    .EP-article-main .EP-article__section__two__right__inner__row1 h3 {
+        font-size: 74px !important;
+    }
+
+    .EP-article-main .EP-article__section__two__right__inner__row2 {
+        margin-top: -16%;
+    }
+
+    .EP-article-main .EP-article__section__two__right__inner__row3 {
+        margin-top: 24px;
+        max-width: 91%;
+    }
+
+    .EP-article-main .EP-article__section__two__right__inner__row3 p {
+        color: #fff !important; 
+        text-align: center;
+    }
+
+    .EP-article-main .EP__article__dog__notice {
+        background-color: #FAAE50;
+        border-radius: 20px; 
+        padding: 12px 50px;
+        position: relative;
+    }
+
+    .EP-article-main .EP__article__dog__notice h5 {
+        color: #000 !important;
+        font-size: 20px !important;
+        line-height: 24px !important;
+        text-align: center;
+        max-width: 95%;
+    }
+
+    .EP-article-main .EP__article__dog__notice h5::after {
+        content: url('');
+        background: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1687516771/Eureka%20Pet/Article_Pet_Notice_hfa4cq.svg') no-repeat;
+        position: absolute;
+        top: 0;
+        right: -92%;
+        width: 100%;
+        height: 120%;
+        background-size: contain;
+    }
+
+    .EP_Quete{
+        padding-left:30px;
+        position:relative;
+    }  
+
+    .EP_Quete::before{
+        background-image: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1687510662/Eureka%20Pet/unnamed_ajkdgt.png');
+        content: "";
+        height: 30px;
+        position: absolute;
+        width: 30px;
+        background-repeat: no-repeat;
+        left: -8px;
+        width:30px;
+    }
+</style>
+
+<Article class="EP-article-main">
+    <div class="EP-article__hero">
+        <div class="EP--flex">
+            <div class="EP--flex--1 EP-article__hero__col1">
+                <h1>How to measure the right feeding amount?</h1>
+                <div class="EP--flex">
+                    <label>Feeding Advice</label>
+                    <label>21 Jun 2022</label>
+                </div>
+            </div>
         </div>
-      {%- when 'featured_image' -%}
-        {%- if article.image -%}
-          <div
-            class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-            {{ block.shopify_attributes }}
-          >
-            <div
-              class="article-template__hero-{{ block.settings.image_height }} media"
-              itemprop="image"
-              {% if block.settings.image_height == 'adapt' and article.image %}
-                style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
-              {% endif %}
-            >
-              <img
-                srcset="
-                  {% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
-                  {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
-                  {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
-                  {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
-                  {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
-                  {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
-                  {{ article.image | image_url }} {{ article.image.width }}w
-                "
-                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
-                src="{{ article.image | image_url: width: 1100 }}"
-                loading="eager"
-                fetchpriority="high"
-                width="{{ article.image.width }}"
-                height="{{ article.image.height }}"
-                alt="{{ article.image.alt | escape }}"
-              >
-            </div>
-          </div>
-        {%- endif -%}
-
-      {%- when 'title' -%}
-        <header
-          class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-          {{ block.shopify_attributes }}
-        >
-          <h1
-            class="article-template__title"
-            itemprop="headline"
-          >
-            {{ article.title | escape }}
-          </h1>
-          {%- if block.settings.blog_show_date -%}
-            <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">
-              {{- article.published_at | time_tag: format: 'date' -}}
-            </span>
-          {%- endif -%}
-          {%- if block.settings.blog_show_author -%}
-            <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
-              <span itemprop="name">{{ article.author }}</span>
-            </span>
-          {%- endif -%}
-        </header>
-
-      {%- when 'content' -%}
-        <div
-          class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          itemprop="articleBody"
-          {{ block.shopify_attributes }}
-        >
-          {{ article.content }}
-        </div>
-
-      {%- when 'share' -%}
-        <div
-          class="article-template__social-sharing page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {{ block.shopify_attributes }}
-        >
-          {% assign share_url = request.origin | append: article.url %}
-          {% render 'share-button', block: block, share_link: share_url %}
-        </div>
-    {%- endcase -%}
-  {%- endfor -%}
-
-  <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
-      {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
-    </a>
-  </div>
-  {%- if blog.comments_enabled? -%}
-    <div class="article-template__comment-wrapper background-secondary">
-      <div
-        id="comments"
-        class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-      >
-        {%- if article.comments_count > 0 -%}
-          {%- assign anchorId = '#Comments-' | append: article.id -%}
-
-          <h2 id="Comments-{{ article.id }}" tabindex="-1">
-            {{ 'blogs.article.comments' | t: count: article.comments_count }}
-          </h2>
-          {% paginate article.comments by 5 %}
-            <div class="article-template__comments">
-              {%- if comment.status == 'pending' and comment.content -%}
-                <article id="{{ comment.id }}" class="article-template__comments-comment">
-                  {{ comment.content }}
-                  <footer class="right">
-                    <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span>
-                  </footer>
-                </article>
-              {%- endif -%}
-
-              {%- for comment in article.comments -%}
-                <article id="{{ comment.id }}" class="article-template__comments-comment">
-                  {{ comment.content }}
-                  <footer class="right">
-                    <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span
-                    ><span class="caption-with-letter-spacing">
-                      {{- comment.created_at | time_tag: format: 'date' -}}
-                    </span>
-                  </footer>
-                </article>
-              {%- endfor -%}
-              {% render 'pagination', paginate: paginate, anchor: anchorId %}
-            </div>
-          {% endpaginate %}
-        {%- endif -%}
-        {% form 'new_comment', article %}
-          {%- liquid
-            assign post_message = 'blogs.article.success'
-            if blog.moderated? and comment.status == 'unapproved'
-              assign post_message = 'blogs.article.success_moderated'
-            endif
-          -%}
-          <h2>{{ 'blogs.article.comment_form_title' | t }}</h2>
-          {%- if form.errors -%}
-            <div class="form__message" role="alert">
-              <h3 class="form-status caption-large text-body" tabindex="-1" autofocus>
-                {% render 'icon-error' %}
-                {{ 'templates.contact.form.error_heading' | t }}
-              </h3>
-            </div>
-            <ul class="form-status-list caption-large">
-              {%- for field in form.errors -%}
-                <li>
-                  <a href="#CommentForm-{{ field }}" class="link">
-                    {%- if form.errors.translated_fields[field] contains 'author' -%}
-                      {{ 'blogs.article.name' | t }}
-                    {%- elsif form.errors.translated_fields[field] contains 'body' -%}
-                      {{ 'blogs.article.message' | t }}
-                    {%- else -%}
-                      {{ form.errors.translated_fields[field] }}
-                    {%- endif -%}
-                    {{ form.errors.messages[field] }}
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          {%- elsif form.posted_successfully? -%}
-            <div class="form-status-list form__message" role="status">
-              <h3 class="form-status" tabindex="-1" autofocus>
-                {% render 'icon-success' %}
-                {{ post_message | t }}
-              </h3>
-            </div>
-          {%- endif -%}
-
-          <div
-            {% if blog.moderated? == false %}
-              class="article-template__comments-fields"
-            {% endif %}
-          >
-            <div class="article-template__comment-fields">
-              <div class="field field--with-error">
-                <input
-                  type="text"
-                  name="comment[author]"
-                  id="CommentForm-author"
-                  class="field__input"
-                  autocomplete="name"
-                  value="{{ form.author }}"
-                  aria-required="true"
-                  required
-                  {% if form.errors contains 'author' %}
-                    aria-invalid="true"
-                    aria-describedby="CommentForm-author-error"
-                  {% endif %}
-                  placeholder="{{ 'blogs.article.name' | t }}"
-                >
-                <label class="field__label" for="CommentForm-author">
-                  {{- 'blogs.article.name' | t }}
-                  <span aria-hidden="true">*</span></label
-                >
-                {%- if form.errors contains 'author' -%}
-                  <small id="CommentForm-author-error">
-                    <span class="form__message">
-                      {%- render 'icon-error' -%}
-                      {{- 'blogs.article.name' | t }}
-                      {{ form.errors.messages.author }}.</span
-                    >
-                  </small>
-                {%- endif -%}
-              </div>
-              <div class="field field--with-error">
-                <input
-                  type="email"
-                  name="comment[email]"
-                  id="CommentForm-email"
-                  autocomplete="email"
-                  class="field__input"
-                  value="{{ form.email }}"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  aria-required="true"
-                  required
-                  {% if form.errors contains 'email' %}
-                    aria-invalid="true"
-                    aria-describedby="CommentForm-email-error"
-                  {% endif %}
-                  placeholder="{{ 'blogs.article.email' | t }}"
-                >
-                <label class="field__label" for="CommentForm-email">
-                  {{- 'blogs.article.email' | t }}
-                  <span aria-hidden="true">*</span></label
-                >
-                {%- if form.errors contains 'email' -%}
-                  <small id="CommentForm-email-error">
-                    <span class="form__message">
-                      {%- render 'icon-error' -%}
-                      {{- 'blogs.article.email' | t }}
-                      {{ form.errors.messages.email }}.</span
-                    >
-                  </small>
-                {%- endif -%}
-              </div>
-            </div>
-            <div class="field field--with-error">
-              <textarea
-                rows="5"
-                name="comment[body]"
-                id="CommentForm-body"
-                class="text-area field__input"
-                aria-required="true"
-                required
-                {% if form.errors contains 'body' %}
-                  aria-invalid="true"
-                  aria-describedby="CommentForm-body-error"
-                {% endif %}
-                placeholder="{{ 'blogs.article.message' | t }}"
-              >{{ form.body }}</textarea>
-              <label class="form__label field__label" for="CommentForm-body">
-                {{- 'blogs.article.message' | t }}
-                <span aria-hidden="true">*</span></label
-              >
-            </div>
-            {%- if form.errors contains 'body' -%}
-              <small id="CommentForm-body-error">
-                <span class="form__message">
-                  {%- render 'icon-error' -%}
-                  {{- 'blogs.article.message' | t }}
-                  {{ form.errors.messages.body }}.</span
-                >
-              </small>
-            {%- endif -%}
-          </div>
-          {%- if blog.moderated? -%}
-            <p class="article-template__comment-warning caption">{{ 'blogs.article.moderated' | t }}</p>
-          {%- endif -%}
-          <input type="submit" class="button" value="{{ 'blogs.article.post' | t }}">
-        {% endform %}
-      </div>
     </div>
-  {%- endif -%}
-</article>
-
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "articleBody": {{ article.content | strip_html | json }},
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": {{ request.origin | append: page.url | json }}
-    },
-    "headline": {{ article.title | json }},
-    {% if article.excerpt != blank %}
-      "description": {{ article.excerpt | strip_html | json }},
-    {% endif %}
-    {% if article.image %}
-      "image": [
-        {{ article | image_url: width: 1920 | prepend: "https:" | json }}
-      ],
-    {% endif %}
-    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
-    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
-    "author": {
-      "@type": "Person",
-      "name": {{ article.author | json }}
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": {{ shop.name | json }}
-    }
-  }
-</script>
-
-{% schema %}
-{
-  "name": "t:sections.main-article.name",
-  "tag": "section",
-  "class": "section",
-  "blocks": [
-    {
-      "type": "@app"
-    },
-    {
-      "type": "featured_image",
-      "name": "t:sections.main-article.blocks.featured_image.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "image_height",
-          "options": [
-            {
-              "value": "adapt",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
-            },
-            {
-              "value": "small",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
-            },
-            {
-              "value": "medium",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
-            },
-            {
-              "value": "large",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
-            }
-          ],
-          "default": "adapt",
-          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label",
-          "info": "t:sections.main-article.blocks.featured_image.settings.image_height.info"
-        }
-      ]
-    },
-    {
-      "type": "title",
-      "name": "t:sections.main-article.blocks.title.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "blog_show_date",
-          "default": true,
-          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "blog_show_author",
-          "default": false,
-          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
-        }
-      ]
-    },
-    {
-      "type": "content",
-      "name": "t:sections.main-article.blocks.content.name",
-      "limit": 1
-    },
-    {
-      "type": "share",
-      "name": "t:sections.main-article.blocks.share.name",
-      "limit": 2,
-      "settings": [
-        {
-          "type": "text",
-          "id": "share_label",
-          "label": "t:sections.main-article.blocks.share.settings.text.label",
-          "default": "Share"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.main-article.blocks.share.settings.title_info.content"
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
+    <div class="EP-article__inner">
+        <div class="EP-article__section__two">
+            <div class="EP-article__section__two__left">
+                <h2 class="EP--mb--24"> {{ article.metafields["custom_fields"]["ep_article_first_heading"] }} </h2>
+                <p class="EP--mb--22">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus temporibus ducimus, dolores aspernatur exercitationem expedita, cupiditate error maxime, aperiam consequuntur dolorem aut quasi ipsam sequi officia? Exercitationem necessitatibus dolor, dolores ea excepturi, voluptatem sequi a quo quibusdam repellat mollitia esse.</p>
+                <div class="EP__article__dog__notice EP--mb--22">
+                    <h5>As mentioned above, keep an eye on your pets weight and adjust if necessary.</h5>
+                </div>
+                <p class="EP--mb--22">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus temporibus ducimus, dolores aspernatur exercitationem expedita, cupiditate error maxime, aperiam consequuntur dolorem aut quasi ipsam sequi officia? Exercitationem necessitatibus dolor, dolores ea excepturi, voluptatem sequi a quo quibusdam repellat mollitia esse.</p>
+                <p class="EP--mb--22">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus temporibus ducimus, dolores aspernatur exercitationem expedita, cupiditate error maxime, aperiam consequuntur dolorem aut quasi ipsam sequi officia? Exercitationem necessitatibus dolor, dolores ea excepturi, voluptatem sequi a quo quibusdam repellat mollitia esse.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque consequuntur eius praesentium veritatis assumenda voluptatum expedita tempora, distinctio porro similique odio aliquid ad reiciendis consectetur, vero corporis, officia perspiciatis illo asperiores. Incidunt illo provident distinctio ad in. Totam, facilis est!</p>
+            </div>
+            <div class="EP-article__section__two__right">
+               <div class="EP-article__section__two__right__inner">
+                <div class="EP-article__section__two__right__inner__row1">
+                    <h5>the</h5>
+                    <h3>Eureka Scoop</h3>
+                </div>
+                <div class="EP--flex EP--justify--center EP-article__section__two__right__inner__row2">
+                    <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687511249/Eureka%20Pet/Image_42_2x_vh43m9.png" alt="">
+                </div>
+                <div class="EP-article__section__two__right__inner__row3">
+                    <p>Our Eureka scoop (which is included in your first order) is a standard measuring cup size and holds approximately 100g of product, so 25gm = 1/4 cup.</p>
+                    <p>For small dogs (less than 5kg), we recommend you weigh the Eureka food on an accurate scale to minimise risk of under or over-feeding.</p>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</Article>
