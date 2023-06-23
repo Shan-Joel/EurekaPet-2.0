@@ -1,0 +1,75 @@
+{% schema %}
+    {
+      "name": "EP_Announcement Bar",
+      "settings": [
+        {
+            "type": "text",
+            "id": "ep_announcement",
+            "label": "EP Announcement Text"
+        }
+      ],
+      "presets": [
+        {
+            "name": "EP_Announcement Bar"
+        }
+      ]
+    }
+  {% endschema %}
+  
+  {% stylesheet %}
+
+    .marquee {
+        overflow: hidden;
+        display: flex;
+        background-color: var(--clr_light);
+        color: var(--clr_dark);
+    }
+
+    .marquee h1 {
+        font-size: 18px !important;
+        white-space: nowrap;
+        text-transform: uppercase;
+    }
+
+  {% endstylesheet %}
+  
+  {% javascript %}
+
+function Marquee(selector, speed) {
+  const parentSelector = document.querySelector(selector);
+  const clone = parentSelector.innerHTML;
+  const firstElement = parentSelector.children[0];
+  let i = 0;
+  let marqueeInterval;
+
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+
+  function startMarquee() {
+    marqueeInterval = setInterval(function () {
+      firstElement.style.marginLeft = `-${i}px`;
+      if (i > firstElement.clientWidth) {
+        i = 0;
+      }
+      i = i + speed;
+    }, 0);
+  }
+
+  function stopMarquee() {
+    clearInterval(marqueeInterval);
+  }
+
+ parentSelector.addEventListener('mouseenter', stopMarquee);
+  parentSelector.addEventListener('mouseleave', startMarquee);
+
+  startMarquee();
+}
+
+window.addEventListener('load', () => Marquee('.marquee', 0.3));
+
+
+  {% endjavascript %}
+
+<div class="marquee">
+    <h1> {{ section.settings.ep_announcement }} &nbsp </h1>
+ </div>

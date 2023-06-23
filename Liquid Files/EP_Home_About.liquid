@@ -1,0 +1,123 @@
+{% schema %}
+  {
+    "name": "EP_Home_About",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "home_about_left_image",
+        "label": "Homepage About Section Left Image"
+      },
+      {
+        "type": "text",
+        "id": "home_about_right_heading1",
+        "label": "Homepage About Section Right Heading 1"
+      },
+      {
+        "type": "text",
+        "id": "home_about_right_heading2",
+        "label": "Homepage About Section Right Heading 2"
+      },
+      {
+        "type": "text",
+        "id": "home_about_right_heading3",
+        "label": "Homepage About Section Right Heading 3"
+      },
+      {
+        "type": "text",
+        "id": "home_about_right_para1",
+        "label": "Homepage About Section Right Para 1"
+      },
+      {
+        "type": "text",
+        "id": "home_about_right_para2",
+        "label": "Homepage About Section Right Para 2"
+      },
+      {
+        "type": "url",
+        "id": "home_about_right_btn_link",
+        "label": "Homepage About Section Right Button URL"
+      },
+      {
+        "type": "text",
+        "id": "home_about_right_btn_txt",
+        "label": "Homepage About Section Right Button Text"
+      }
+    ],
+    "presets": [
+      {
+          "name": "EP_Home_About"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+ 
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+<style>
+  .EP-home-about-wrapper {
+      display: flex;
+      gap: 100px;
+      align-items: center;
+      margin: 24px auto;
+  }
+
+  .EP-home-about-wrapper .EP-home-about-wrapper__left {
+      flex: 1;
+  }
+
+  .EP-home-about-wrapper .EP-home-about-wrapper__left img {
+      width: 100%;
+  }
+
+  .EP-home-about-wrapper .EP-home-about-wrapper__right {
+      flex: 1;
+      margin-bottom: 32px;
+  }
+
+  .EP-home-about-wrapper .EP-home-about-wrapper__right a {
+      padding-left: 60px;
+      padding-right: 60px;
+      display: inline-block;
+  }
+
+  .EP-home-about-wrapper .EP-home-about-wrapper__right p {
+      font-family: var(--OSTR);
+      color: black;
+      margin: 24px 0;
+  }
+
+  @media screen and (max-width: 1100px) {
+      .EP-home-about-wrapper {
+          display: block;
+      }
+
+      .EP-home-about-wrapper .EP-home-about-wrapper__left img {
+          margin-bottom: 32px;
+      }
+  }
+
+</style>
+
+<div class="EP-home-about-wrapper EP-mx-1440">
+  <div class="EP-home-about-wrapper__left">
+      <img src="{{ section.settings.home_about_left_image | img_url: '300x' }}" alt="home_about_left_image" />
+  </div>
+  <div class="EP-home-about-wrapper__right">
+      <h4>{{ section.settings.home_about_right_heading1 }}</h4>
+      <h4>{{ section.settings.home_about_right_heading2 }}</h4>
+      <h4>{{ section.settings.home_about_right_heading3 }}</h4>
+
+      <div class="EP-home-about-wrapper__right wapper__right__para">
+          <p>{{ section.settings.home_about_right_para1 }}</p>
+          <p>{{ section.settings.home_about_right_para2 }}</p>
+      </div>
+
+      <a href="{{ section.settings.home_about_right_btn_link }}" class="EP_btn EP_bg_0">{{ section.settings.home_about_right_btn_txt }}</a>
+  </div>
+</div>
+

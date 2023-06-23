@@ -1,0 +1,67 @@
+{% schema %}
+    {
+      "name": "EP_Footer_Subscriber",
+      "settings": [
+        {
+            "type": "text",
+            "id": "footer_subscriber_left_heading",
+            "label": "Footer Subscriber Left Heading"
+        }
+      ],
+      "presets": [
+        {
+            "name": "EP_Footer_Subscriber"
+        }
+      ]
+    }
+  {% endschema %}
+  
+  {% stylesheet %}
+  {% endstylesheet %}
+  
+  {% javascript %}
+  {% endjavascript %}
+
+  <style>
+    .EP-footer-subscriber {
+        background: #FCECD7;
+        padding: 18px 0;
+    }
+
+    .EP-footer-subscriber--flex {
+        display: flex;
+        align-items: center;
+    }
+
+    .mx-980 {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .EP-footer-subscriber .EP-footer-subscriber__left {
+        flex: 2;
+    }
+
+    .EP-footer-subscriber .EP-footer-subscriber__right {
+        flex: 1;
+    }
+
+    @media screen and (max-width: 1124px) {
+        .EP-footer-subscriber--flex {
+            display: block;
+        } 
+    }
+
+  </style>
+
+  <section class="EP-footer-subscriber">
+    <div class="mx-980 EP-footer-subscriber--flex">
+        <div class="EP-footer-subscriber__left">
+            <h4>{{ section.settings.footer_subscriber_left_heading }}</h4>
+        </div>
+        <div class="EP-footer-subscriber__right">
+            <h4>Input Here</h4>
+        </div>
+    </div>
+  </section>

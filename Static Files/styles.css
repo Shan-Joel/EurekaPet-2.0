@@ -1,0 +1,61 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+@font-face {
+   font-family: 'Ostia Antica Book';
+   src: url(/fonts/OstiaAntica-Book.otf);
+}
+
+@font-face {
+   font-family: 'Ostia Antica Light';
+   src: url(/fonts/OstiaAntica-Light.otf);
+}
+
+.EP-footer {
+   max-width: 1440px;
+   margin: 30px auto;
+   background-color: #faae50;
+   padding: 70px 64px 30px 50px;
+}
+
+.EP-footer .EP-col--2--heading h4 {
+   font-family: 'Ostia Antica Book';
+   display: block;
+   color: #000;
+   font-size: 20px;
+   line-height: 40px;
+   font-weight: 500;
+}
+
+.EP-footer .EP-col--2--detail a {
+   text-decoration: none;
+   font-family: 'Ostia Antica Light';
+   display: block;
+   color: #000;
+   font-size: 16px;
+   line-height: 32px;
+   font-weight: 300;
+}
+
+.EP-footer .EP-footer__wrapper1,
+.EP-footer__copyright {
+   display: grid;
+   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+   grid-column-gap: 24px;
+}
+
+.EP-footer .EP-footer__wrapper2 {
+   padding-top: 80px;
+}
+
+.EP-footer .EP-footer__copyright {
+   font-family: 'Ostia Antica Light';
+}
+
+.EP-footer .EP-footer__copyright p {
+   font-family: inherit;
+   font-weight: 300;
+}
