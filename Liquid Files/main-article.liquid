@@ -1,6 +1,6 @@
 <style>
     .EP-article-main {
-        margin-top: 50px;
+        margin-top: 22px;
         min-height: 2000px;
     }
 
@@ -16,6 +16,12 @@
         flex: 1;
     }
 
+    @media screen and (max-width: 600px) {
+        .EP-article-main .EP--mt--60 {
+            margin-top: 60px;
+        }
+    }
+    
     .EP-article-main .EP--mb--24 {
         margin-bottom: 24px;
     }
@@ -24,24 +30,29 @@
         margin-bottom: 22px;
     }
 
+    .EP-article-main .EP-mb-28 {
+        margin-bottom: 28px;
+    }
+
     .EP-article__hero {
         background-image: url(https://res.cloudinary.com/duecvwrkz/image/upload/v1687508847/Eureka%20Pet/eureka-image37_ey0udc.png);
         background-size: cover;
-        max-width: 1820px;
+        max-width: 1340px;
         width: 90%;
         margin: 0 auto;
         background-color: #FDF5E9;
         border-radius: 20px;
-        min-height: 740px;
+        min-height: 543px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-left: 152px;
+        padding-left: 113px;
     }
 
     .EP-article__hero h1 {
-        font-size: 60px !important;
-        line-height: 65px !important;
+        line-height: 60px !important;
+        font-size: 50px !important;
+        max-width: 558px;
     }
 
     .EP-article__hero .EP-article__hero__col1 {
@@ -51,20 +62,21 @@
 
     .EP-article__hero .EP-article__hero__col1 .EP--flex {
         gap: 32px;
-        margin-top: 48px;
+        margin-top: 42px;
     }
 
     .EP-article__hero .EP-article__hero__col1 label {
         font-family: inherit;
+        font-size: 17px;
         font-weight: 500;
-        color: #000;
+        color: #403D36;
     }
 
     .EP-article-main .EP-article__inner {
-        max-width: 1514px;
+        max-width: 1114px;
         width: 90%;
         margin: 0 auto;
-        margin-top: 82px;
+        margin-top: 65px;
     }
 
     .EP-article-main .EP-article__section__two {
@@ -79,7 +91,8 @@
     .EP-article-main .EP-article__section__two .EP-article__section__two__left p,
     .EP-article-main .EP-article__section__two .EP-article__section__two__right p {
         color: #000;
-        font-size: 18px;
+        font-size: 20px;
+        line-height: 25px;
     }
 
     .EP-article-main .EP-article__section__two .EP-article__section__two__left h2 p {
@@ -88,6 +101,7 @@
     }
 
     .EP-article-main .EP-article__section__two .EP-article__section__two__right {
+        max-height: 834px;
         flex: 1;
         background-color: #403D36;
         border-radius: 20px;
@@ -103,12 +117,13 @@
     }
 
     .EP-article-main .EP-article__section__two .EP-article__section__two__right img {
-        max-height: 550px;
+        max-height: 410px;
         width: auto;
+        transform: translateX(11%);
     }
 
     .EP-article-main .EP-article__section__two__right__inner {
-        padding: 25px 25px 25px 75px;
+        padding: 25px 25px 25px 60px;
     }
 
     .EP-article-main .EP-article__section__two__right__inner__row1 {
@@ -117,7 +132,7 @@
     }
 
     .EP-article-main .EP-article__section__two__right__inner__row1 h3 {
-        font-size: 74px !important;
+        font-size: 60px !important;
     }
 
     .EP-article-main .EP-article__section__two__right__inner__row2 {
@@ -149,6 +164,18 @@
         max-width: 95%;
     }
 
+    .EP-article-main .EP__article__dog__notice::after {
+        content: url('');
+        background: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1687516771/Eureka%20Pet/Article_Pet_Notice_hfa4cq.svg') no-repeat;
+        position: absolute;
+        top: 0;
+        right: -92%;
+        width: 100%;
+        height: 120%;
+        background-size: contain;
+    }
+
+    /*
     .EP-article-main .EP__article__dog__notice h5::after {
         content: url('');
         background: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1687516771/Eureka%20Pet/Article_Pet_Notice_hfa4cq.svg') no-repeat;
@@ -159,6 +186,7 @@
         height: 120%;
         background-size: contain;
     }
+    */
 
     .EP_Quete{
         padding-left:30px;
@@ -175,6 +203,153 @@
         left: -8px;
         width:30px;
     }
+
+    /* slider stylings */
+    .EP-single-blog-slider {
+        margin-top: 32px;
+        margin-bottom: 70px;
+    }
+
+    .EP-single-blog-slider .slide-image {
+        max-height: 578px !important;
+    }
+
+    .EP-single-blog-slider .cf-widget-items-wrapper {
+        max-height: 578px !important;
+        border-radius: 20px;
+    }
+
+    .EP-article-main .EP-hero__image {
+        display: none;
+    }
+
+    .EP-single-blog-slider .cf-slider-arrow {
+        top: calc(90% - 40px) !important;
+    }
+
+    .EP-single-blog-slider .cf-slider-pager .cf-pager-button.active {
+        background-color: #fff !important;
+    }
+
+    .EP-single-blog-slider .cf-slider-pager .cf-pager-button {
+        background-color: transparent;
+        border: 1px solid #fff;
+    }
+
+    @media screen and (max-width: 1250px) {
+        .EP-article__hero  {
+            background-image: none !important;
+            padding-left: 32px;
+            padding-top: 50px;
+        }
+
+        .EP-article-main .EP-hero__image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .EP-article-main .EP-hero__image img {
+            width: 300px;
+        }
+
+        .EP-article-main .EP-article__hero .EP-article__hero__col1, .EP-article__hero h1 {
+            max-width: none;
+        }
+        
+        .EP-article-main .EP__article__dog__notice::after {
+            content: url('');
+            background: url(https://res.cloudinary.com/duecvwrkz/image/upload/v1687516771/Eureka%20Pet/Article_Pet_Notice_hfa4cq.svg) no-repeat;
+            position: absolute;
+            bottom: -52px;
+            left: 0px;
+            width: 100%;
+            height: 120%;
+            background-size: contain;
+        }
+
+        .EP-article-main .EP-article__section__two {
+            display: block;
+        }
+
+        .EP-article-main .EP-article__section__two .EP-article__section__two__right {
+            margin-top: 45px;
+            margin-bottom: 52px; 
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        .EP-article-main .EP-article__section__two .EP-article__section__two__left h2 p {
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        .EP-article-main .EP-article__section__two .EP-article__section__two__left p, .EP-article-main .EP-article__section__two .EP-article__section__two__right p {
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+
+    @media screen and (max-width: 600px) { 
+        .EP-article-main .EP-article__inner {
+            margin-top: 40px;
+        }
+
+        .EP-article-main .EP__article__dog__notice h5 {
+            max-width: 265px;
+            margin: auto;
+            font-size: 30px !important;
+            line-height: 35px !important;
+        }
+
+        .EP-article-main .EP__article__dog__notice::after {
+            bottom: -28px;
+            left: -15px;
+            height: 35%;
+            right: auto;
+            top: auto;
+        }
+
+        .EP-article-main .EP-article__hero {
+            background-image: none;
+            padding-left: 26px;
+            padding-right: 26px;
+            padding-top: 52px;
+        }
+
+        .EP-article-main .EP-article__hero h1 {
+            font-size: 30px !important;
+            line-height: 35px !important;
+        }
+
+        .EP-article__hero .EP-article__hero__col1 .EP--flex {
+            margin-top: 18px;
+        }
+        
+        .EP-article__hero .EP-article__hero__col1 label {
+            font-size: 14px;
+        }
+
+        .EP-article-main .EP-article__hero .EP-article__hero__col1 {
+            max-width: none;
+        }
+
+        .EP-article-main .EP-article__section__two .EP-article__section__two__right img {
+            max-height: 265px;
+            transform: none;
+        }
+        
+        .EP-article-main .EP-article__section__two__right__inner {
+            padding: 30px 16px 30px 30px;
+        }
+
+        .EP-article-main .EP-article__section__two__right__inner__row1 h3 {
+            font-size: 44px !important;
+            margin-bottom: 20%;
+            line-height: 25px !important;
+        }
+        
+    }
+
 </style>
 
 <Article class="EP-article-main">
@@ -188,18 +363,21 @@
                 </div>
             </div>
         </div>
+        <div class="EP-hero__image">
+            <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687767193/Eureka%20Pet/eureka-image37_ey0udc-removebg-preview_vv6pmb.png" alt="">
+        </div>
     </div>
     <div class="EP-article__inner">
         <div class="EP-article__section__two">
             <div class="EP-article__section__two__left">
                 <h2 class="EP--mb--24"> {{ article.metafields["custom_fields"]["ep_article_first_heading"] }} </h2>
-                <p class="EP--mb--22">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus temporibus ducimus, dolores aspernatur exercitationem expedita, cupiditate error maxime, aperiam consequuntur dolorem aut quasi ipsam sequi officia? Exercitationem necessitatibus dolor, dolores ea excepturi, voluptatem sequi a quo quibusdam repellat mollitia esse.</p>
+                <p class="EP--mb--22"> {{ article.metafields["custom_fields"]["ep_article_left_para_1"] }} </p>
+                <p class="EP--mb--22"> {{ article.metafields["custom_fields"]["ep_article_left_para_2"] }}</p>
                 <div class="EP__article__dog__notice EP--mb--22">
                     <h5>As mentioned above, keep an eye on your pets weight and adjust if necessary.</h5>
                 </div>
-                <p class="EP--mb--22">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus temporibus ducimus, dolores aspernatur exercitationem expedita, cupiditate error maxime, aperiam consequuntur dolorem aut quasi ipsam sequi officia? Exercitationem necessitatibus dolor, dolores ea excepturi, voluptatem sequi a quo quibusdam repellat mollitia esse.</p>
-                <p class="EP--mb--22">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus temporibus ducimus, dolores aspernatur exercitationem expedita, cupiditate error maxime, aperiam consequuntur dolorem aut quasi ipsam sequi officia? Exercitationem necessitatibus dolor, dolores ea excepturi, voluptatem sequi a quo quibusdam repellat mollitia esse.</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque consequuntur eius praesentium veritatis assumenda voluptatum expedita tempora, distinctio porro similique odio aliquid ad reiciendis consectetur, vero corporis, officia perspiciatis illo asperiores. Incidunt illo provident distinctio ad in. Totam, facilis est!</p>
+                <p class="EP--mb--22 EP--mt--60">You may be surprised that the feeding amounts suggested are smaller than what you’ve been used to feeding your pet.</p>
+                <p class="EP--mb--22">This is because Eureka is very nutrient dense and so less is required to meet the nutritional requirements of your pet. Your pet will adjust to the feeding amounts during the transition period and we recommend that you resist the urge to overfeed if your pet appears to be sniffing around for more food.</p>
             </div>
             <div class="EP-article__section__two__right">
                <div class="EP-article__section__two__right__inner">
@@ -211,11 +389,174 @@
                     <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687511249/Eureka%20Pet/Image_42_2x_vh43m9.png" alt="">
                 </div>
                 <div class="EP-article__section__two__right__inner__row3">
-                    <p>Our Eureka scoop (which is included in your first order) is a standard measuring cup size and holds approximately 100g of product, so 25gm = 1/4 cup.</p>
+                    <p class="EP-mb-28">Our Eureka scoop (which is included in your first order) is a standard measuring cup size and holds approximately 100g of product, so 25gm = 1/4 cup.</p>
                     <p>For small dogs (less than 5kg), we recommend you weigh the Eureka food on an accurate scale to minimise risk of under or over-feeding.</p>
                 </div>
                </div>
             </div>
         </div>
+
+<!-- Slider starts -->
+
+{% if article.metafields["custom_fields"]["ep-single-blog-slider"] != blank %}
+{% style %}
+
+{% if block.settings.title_font_custom != blank %}{{ block.settings.title_font | font_face }}{% endif %}
+
+#block-{{ block.id }} {
+  --content-max-width: {{ block.settings.content_max_width }}px;
+  {% if block.settings.title_font_custom != blank %}
+  --title-font-weight: {{ block.settings.title_font.weight }};
+  --title-font-style: {{ block.settings.title_font.style }};
+  --title-font-family: {{ block.settings.title_font.family }};
+  {% endif %}
+  --margin-top: {{ block.settings.margin_top }}rem;
+  --margin-bottom: {{ block.settings.margin_bottom }}rem;
+  --title-font-size: {{ block.settings.title_font_size }}px;
+  --title-line-height: {{ block.settings.title_line_height }}em;
+  --title-margin-bottom: {{ block.settings.title_margin_bottom }}rem;
+  --title-max-width: {{ block.settings.title_max_width }}px;
+  --title-font-color: {{ block.settings.title_font_color }};
+  --title-font-color-light: {{ block.settings.title_font_color_light }};
+  --body-font-size: {{ block.settings.body_font_size }}px;
+  --body-line-height: {{ block.settings.body_line_height }}em;
+  --body-margin-bottom: {{ block.settings.body_margin_bottom }}rem;
+  --body-font-color: {{ block.settings.body_font_color }};
+  --body-font-color-light: {{ block.settings.body_font_color_light }};
+  --link-padding: {{ block.settings.link_padding }};
+  --link-border-radius: {{ block.settings.link_border_radius }};
+  --link-font-size: {{ block.settings.link_font_size }}px;
+  --link-bg-color: {{ block.settings.link_bg_color }};
+  --link-hover-bg-color: {{ block.settings.link_hover_bg_color }};
+  --link-border: {{ block.settings.link_border }};
+  --link-font-color: {{ block.settings.link_font_color }};
+  --link-hover-font-color: {{ block.settings.link_hover_font_color }};
+  --link-bg-color-light: {{ block.settings.link_bg_color_light }};
+  --link-hover-bg-color-light: {{ block.settings.link_hover_bg_color_light }};
+  --link-border-light: {{ block.settings.link_border_light }};
+  --link-font-color-light: {{ block.settings.link_font_color_light }};
+  --link-hover-font-color-light: {{ block.settings.link_hover_font_color_light }};
+  --bg-color-light: {{ block.settings.bg_color_light }};
+  --bg-color-dark: {{ block.settings.bg_color_dark }};
+  --bg-opacity: {{ block.settings.bg_opacity }};
+
+  {% if block.settings.margin_top != blank %}margin-top: var(--margin-top);{% endif %}
+  {% if block.settings.margin_bottom != blank %}margin-bottom: var(--margin-bottom);{% endif %}
+}
+
+#block-{{ block.id }} .inner-maxwidth {
+  {% if block.settings.content_max_width != blank %}max-width: var(--content-max-width);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-field__title {
+  {% if block.settings.title_font_size != blank %}font-size: var(--title-font-size);{% endif %}
+  {% if block.settings.title_line_height != blank %}line-height: var(--title-line-height);{% endif %}
+  {% if block.settings.title_margin_bottom != blank %}margin-bottom: var(--title-margin-bottom);{% endif %}
+  {% if block.settings.title_max_width != blank %}max-width: var(--title-max-width);{% endif %}
+  {% if block.settings.title_font_color != blank %}color: var(--title-font-color);{% endif %}
+  {% if block.settings.title_font_custom != blank %}
+  font-weight: var(--title-font-weight) !important;
+  font-style: var(--title-font-style) !important;
+  font-family: var(--title-font-family) !important;
+  {% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-field__body {
+  {% if block.settings.body_font_size != blank %}font-size: var(--body-font-size);{% endif %}
+  {% if block.settings.body_line_height != blank %}line-height: var(--body-line-height);{% endif %}
+  {% if block.settings.body_margin_bottom != blank %}margin-bottom: var(--body-margin-bottom);{% endif %}
+  {% if block.settings.body_font_color != blank %}color: var(--body-font-color);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-field__link a {
+  {% if block.settings.link_font_size != blank %}font-size: var(--link-font-size);{% endif %}
+  {% if block.settings.link_font_color != blank %}color: var(--link-font-color);{% endif %}
+  {% if block.settings.link_bg_color != blank %}background-color: var(--link-bg-color);{% endif %}
+  {% if block.settings.link_padding != blank %}padding: var(--link-padding);{% endif %}
+  {% if block.settings.link_border != blank %}border: var(--link-border);{% endif %}
+  {% if block.settings.link_border_radius != blank %}border-radius: var(--link-border-radius);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-field__link a:hover {
+  {% if block.settings.link_hover_bg_color != blank %}background-color: var(--link-hover-bg-color);{% endif %}
+  {% if block.settings.link_hover_font_color != blank %}color: var(--link-hover-font-color);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-item.cf-light-text--1 .cf-widget-field__link a {
+  {% if block.settings.link_font_color_light != blank %}color: var(--link-font-color-light);{% endif %}
+  {% if block.settings.link_bg_color_light != blank %}background-color: var(--link-bg-color-light);{% endif %}
+  {% if block.settings.link_border_light != blank %}border: var(--link-border-light);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-item.cf-light-text--1 .cf-widget-field__link a:hover {
+  {% if block.settings.link_hover_bg_color_light != blank %}background-color: var(--link-hover-bg-color-light);{% endif %}
+  {% if block.settings.link_hover_font_color_light != blank %}color: var(--link-hover-font-color-light);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-item.cf-light-text--1 .cf-widget-field__title {
+  {% if block.settings.title_font_color_light != blank %}color: var(--title-font-color-light);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-item.cf-light-text--1 .cf-widget-field__body {
+  {% if block.settings.body_font_color_light != blank %}color: var(--body-font-color-light);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-bg-overlay {
+  {% if block.settings.bg_color_dark != blank %}background-color: var(--bg-color-dark);{% endif %}
+  {% if block.settings.bg_opacity != blank %}opacity: var(--bg-opacity);{% endif %}
+}
+
+#block-{{ block.id }} .cf-widget-item.cf-light-text--1 .cf-widget-bg-overlay {
+  {% if block.settings.bg_color_light != blank %}background-color: var(--bg-color-light);{% endif %}
+}
+{% endstyle %}
+<div id="block-{{ block.id }}" class="cf-widget-ep-single-blog-slider cf-widget__image-slider-v2 cf-auto-init EP-single-blog-slider"
+     data-hide_arrows="{% if block.settings.widget_hide_arrows %}1{% else %}0{% endif %}"
+     data-hide_pager="{% if block.settings.widget_hide_pager %}1{% else %}0{% endif %}"
+     data-randomize="{% if block.settings.widget_randomize %}1{% else %}0{% endif %}"
+     data-interval="{{ block.settings.widget_interval | times: 1000 }}"
+     data-effect="{{ block.settings.widget_effect }}"
+     data-animate_speed="{{ block.settings.widget_animate_speed }}">
+  <div class="cf-widget-items-wrapper cf-slider">
+    <div class="cf-slides-wrapper">
+      {% for item in article.metafields["custom_fields"]["ep-single-blog-slider"] %}
+      <div class="cf-widget-item cf-slide cf-text-pos--{{ item.text_pos }} cf-light-text--{{ item.light_text }}">
+        <div class="slide-image" style="background-image:url('{% render "cf-image" with image: item.image, crop: "center", print: "url", size: "1920x1080" %}');"></div>
+        <div class="cf-widget-bg-overlay"></div>
+        <div class="inner">
+          <div class="inner-padding">
+            <div class="inner-maxwidth">
+              
+                {% if item.title != blank %}
+                <div class="cf-widget-field cf-widget-field__title cf-widget-field--text">
+                  {{ item.title }}
+                </div>
+                {% endif %}
+              
+                {% if item.body != blank %}
+                <div class="cf-widget-field cf-widget-field__body cf-widget-field--html">
+                  {{ item.body }}
+                </div>
+                {% endif %}
+              
+                {% if item.link != blank %}
+                <div class="cf-widget-field cf-widget-field__link cf-widget-field--link">
+                  {{ item.link }}
+                </div>
+                {% endif %}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Slider ends -->
     </div>
 </Article>
+
+  

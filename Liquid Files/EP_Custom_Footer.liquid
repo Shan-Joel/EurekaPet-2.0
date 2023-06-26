@@ -1,0 +1,530 @@
+{% schema %}
+  {
+    "name": "Eureka Pet Footer",
+    "presets": [
+      {
+        "name": "Eureka Pet Footer"
+      }
+    ],
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Footer Logo"
+      },
+      {
+        "type": "text",
+        "id": "footer_section1_heading",
+        "label": "Section 1 Heading",
+        "default": "Power Your Pooch"
+      },
+      {
+        "type": "text",
+        "id": "footer_section2_heading",
+        "label": "Section 2 Heading",
+        "default": "Meet Eureka"
+      },
+      {
+        "type": "text",
+        "id": "footer_section3_heading",
+        "label": "Section 3 Heading",
+        "default": "Join The Pack"
+      },
+      {
+        "type": "text",
+        "id": "footer_section4_heading",
+        "label": "Section 4 Heading",
+        "default": "Contact Us"
+      },
+      {
+        "type": "url",
+        "id": "section1_link1",
+        "label": "Section 1 - Link 1"
+      },
+      {
+        "type": "text",
+        "id": "section1_link1_text",
+        "label": "Section 1 - Link 1 Text",
+        "default": "Air-Dried Food"
+      },
+      {
+        "type": "url",
+        "id": "section1_link2",
+        "label": "Section 1 - Link 2"
+      },
+      {
+        "type": "text",
+        "id": "section1_link2_text",
+        "label": "Section 1 - Link 2 Text",
+        "default": "Feeding Calculator"
+      },
+      {
+        "type": "url",
+        "id": "section1_link3",
+        "label": "Section 1 - Link 3"
+      },
+      {
+        "type": "text",
+        "id": "section1_link3_text",
+        "label": "Section 1 - Link 3 Text",
+        "default": "Ingredients"
+      },
+      {
+        "type": "url",
+        "id": "section1_link4",
+        "label": "Section 1 - Link 4"
+      },
+      {
+        "type": "text",
+        "id": "section1_link4_text",
+        "label": "Section 1 - Link 4 Text",
+        "default": "Samples"
+      },
+      {
+        "type": "url",
+        "id": "section2_link1",
+        "label": "Section 2 - Link 1"
+      },
+      {
+        "type": "text",
+        "id": "section2_link1_text",
+        "label": "Section 2 - Link 1 Text",
+        "default": "Our Mission"
+      },
+      {
+        "type": "url",
+        "id": "section2_link2",
+        "label": "Section 2 - Link 2"
+      },
+      {
+        "type": "text",
+        "id": "section2_link2_text",
+        "label": "Section 2 - Link 2 Text",
+        "default": "Impact"
+      },
+      {
+        "type": "url",
+        "id": "section2_link3",
+        "label": "Section 2 - Link 3"
+      },
+      {
+        "type": "text",
+        "id": "section2_link3_text",
+        "label": "Section 2 - Link 3 Text",
+        "default": "Reviews"
+      },
+      {
+        "type": "url",
+        "id": "section2_link4",
+        "label": "Section 2 - Link 4"
+      },
+      {
+        "type": "text",
+        "id": "section2_link4_text",
+        "label": "Section 2 - Link 4 Text",
+        "default": "Blog"
+      },
+      {
+        "type": "url",
+        "id": "section2_link5",
+        "label": "Section 2 - Link 5"
+      },
+      {
+        "type": "text",
+        "id": "section2_link5_text",
+        "label": "Section 2 - Link 5 Text",
+        "default": "FAQ"
+      },
+      {
+        "type": "url",
+        "id": "section3_link1",
+        "label": "Section 3 - Link 1"
+      },
+      {
+        "type": "text",
+        "id": "section3_link1_text",
+        "label": "Section 3 - Link 1 Text",
+        "default": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "section3_link2",
+        "label": "Section 3 - Link 2"
+      },
+      {
+        "type": "text",
+        "id": "section3_link2_text",
+        "label": "Section 3 - Link 2 Text",
+        "default": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "section3_link3",
+        "label": "Section 3 - Link 3"
+      },
+      {
+        "type": "text",
+        "id": "section3_link3_text",
+        "label": "Section 3 - Link 3 Text",
+        "default": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "section3_link4",
+        "label": "Section 3 - Link 4"
+      },
+      {
+        "type": "text",
+        "id": "section3_link4_text",
+        "label": "Section 3 - Link 4 Text",
+        "default": "Youtube"
+      },
+       {
+        "type": "image_picker",
+        "id": "payment_logo",
+        "label": "Payment Logos"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Contact Email",
+        "default": "info@eurekapetco.com"
+      },
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Contact Phone",
+        "default": "1300 123 456"
+      },
+      {
+        "type": "text",
+        "id": "contact_address",
+        "label": "Contact Address",
+        "default": "12 Eureka Road, Sydney NSW 2026"
+      },
+      {
+        "type": "text",
+        "id": "footer_copyright",
+        "label": "Copyright Text",
+        "default": "2023 Eureka Pet Co Pty Ltd"
+      },
+      {
+        "type": "url",
+        "id": "terms_link",
+        "label": "Terms & Conditions Link"
+      },
+      {
+        "type": "text",
+        "id": "terms_link_text",
+        "label": "Terms & Conditions Text",
+        "default": "Terms & Conditions"
+
+      },
+      {
+        "type": "url",
+        "id": "privacy_link",
+        "label": "Privacy Policy Link"
+      },
+      {
+        "type": "text",
+        "id": "privacy_link_txt",
+        "label": "Privacy Policy Link Text",
+        "default": "Privacy"
+      },
+      {
+        "type": "text",
+        "id": "website_credit",
+        "label": "Website Credits",
+        "default": "Website by Smack Bang"
+      },
+      {
+        "type": "text",
+        "id": "footer_section4_mobile_heading",
+        "label": "Sec 4 Mobile Heading",
+        "default": "Legal"
+      }
+    ]
+  }
+  {% endschema %}
+
+  {% stylesheet %}
+/* EP Footer */
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.EP-footer {
+ margin: auto;
+ background-color: #faae50;
+}
+
+.EP-mx-1440 {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+
+.EP-mx-1340 {
+    max-width: 1340px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.EP-footer .EP-col--2--heading h4 {
+ font-family: var(--OSTB);
+ display: block;
+ color: #000;
+ font-size: 20px !important;
+ line-height: 40px !important;
+ font-weight: 500;
+}
+
+.EP-footer a, .EP-footer .EP-col--2--detail p {
+ text-decoration: none;
+ font-family: var(--OSTR);
+ display: block;
+ color: #000;
+ font-size: 16px !important;
+ line-height: 32px;
+ font-weight: 500;
+}
+
+.EP-footer .EP-footer__wrapper1 {
+   padding-top: 70px;
+}
+
+.EP-footer .EP-footer__wrapper1,
+.EP-footer__copyright {
+ display: grid;
+ grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+ grid-column-gap: 24px;
+}
+
+.EP-footer .EP-footer__wrapper2 {
+ padding-top: 80px;
+}
+
+.EP-footer .EP-footer__copyright {
+ font-family: var(--OSTR);
+ padding-bottom: 30px;
+ /* padding: 0px 64px 0px 50px; */
+}
+.EP-footer__copyright .EP-footer__wrapper2--grid--col p
+/* .EP-footer .EP-footer__cards {
+padding: 0px 64px 0px 50px;
+} */
+
+.EP-footer .EP-footer__copyright p {
+ font-family: var(--OSTR);
+ font-weight: 300;
+}
+
+.EP-footer__copyright .EP-footer__wrapper2--grid--col p {
+ text-decoration: none;
+ font-family: var(--OSTR);
+ display: block;
+ color: #000;
+ font-size: 16px !important;
+ line-height: 32px;
+ font-weight: 300;
+ margin: 0;
+}
+
+.EP-footer .EP-footer__cards img {
+max-width: 120px;
+}
+
+.EP-footer .EP-grid--col--1 img {
+width: 60%;
+}
+
+.EP-mobile {
+display: none;
+}
+
+@media screen and (max-width: 1382px) {
+.EP-footer__copyright {
+  grid-template-columns: 2fr auto auto auto;
+}
+}
+
+@media screen and (max-width: 1124px) {
+.EP-footer__wrapper1 {
+  grid-template-columns: none !important;
+  grid-row-gap: 24px;
+  grid-column-gap: 45px !important;
+  grid-template-areas: 
+    "one one"
+    "two three"
+    "four five";
+}
+
+.EP-footer__wrapper1 .EP-grid--col--1 {
+  grid-area: one;
+}
+
+.EP-footer__wrapper1 .EP-grid--col--2 {
+  grid-area: two;
+}
+
+.EP-footer__wrapper1 .EP-grid--col--3 {
+  grid-area: three;
+}
+
+.EP-footer__wrapper1 .EP-grid--col--4 {
+  grid-area: four;
+}
+
+.EP-footer .EP-grid--col--1 img {
+  max-width: 200px;
+  min-width: 200px;
+}
+
+.EP-desktop {
+  display: none;
+}
+
+.EP-mobile {
+  display: block !important;
+}
+
+.EP-footer__copyright {
+  margin-top: 18px;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.EP-footer__cards {
+  display: flex;
+  justify-content: center;
+}
+
+.EP-footer__copyright .EP-grid--col--2, .EP-footer__copyright .EP-grid--col--3 {
+  display: none;
+}
+
+.EP-footer .EP-footer__wrapper1 {
+  padding-bottom: 40px;
+}
+
+.EP-footer .EP-footer__wrapper2 {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-top: 1px solid #000;
+}
+
+.EP-footer .EP-col--2--heading h4 {
+  font-size: 16px !important;
+}
+
+.EP-footer .EP-footer__wrapper1 {
+    padding: 32px;
+}
+
+.EP-footer .EP-footer__wrapper2 .EP-footer__cards, .EP-footer .EP-footer__wrapper2 .EP-footer__copyright {
+  padding: 0 32px 0 32px;
+}
+}
+
+@media screen and (max-width: 600px) {
+.EP-footer__wrapper1 {
+  grid-column-gap: 18px !important;
+}
+}
+    
+    
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+  
+  <footer class="EP-footer">
+    <div class="EP-footer__wrapper1 EP-mx-1340">
+      <div class="EP-footer__wrapper1--grid--col EP-grid--col--1">
+       <a href="/"> 
+         <img src="{{ section.settings.footer_logo | img_url: '300x' }}" alt="Eureka Pet Logo" class="EP-footer--logo" />
+       </a>
+      </div>
+      <div class="EP-footer__wrapper1--grid--col EP-grid--col--2">
+        <div class="EP-col--2--heading">
+          <h4>{{ section.settings.footer_section1_heading }}</h4>
+        </div>
+        <div class="EP-col--2--detail">
+          <a href="{{ section.settings.section1_link1 }}">{{ section.settings.section1_link1_text }}</a>
+          <a href="{{ section.settings.section1_link2 }}">{{ section.settings.section1_link2_text }}</a>
+          <a href="{{ section.settings.section1_link3 }}">{{ section.settings.section1_link3_text }}</a>
+          <a href="{{ section.settings.section1_link4 }}">{{ section.settings.section1_link4_text }}</a>
+        </div>
+      </div>
+      <div class="EP-footer__wrapper1--grid--col EP-grid--col--3">
+        <div class="EP-col--2--heading">
+          <h4>{{ section.settings.footer_section2_heading }}</h4>
+        </div>
+        <div class="EP-col--2--detail">
+          <a href="{{ section.settings.section2_link1 }}">{{ section.settings.section2_link1_text }}</a>
+          <a href="{{ section.settings.section2_link2 }}">{{ section.settings.section2_link2_text }}</a>
+          <a href="{{ section.settings.section2_link3 }}">{{ section.settings.section2_link3_text }}</a>
+          <a href="{{ section.settings.section2_link4 }}">{{ section.settings.section2_link4_text }}</a>
+          <a href="{{ section.settings.section2_link5 }}">{{ section.settings.section2_link5_text }}</a>
+        </div>
+      </div>
+      <div class="EP-footer__wrapper1--grid--col EP-grid--col--4">
+        <div class="EP-col--2--heading">
+          <h4>{{ section.settings.footer_section3_heading }}</h4>
+        </div>
+        <div class="EP-col--2--detail">
+          <a href="{{ section.settings.section3_link1 }}">{{ section.settings.section3_link1_text }}</a>
+          <a href="{{ section.settings.section3_link2 }}">{{ section.settings.section3_link2_text }}</a>
+          <a href="{{ section.settings.section3_link3 }}">{{ section.settings.section3_link3_text }}</a>
+          <a href="{{ section.settings.section3_link4 }}">{{ section.settings.section3_link4_text }}</a>
+        </div>
+      </div>
+      <div class="EP-footer__wrapper1--grid--col EP-grid--col--5 EP-desktop">
+        <div class="EP-col--2--heading">
+          <h4>{{ section.settings.footer_section4_heading }}</h4>
+        </div>
+        <div class="EP-col--2--detail">
+          <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>
+          <a href="tel:{{ section.settings.contact_phone }}">{{ section.settings.contact_phone }}</a>
+          <p>{{ section.settings.contact_address }}</p>
+        </div>
+      </div>
+      <div class="EP-footer__wrapper1--grid--col EP-grid--col--5 EP-mobile">
+        <div class="EP-col--2--heading">
+          <h4>{{ section.settings.footer_section4_mobile_heading }}</h4>
+        </div>
+        <div class="EP-col--2--detail">
+          <p><a href="{{ section.settings.terms_link }}">{{ section.settings.terms_link_text }}</a></p>
+          <p><a href="{{ section.settings.privacy_link }}">{{ section.settings.privacy_link_txt }}</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="EP-footer__wrapper2">
+      <div class="EP-footer__cards EP-mx-1340">
+         <img src="{{ section.settings.payment_logo | img_url: '300x' }}" alt="Eureka Pet Payments" />
+      </div>
+      <div class="EP-footer__copyright EP-mx-1340">
+        <div class="EP-footer__wrapper2--grid--col EP-grid--col--1">
+          <p>{{ section.settings.footer_copyright }}</p>
+        </div>
+        <div class="EP-footer__wrapper2--grid--col EP-grid--col--2">
+          <p><a href="{{ section.settings.terms_link }}">{{ section.settings.terms_link_text }}</a></p>
+        </div>
+        <div class="EP-footer__wrapper2--grid--col EP-grid--col--3">
+          <p><a href="{{ section.settings.privacy_link }}">{{ section.settings.privacy_link_txt }}</a></p>
+        </div>
+        <div class="EP-footer__wrapper2--grid--col EP-grid--col--4">
+          <p>{{ section.settings.website_credit }}</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  
+  
