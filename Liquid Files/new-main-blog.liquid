@@ -1,0 +1,203 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .EP-blog-main-wrapper {
+    max-width: 1440px;
+    padding: 0 50px;
+    margin: auto;
+  }
+
+  .EP-blog-main-wrapper #blog-categories {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+
+  .EP-blog-main-wrapper #blog-categories .blog-category {
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000000;
+    text-align: center;
+  }
+
+  .EP-blog-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 40px;
+    margin-top: 65px;
+    margin-bottom: 100px;
+  }
+
+  .EP-blog-main-wrapper .blog-categories__heading {
+    display: flex;
+    justify-content: center;
+    margin-top: 82px;
+  }
+
+  #EP-blog-main-wrapper .blog-post > a {
+    text-decoration: none;
+  }
+
+  #EP-blog-main-wrapper .blog-post .EP-blog__image {
+    width: 100%;
+    height: auto;
+  }
+
+  #EP-blog-main-wrapper .EP-blog__heading {
+    font-size: 22px;
+    color: #000000;
+    line-height: 30px;
+    text-decoration: none;
+    margin-top: 35px;
+    text-align: center;
+  }
+
+  .selected-indicator {
+    display: none; /* Hidden by default */
+    width: 100%;
+    border: 3px solid #FAAE50;
+    transform: rotate(358deg);
+}
+
+.default-indicator {
+    display: block; /* Visible by default */
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+  
+.pagination li {
+  display: inline; 
+  margin: 0 5px;
+}
+</style>
+
+  
+    <div class="EP-blog-main-wrapper" id="EP-blog-main-wrapper">
+        <div class="blog-categories__heading">
+            <h3>Filter by</h3>
+        </div>
+        <div id="blog-categories">
+            <p class="blog-category" data-category="all">All<span class="selected-indicator default-indicator"></span></p>
+            {% for tag in blog.all_tags %}
+                <p class="blog-category" data-category="{{ tag }}">{{ tag }}<span class="selected-indicator"></span></p>
+            {% endfor %}
+        </div>
+
+        {%- paginate blog.articles by 2 -%}
+          <div class="EP-blog-grid-wrapper">
+              {% for article in blog.articles %}
+                  <div class="blog-post" data-tags="{{ article.tags | join: ',' }}">
+                  <a href="{{ article.url }}">
+                      {% if article.image %}
+                      <img class="EP-blog__image" src="{{ article.image | img_url}}" alt="{{ article.title }}">
+                      {% endif %}
+                      <p class="EP-blog__heading">{{ article.title }}</p>
+                  </a>
+                  </div>
+              {% endfor %}
+          </div>
+     
+        {%- if paginate.pages > 1 -%}
+          <nav role="navigation">
+            <ol class="pagination">
+              {%- if paginate.previous-%}
+                <li>
+                  <a href="{{ paginate.previous.url }}">
+                    <span aria-hidden="true">&laquo;</span>
+                    Previous <span class="visuallyhidden">page</span>
+                  </a>
+                </li>
+              {%- else -%}
+                <li class="disabled">
+                  <span aria-hidden="true">&laquo;</span>
+                  Previous <span class="visuallyhidden">page</span>
+                </li>
+              {%- endif -%}
+
+              {%- for part in paginate.parts -%}
+                {%- if part.is_link -%}
+                  <li>
+                    <a href="{{ part.url }}">
+                      <span class="visuallyhidden">page</span> {{ part.title }}
+                    </a>
+                  </li>
+                {%- else -%}
+                  {%- if part.title == paginate.current_page -%}
+                    <li class="active" aria-current="page">
+                      <span class="visuallyhidden">page</span> {{ part.title }}
+                    </li>
+                  {%- else -%}
+                    <li>
+                      <span class="visuallyhidden">page</span> {{ part.title }}
+                    </li>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              {%- if paginate.next -%}
+                <li>
+                  <a href="{{ paginate.next.url }}">
+                    Next <span class="visuallyhidden">page</span>
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              {%- else -%}
+                <li class="disabled">
+                  Next <span class="visuallyhidden">page</span>
+                  <span aria-hidden="true">&raquo;</span>
+                </li>
+              {%- endif -%}
+            </ol>
+          </nav>
+        {%- endif -%}
+        {%- endpaginate -%}
+    
+        </div>
+      
+<script>
+    $(document).ready(function() {
+        function clearSelection() {
+            $('.blog-category').each(function() {
+            $(this).find('.selected-indicator').hide();
+            });
+        }
+
+        $('.blog-category').click(function() {
+            var selectedCategory = $(this).attr('data-category');
+
+            clearSelection();
+            $(this).find('.selected-indicator').show();
+
+            $('.blog-post').each(function() {
+            var postTags = $(this).attr('data-tags').split(',');
+
+            if (selectedCategory === 'all' || postTags.includes(selectedCategory)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+            });
+        });
+
+        //pagination code starts
+        //pagination code endss
+});      
+</script>
+
+
+
+

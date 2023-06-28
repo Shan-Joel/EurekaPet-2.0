@@ -1,0 +1,94 @@
+{% schema %}
+    {
+      "name": "EP_Blog_Archive_Hero",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "ep_blog_archive_hero_image",
+            "label": "Blog Archive Hero Image"
+        },
+        {
+            "type": "text",
+            "id": "ep_blog_archive_hero_main_heading",
+            "label": "Blog Archive Hero Main Heading",
+            "default": "Canine Corner"
+        },
+        {
+            "type": "text",
+            "id": "ep_blog_archive_hero_para1",
+            "label": "Blog Archive Hero Para 1",
+            "default": "Welcome, fellow dog lovers, to our cozy corner of the internet – a haven for all things canine."
+        },
+        {
+            "type": "text",
+            "id": "ep_blog_archive_hero_para2",
+            "label": "Blog Archive Hero Para 2",
+            "default": "Our blog is a delightful collection of heartwarming stories and expert advice, curated to nurture the special bond between you and your furry companion. As you explore our content, you’ll uncover invaluable insights on our air dired dog food, pet care, nutrition, digestive care and the latest trends to keep your beloved pup thriving. "
+        },
+        {
+            "type": "text",
+            "id": "ep_blog_archive_hero_para3",
+            "label": "Blog Archive Hero Para 3",
+            "default": "So, come along and explore our blog as we celebrate the love, joy and happiness our four-legged friends bring into our lives, empowering you to create an even stronger bond with your furry family member."
+        }
+      ],
+      "presets": [
+        {
+            "name": "EP_Blog_Archive_Hero"
+        }
+      ]
+    }
+  {% endschema %}
+  
+ <style>
+    .EP-blog__archive__hero__container {
+        max-width: 1340px;
+        margin: auto;
+        display: flex;
+        background-color: #FAAE50;
+        border-radius: 20px;
+        padding-left: 112px;
+        padding-top: 75px;
+    }
+
+    .EP-blog__archive__hero__container > div {
+        flex: 1;
+    }
+
+    #EP-blog__archive__hero .EP-blog__archive__hero__left h2 {
+        color: #FDF5E9;
+        margin-bottom: 12px;
+    }
+
+    #EP-blog__archive__hero .EP-blog__archive__hero__left p {
+        color: #FFFFFF;
+        margin-bottom: 24px;
+    }
+
+    #EP-blog__archive__hero .EP-blog__archive__hero__left p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    #EP-blog__archive__hero .EP-blog__archive__hero__right img {
+        width: 100%;
+    }
+
+ </style>
+  
+  {% javascript %}
+  {% endjavascript %}
+
+  <div class="EP-blog__archive__hero" id="EP-blog__archive__hero">
+    <div class="EP-blog__archive__hero__container">
+        <div class="EP-blog__archive__hero__left">
+            <h2>{{ section.settings.ep_blog_archive_hero_main_heading }}</h2>
+            <p>{{ section.settings.ep_blog_archive_hero_para1 }}</p>
+            <p>{{ section.settings.ep_blog_archive_hero_para2 }}</p>
+            <p>{{ section.settings.ep_blog_archive_hero_para3 }}</p>
+        </div>
+        <div class="EP-blog__archive__hero__right">
+            <img src="{{ section.settings.ep_blog_archive_hero_image | img_url: '300x' }}" alt="EP Blog Archive Hero Image" />
+        </div>
+    </div>
+  </div>
+
