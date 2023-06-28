@@ -41,14 +41,20 @@
   {% endschema %}
   
  <style>
+    .EP-blog__archive__hero {
+        margin-top: 22px;
+    }
+
     .EP-blog__archive__hero__container {
         max-width: 1340px;
+        width: 90%;
         margin: auto;
         display: flex;
         background-color: #FAAE50;
         border-radius: 20px;
         padding-left: 112px;
         padding-top: 75px;
+        overflow: hidden;
     }
 
     .EP-blog__archive__hero__container > div {
@@ -73,6 +79,44 @@
         width: 100%;
     }
 
+    #EP-blog__archive__hero .EP-blog__archive__hero__left {
+        padding-bottom: 75px;
+    }
+
+    #EP-blog__archive__hero .EP-blog__archive__hero__right {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    @media screen and (max-width: 980px) {
+        #EP-blog__archive__hero .EP-blog__archive__hero__container {
+            flex-direction: column;
+            padding-left: 26px;
+            padding-right: 26px;
+            padding-top: 30px;
+            gap: 24px;
+            overflow: hidden;
+        }
+
+        #EP-blog__archive__hero h2 {
+            font-size: 42px;
+            line-height: 42px;
+        }
+
+        #EP-blog__archive__hero p {
+            font-size: 14px;
+            line-height: 17px;  
+        }
+
+        #EP-blog__archive__hero .EP-blog__archive__hero__right img {
+            transform: translateX(8%);
+        }
+        
+        #EP-blog__archive__hero .EP-blog__archive__hero__left {
+            padding-bottom: 0;
+        }
+    }
+
  </style>
   
   {% javascript %}
@@ -87,7 +131,7 @@
             <p>{{ section.settings.ep_blog_archive_hero_para3 }}</p>
         </div>
         <div class="EP-blog__archive__hero__right">
-            <img src="{{ section.settings.ep_blog_archive_hero_image | img_url: '300x' }}" alt="EP Blog Archive Hero Image" />
+            <img src="{{ section.settings.ep_blog_archive_hero_image | img_url: '800x' }}" alt="EP Blog Archive Hero Image" />
         </div>
     </div>
   </div>

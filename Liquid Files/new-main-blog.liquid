@@ -1,11 +1,7 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
-
 <style>
   .EP-blog-main-wrapper {
-    max-width: 1440px;
-    padding: 0 50px;
+    max-width: 1340px;
+    width: 90%;
     margin: auto;
   }
 
@@ -29,7 +25,7 @@
     grid-column-gap: 16px;
     grid-row-gap: 40px;
     margin-top: 65px;
-    margin-bottom: 100px;
+    margin-bottom: 65px;
   }
 
   .EP-blog-main-wrapper .blog-categories__heading {
@@ -45,6 +41,7 @@
   #EP-blog-main-wrapper .blog-post .EP-blog__image {
     width: 100%;
     height: auto;
+    border-radius: 20px;
   }
 
   #EP-blog-main-wrapper .EP-blog__heading {
@@ -78,53 +75,207 @@
   width: 1px;
   white-space: nowrap;
 }
+
+.EP-blog-main-wrapper .pagination {
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
   
-.pagination li {
+.EP-blog-main-wrapper .pagination li {
   display: inline; 
   margin: 0 5px;
+  font-size: 20px;
+  font-family: Windsor;
 }
+
+.EP-blog-main-wrapper .pagination li.active {
+  background: #FAAE50;
+  color: #fff;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.EP-blog-main-wrapper .pagination li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;.
+    font-family: Windsor;
+}
+
+.EP-blog-main-wrapper nav.navigation {
+  margin-bottom: 65px;
+}
+
+.EP-blog-main-wrapper .disabled img {
+  opacity: 0.2; /* Decrease the opacity of the images */
+}
+
+.EP-blog-main-wrapper .disabled {
+  pointer-events: none; /* Make sure disabled elements are not clickable */
+  cursor: default; /* Change the cursor appearance on hover */
+}
+
+select#blog-categories-mobile {
+  border: 1px solid #000000;
+  border-radius: 80px;
+  opacity: 1;
+  width: 90%;
+  height: 50px;
+  padding: 0 26px;
+  display: flex;
+  align-items: center;
+  font-family: OstiaAntica-Light;
+  font-size: 14px;
+  color: #000000;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#EP-blog-main-wrapper *:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+} 
+
+.select-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+#blog-categories-mobile {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent url(https://res.cloudinary.com/duecvwrkz/image/upload/v1687939331/SVG_Dropdown_for_Select_eupadt.svg) no-repeat 95% center;
+  width: 100%;
+  padding-right: 20px;
+  background-size: 22px;
+  cursor: pointer;
+}
+
+/* for IE */
+#blog-categories-mobile::-ms-expand {
+    display: none;
+}
+
+.EP-blog-main-wrapper .blog-post {
+  position: relative;
+}
+
+.EP-blog-main-wrapper .blog-post .featured-blog-post {
+  position: absolute;
+  right: 2%;
+  top: -4%;
+}
+
+
+@media screen and (max-width: 980px) {
+  .EP-blog-grid-wrapper  {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blog-categories__heading {
+    display: none !important;
+  }
+
+  .desktop-view {
+    display: none !important;
+  }
+
+  select#blog-categories-mobile {
+    margin-top: 45px;
+  }
+
+  .EP-blog-grid-wrapper {
+    margin-top: 45px;
+  }
+
+  #EP-blog-main-wrapper .EP-blog__heading {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (min-width: 981px) {
+    /* Hide mobile view on desktop */
+    .mobile-view {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  .EP-blog-grid-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 
-  
     <div class="EP-blog-main-wrapper" id="EP-blog-main-wrapper">
         <div class="blog-categories__heading">
             <h3>Filter by</h3>
         </div>
-        <div id="blog-categories">
-            <p class="blog-category" data-category="all">All<span class="selected-indicator default-indicator"></span></p>
-            {% for tag in blog.all_tags %}
-                <p class="blog-category" data-category="{{ tag }}">{{ tag }}<span class="selected-indicator"></span></p>
-            {% endfor %}
+            <!-- Div tags for desktop view -->
+        <div id="blog-categories" class="desktop-view">
+          <p class="blog-category" data-category="all">All<span class="selected-indicator default-indicator"></span></p>
+          {% for tag in blog.all_tags %}
+              <p class="blog-category" data-category="{{ tag }}">{{ tag }}<span class="selected-indicator"></span></p>
+          {% endfor %}
         </div>
 
-        {%- paginate blog.articles by 2 -%}
+        <!-- Select dropdown for mobile view -->
+        <div class="select-container">
+          <select id="blog-categories-mobile" class="mobile-view">
+            <option value="" disabled selected>Filter by</option>
+            <option value="all">All</option>
+            {% for tag in blog.all_tags %}
+                <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        {%- paginate blog.articles by 5 -%}
           <div class="EP-blog-grid-wrapper">
-              {% for article in blog.articles %}
-                  <div class="blog-post" data-tags="{{ article.tags | join: ',' }}">
-                  <a href="{{ article.url }}">
-                      {% if article.image %}
-                      <img class="EP-blog__image" src="{{ article.image | img_url}}" alt="{{ article.title }}">
-                      {% endif %}
-                      <p class="EP-blog__heading">{{ article.title }}</p>
-                  </a>
-                  </div>
-              {% endfor %}
-          </div>
+        {% for article in blog.articles %}
+            <div class="blog-post" data-tags="{{ article.tags | join: ',' }}">
+                <a href="{{ article.url }}">
+                    {% if article.image %}
+                    <img class="EP-blog__image" src="{{ article.image | img_url: '322x'}}" alt="{{ article.title }}">
+                    {% endif %}
+
+                    <!-- Check for the custom field -->
+                    {% if article.metafields.custom.is_this_a_featured_blog_post %}
+                        <img class="featured-blog-post" src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687941301/Featured_Post_b24yuy.svg" />
+                    {% endif %}
+
+                    <p class="EP-blog__heading">{{ article.title }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
      
         {%- if paginate.pages > 1 -%}
-          <nav role="navigation">
+          <nav class="navigation" role="navigation">
             <ol class="pagination">
               {%- if paginate.previous-%}
                 <li>
                   <a href="{{ paginate.previous.url }}">
-                    <span aria-hidden="true">&laquo;</span>
-                    Previous <span class="visuallyhidden">page</span>
+                   <!-- <span aria-hidden="true">&laquo;</span> -->
+                    <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-left_lyx6tw.svg" alt=""> 
+                    <span class="visuallyhidden">page</span>
                   </a>
                 </li>
               {%- else -%}
                 <li class="disabled">
-                  <span aria-hidden="true">&laquo;</span>
-                  Previous <span class="visuallyhidden">page</span>
+                  <!-- <span aria-hidden="true">&laquo;</span> -->
+                  <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-left_lyx6tw.svg" alt=""> 
+                  <span class="visuallyhidden">page</span>
                 </li>
               {%- endif -%}
 
@@ -151,14 +302,16 @@
               {%- if paginate.next -%}
                 <li>
                   <a href="{{ paginate.next.url }}">
-                    Next <span class="visuallyhidden">page</span>
-                    <span aria-hidden="true">&raquo;</span>
+                    <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-right_jge7nk.svg" alt="">
+                    <span class="visuallyhidden">page</span>
+                  <!--  <span aria-hidden="true">&raquo;</span> -->
                   </a>
                 </li>
               {%- else -%}
                 <li class="disabled">
-                  Next <span class="visuallyhidden">page</span>
-                  <span aria-hidden="true">&raquo;</span>
+                  <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-right_jge7nk.svg" alt="">  
+                  <span class="visuallyhidden">page</span>
+                  <!-- <span aria-hidden="true">&raquo;</span>-->
                 </li>
               {%- endif -%}
             </ol>
@@ -166,37 +319,44 @@
         {%- endif -%}
         {%- endpaginate -%}
     
-        </div>
+    </div>
       
-<script>
-    $(document).ready(function() {
-        function clearSelection() {
-            $('.blog-category').each(function() {
-            $(this).find('.selected-indicator').hide();
-            });
-        }
-
-        $('.blog-category').click(function() {
-            var selectedCategory = $(this).attr('data-category');
-
-            clearSelection();
-            $(this).find('.selected-indicator').show();
-
-            $('.blog-post').each(function() {
-            var postTags = $(this).attr('data-tags').split(',');
-
-            if (selectedCategory === 'all' || postTags.includes(selectedCategory)) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-            });
-        });
-
-        //pagination code starts
-        //pagination code endss
-});      
-</script>
+    <script>
+      $(document).ready(function() {
+          function clearSelection() {
+              $('.blog-category').each(function() {
+                  $(this).find('.selected-indicator').hide();
+              });
+          }
+      
+          $('.blog-category').click(function() {
+              var selectedCategory = $(this).attr('data-category');
+      
+              clearSelection();
+              $(this).find('.selected-indicator').show();
+      
+              filterPosts(selectedCategory);
+          });
+      
+          $('#blog-categories-mobile').change(function() {
+              var selectedCategory = $(this).val();
+      
+              filterPosts(selectedCategory);
+          });
+      
+          function filterPosts(selectedCategory) {
+              $('.blog-post').each(function() {
+                  var postTags = $(this).attr('data-tags').split(',');
+      
+                  if (selectedCategory === 'all' || postTags.includes(selectedCategory)) {
+                      $(this).show();
+                  } else {
+                      $(this).hide();
+                  }
+              });
+          }
+      });
+      </script>
 
 
 
