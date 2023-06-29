@@ -54,6 +54,7 @@
         align-items: center;
         max-height: 542px;
         overflow: hidden;
+        margin-top: 22px;
     }
 
     .EP-article__hero > div {
@@ -230,7 +231,7 @@
     /* slider stylings */
     .EP-single-blog-slider {
         margin-top: 32px;
-        margin-bottom: 42px;
+        margin-bottom: 45px;
     }
 
     .EP-single-blog-slider .slide-image {
@@ -269,18 +270,19 @@
         color: #000 !important;
     }
     
-    .EP-article-main label.EP-blog__quote {
+    .EP-article-main .EP-blog__quote {
         font-family: var(--OSTR);
-        font-size: 23px;
+        font-size: 23px !important;
         font-weight: 600;
         color: #000000;
         line-height: 29px;
         margin-bottom: 20px;
         margin-left: 32px;
         position: relative;
+        line-height: 32px !important;
     }
 
-    label.EP-blog__quote::before {
+    .EP-blog__quote::before {
         content: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1687510662/Eureka%20Pet/unnamed_ajkdgt.png');
         position: absolute;
         left: -40px;
@@ -302,7 +304,7 @@
     }
 
     .EP-article__section__four {
-        margin-top: 20px;
+        margin-top: 32px;
     }
 
     .EP-article__section__four h1 {
@@ -428,8 +430,9 @@
             font-size: 14px !important;
         }
 
-        .EP-article-main label.EP-blog__quote {
-            font-size: 20px;
+        .EP-article-main .EP-blog__quote {
+            font-size: 20px !important;
+            line-height: 28px !important;
         }
 
         .EP-article__section__three h1, .EP-article__section__seven h1 {
@@ -494,8 +497,13 @@
             max-width: none;
         }
 
+        .EP-article__section__two__right__inner__row1 h5 {
+            margin-left: 18% !important;
+            font-size: 24px !important;
+        }
+
         .EP-article-main .EP-article__section__two .EP-article__section__two__right img {
-            max-height: 265px;
+            max-height: 335px;
             transform: none;
         }
         
@@ -512,28 +520,38 @@
         .EP-article-main .EP-hero__image {
             margin-top: 15%;
         }
+
+        .EP-article__section__six {
+            margin-bottom: 24px !important;
+        }
+
+        .EP-article__section__five {
+            margin: 35px 0 !important;
+        }
         
     }
 
 </style>
 
 <Article class="EP-article-main">
-    <div class="EP-article__hero">
-        <div class="EP--flex">
-            <div class="EP--flex--1 EP-article__hero__col1">
-                <h1>{{ article.metafields["custom_fields"]["ep_article_title"] }}</h1>
-                <div class="EP--flex">
-                    <label>{{ article.metafields["custom_fields"]["ep_article_category_name"] }}</label>
-                    <label>{{ article.metafields["custom_fields"]["ep_article_date"] }}</label>
+    {% if article.metafields["custom_fields"]["ep_article_hero_image"] != blank %}
+        <div class="EP-article__hero">
+            <div class="EP--flex">
+                <div class="EP--flex--1 EP-article__hero__col1">
+                    <h1>{{ article.metafields["custom_fields"]["ep_article_title"] }}</h1>
+                    <div class="EP--flex">
+                        <label>{{ article.metafields["custom_fields"]["ep_article_category_name"] }}</label>
+                        <label>{{ article.metafields["custom_fields"]["ep_article_date"] }}</label>
+                    </div>
                 </div>
             </div>
+            {% if article.metafields["custom_fields"]["ep_article_hero_image"] != blank %}
+                <div class="EP-hero__image">
+                    {% render 'cf-image' with image: article.metafields["custom_fields"]["ep_article_hero_image"] %}
+                </div>
+            {% endif %}
         </div>
-        {% if article.metafields["custom_fields"]["ep_article_hero_image"] != blank %}
-            <div class="EP-hero__image">
-                {% render 'cf-image' with image: article.metafields["custom_fields"]["ep_article_hero_image"] %}
-            </div>
-        {% endif %}
-    </div>
+    {% endif %}
     <div class="EP-article__inner">
         <div class="EP-article__section__two">
             <div class="EP-article__section__two__left">
@@ -729,51 +747,62 @@
 <!-- Slider ends -->
 
         <div class="EP-article__section__three">
-            <h1>How to measure the right feeding amount?</h1>
+            <h1>{{ article.metafields["custom_fields"]["ep_article_sec_4_heading"] }}</h1>
             <div class="article__section__three__wrapper">
                 <div class="article__section__three__wrapper__left">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi,</p>
-                    <label class="EP-blog__quote">This tool allows you to enter in the unique characteristics of your pet including; weight, activity levels and life stage, to determine the proper feeding amount.</label>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                    <p>{{ article.metafields["custom_fields"]["ep_article_sec_4_left_para_1"] }}</p>
+                    {% if article.metafields["custom_fields"]["ep_article_sec_4_left_quote"] != blank %}
+                        <p class="EP-blog__quote">{{ article.metafields["custom_fields"]["ep_article_sec_4_left_quote"] }}</p>
+                    {% endif %}
+                    <p>{{ article.metafields["custom_fields"]["ep_article_sec_4_left_para_2"] }}</p>
                 </div>
                 <div class="article__section__three__wrapper__right">
-                    <p> 
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum nobis vel quos adipisci minus dignissimos illum, esse facere amet perferendis ab molestias aperiam fuga eum quas debitis fugiat rerum at quis reprehenderit distinctio a vitae! Ullam at error voluptate aut!
-                    </p>
+                    <p>{{ article.metafields["custom_fields"]["ep_article_sec_4_right_para_1"] }}</p>
+                    <p>{{ article.metafields["custom_fields"]["ep_article_sec_4_right_para_2"] }}</p>
+                    <p>{{ article.metafields["custom_fields"]["ep_article_sec_4_right_para_3"] }}</p>
                 </div>
             </div>
         </div>
         <div class="EP-article__section__four">
-            <h1>How to measure the right feeding amount?</h1>
-            <h4>At vero eos et accusamus et iusto odio dignissimos ducimus.</h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi,</p>
-            <label class="EP-blog__quote">This tool allows you to enter in the unique characteristics of your pet including; weight, activity levels and life stage, to determine the proper feeding amount.</label>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi,</p>
+            <h1>{{ article.metafields["custom_fields"]["ep_article_sec_5_heading"] }}</h1>
+            <h4>{{ article.metafields["custom_fields"]["ep_article_sec_5_sub_heading"] }}</h4>
+            <p>{{ article.metafields["custom_fields"]["ep_article_sec_5_para_1"] }}</p>
+            {% if article.metafields["custom_fields"]["ep_article_sec_5_quote"] != blank %}
+                <p class="EP-blog__quote">{{ article.metafields["custom_fields"]["ep_article_sec_5_quote"] }}</p>
+            {% endif %}
+            <p>{{ article.metafields["custom_fields"]["ep_article_sec_5_para_2"] }}</p>
         </div>
-        <div class="EP-article__section__five">
-            <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687884608/eureka-image7_n20vnm.png" alt="">
-        </div>
-        <div class="EP-article__section__six">
-            <div class="EP-article__section__six__left">
-                <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687886346/eureka-image44_y74w2y.png" alt="">
+        {% if article.metafields["custom_fields"]["ep_article_sec_6_image"] != blank %}
+            <div class="EP-article__section__five">
+                {% render 'cf-image' with image: article.metafields["custom_fields"]["ep_article_sec_6_image"] %}
             </div>
+        {% endif %}
+        <div class="EP-article__section__six">
+            {% if article.metafields["custom_fields"]["ep_article_sec_7_image"] != blank %}
+                <div class="EP-article__section__six__left">
+                    {% render 'cf-image' with image: article.metafields["custom_fields"]["ep_article_sec_7_image"] %}
+                </div>
+            {% endif %}
             <div class="EP-article__section__six__right">
-                <h1>At vero eos et</h1>
+                <h1>{{ article.metafields["custom_fields"]["ep_article_sec_7_right_heading"] }}</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {{ article.metafields["custom_fields"]["ep_article_sec_7_right_para_1"] }}
+                </p>
+                <p>
+                    {{ article.metafields["custom_fields"]["ep_article_sec_7_right_para_2"] }}
                 </p>
             </div>
         </div>
         <div class="EP-article__section__seven">
-            <h1>How to measure the right feeding amount?</h1>
+            <h1>{{ article.metafields["custom_fields"]["__ep_article_sec_8_heading"] }}</h1>
             <div class="article__section__seven__wrapper">
                 <div class="article__section__seven__wrapper__left">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi,</p>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                    <p>{{ article.metafields["custom_fields"]["__ep_article_sec_8_left_para_1"] }}</p>
+                    <p>{{ article.metafields["custom_fields"]["__ep_article_sec_8_left_para_2"] }}</p>
                 </div>
                 <div class="article__section__seven__wrapper__right">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi,</p>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                    <p>{{ article.metafields["custom_fields"]["__ep_article_sec_8_right_p_1"] }}</p>
+                    <p>{{ article.metafields["custom_fields"]["__ep_article_sec_8_right_p_2"] }}</p>
                 </div>
             </div>
         </div>

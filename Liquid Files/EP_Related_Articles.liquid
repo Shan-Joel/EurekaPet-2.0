@@ -1,0 +1,267 @@
+{% schema %}
+  {
+    "name": "EP Related Articles",
+    "settings": [
+      {
+        "type": "text",
+        "id": "ep_releted-articals-titles",
+        "label": "Releted Article main title"
+      }
+    ],
+    "presets": [
+      {
+        "name": "EP Related Articles"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <style>
+    .EP_Article_pg_full-width-relatad-article-section {
+          margin-bottom: 75px;
+      }
+
+      .EP__related__container {
+          max-width: 1340px !important;
+          width: 90%;
+          margin: auto;
+      }
+
+    .EP_Artical-section-top-wapper{
+      display: flex;
+      flex-direction: column;
+      align-items: center;   
+    }
+      .EP_relatedArticles {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 14px;
+        grid-row-gap: 0px;
+    }
+    .EP_Releted_articale_Articale_Card img{
+        width: 100%;
+        max-height: 313px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    .EP_Releted_articale_Articale_Card:nth-child(2) {
+        grid-area: 1 / 2 / 2 / 4;
+    }
+    .EP_Releted_articale_Articale_Card:nth-child(1) {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    .EP_Releted_articale_Articale_Card:nth-child(3) {
+        grid-area: 1 / 4 / 2 / 5;
+    }
+    .EP_Releted_articale_Articale_Card a {
+      text-decoration: none;
+
+    }
+    .EP_Releted_articale_Articale_Card a p{
+      color:var(--black);
+      padding-top: 24px;
+      text-align: center;
+      font-size:22px !important;
+    }
+    .EP_Artical-releted-btn-wapper {
+      display: flex;
+      gap: 13px;
+      flex-direction: column;
+      margin-bottom: 53px;
+      margin-top: 27px;
+  }
+  .swiper-slide .EP_Releted_articale_Articale_Card p{
+        text-align: center;
+      line-height: 30px !important;
+      font-size: 20px !important;
+      padding-top: 30px;
+      font-family: 'OstiaAntica-Book' !important;
+      max-width: 294px;
+    
+  }
+
+  .EP_responisve-devices-only {
+      display: none !important;
+  }
+  
+  @media only screen and (max-width: 980px) {
+    .EP_Releted_articale_Articale_Card img {
+        width: 318px;
+        min-height: 306px;
+        max-height: 306px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    .EP_desktop-only {
+      display: none !important;
+    }
+
+    .EP_responisve-devices-only {
+      display: block !important;
+    }
+  }
+
+  </style>
+  
+  <section class="EP_Article_pg_full-width-relatad-article-section">
+     <div class="EP__related__container">
+        <div class="row">
+          <div class="col-12 EP_Artical-section-top-wapper">
+            <h3>{{ section.settings.ep_releted-articals-titles }}</h3>
+            <div class="EP_Artical-releted-btn-wapper">
+              <a href="/blogs/news/" class="EP_Article_btn EP_btn EP_bg_0">Back to all articles</a>
+              {% if blog.next_article %}
+                <a href="{{ blog.next_article.url }}" class="EP_Article_btn EP_btn EP_bg_0">Read next article</a>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-12 EP_desktop-only">
+  
+            <div class='EP_relatedArticles'>
+              {% assign max_related_articles = 3 %}
+              {% assign related_article_counter = 0 %}
+              {% assign skip_articles = article.handle | split: '.....' %}
+              
+              
+                {% assign counter = 0 %}
+                {% for related_article in blog.articles %}
+                  {% if counter < 6 and related_article_counter < max_related_articles %}
+                    {% unless skip_articles contains related_article.handle %}
+                      {% assign counter = counter | plus: 1 %}
+                      {% assign temp = related_article.handle | split: '.....' %}
+                      {% assign skip_articles = skip_articles | concat: temp %}
+                      
+                      <div class="EP_Releted_articale_Articale_Card">
+                        <a href="{{ related_article.url }}">
+                          {% if related_article.image %}
+                            <img src="{{ related_article.image.src | img_url: 'master' }}" alt="{{ related_article.image.alt }}" />
+                          {% endif %}
+                          <p>{{ related_article.title }}</p>
+                        </a>
+                        
+                      </div>
+                      {% assign related_article_counter = related_article_counter | plus: 1 %}
+                    {% endunless %}
+                  {% endif %}
+                
+              {% endfor %}
+            </div>
+         </div>
+     </div>
+    </div> 
+    <div class="row">
+    <div class="col-12 EP_responisve-devices-only">
+            <div class='swiper'>
+              {% assign max_related_articles = 3 %}
+              {% assign related_article_counter = 0 %}
+              {% assign skip_articles = article.handle | split: '.....' %}
+            
+              <div class="swiper-container EP__related__articles__slider">
+                <div class="swiper-wrapper">
+                  {% assign counter = 0 %}
+                  {% for related_article in blog.articles %}
+                    {% if counter < 6 and related_article_counter < max_related_articles %}
+                      {% unless skip_articles contains related_article.handle %}
+                        {% assign counter = counter | plus: 1 %}
+                        {% assign temp = related_article.handle | split: '.....' %}
+                        {% assign skip_articles = skip_articles | concat: temp %}
+            
+                        <div class="swiper-slide">
+                          <div class="EP_Releted_articale_Articale_Card">
+                            <a href="{{ related_article.url }}">
+                              {% if related_article.image %}
+                                <img src="{{ related_article.image.src | img_url: 'master' }}" alt="{{ related_article.image.alt }}" />
+                              {% endif %}
+                              <p>{{ related_article.title }}</p>
+                            </a>
+                          </div>
+                        </div>
+                        {% assign related_article_counter = related_article_counter | plus: 1 %}
+                      {% endunless %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+  <script>
+      
+     var swiper = new Swiper('.swiper-container', {
+      
+      slidesPerView: 1, // Display only one slide at a time
+      centeredSlides: true, // Center the active slide
+      spaceBetween: -40, // Add a negative value to create the offset
+      loop: true, // Enable infinite loop
+      slidesOffsetBefore: 30, // Set offset for the previous slide
+      slidesOffsetAfter: -30, // Set offset for the next slide
+      breakpoints: {
+              390: {
+              slidesPerView: 1.3,
+              spaceBetween: 28,
+              centeredSlides: true,
+              },
+              640: {
+              slidesPerView: 1.9,
+              spaceBetween: 25,
+              centeredSlides: true,
+              },
+              768: {
+              slidesPerView: 2.8,
+              spaceBetween: 25,
+              centeredSlides: false,
+              },
+              1024: {
+              slidesPerView: 3.5,
+              spaceBetween: 10,
+              centeredSlides: false,
+              },
+              1100: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+              centeredSlides: false,
+              },
+      }
+    });
+    
+/*
+    const swiperEl5 = document.querySelector('.swiper-container.EP__related__articles__slider')
+          Object.assign(swiperEl5, {
+          slidesPerView: 1.3,
+          spaceBetween: 28,
+          loop: true,
+          breakpoints: {
+              390: {
+              slidesPerView: 1.3,
+              spaceBetween: 28,
+              centeredSlides: true,
+              },
+              640: {
+              slidesPerView: 1.9,
+              spaceBetween: 25,
+              centeredSlides: true,
+              },
+              768: {
+              slidesPerView: 2.8,
+              spaceBetween: 15,
+              centeredSlides: false,
+              },
+              1024: {
+              slidesPerView: 3.5,
+              spaceBetween: 10,
+              centeredSlides: false,
+              },
+              1100: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+              centeredSlides: false,
+              },
+          },
+          });
+      swiperEl5.initialize();
+      */
+  </script>
+  
