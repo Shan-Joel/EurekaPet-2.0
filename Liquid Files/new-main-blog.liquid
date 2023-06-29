@@ -223,7 +223,7 @@ select#blog-categories-mobile {
         </div>
             <!-- Div tags for desktop view -->
         <div id="blog-categories" class="desktop-view">
-          <p class="blog-category" data-category="all">All<span class="selected-indicator default-indicator"></span></p>
+          <p class="blog-category" data-category="all">All<span class="selected-indicator"></span></p>
           {% for tag in blog.all_tags %}
               <p class="blog-category" data-category="{{ tag }}">{{ tag }}<span class="selected-indicator"></span></p>
           {% endfor %}
@@ -321,43 +321,90 @@ select#blog-categories-mobile {
     
     </div>
       
-    <script>
-      $(document).ready(function() {
-          function clearSelection() {
-              $('.blog-category').each(function() {
-                  $(this).find('.selected-indicator').hide();
-              });
-          }
-      
-          $('.blog-category').click(function() {
-              var selectedCategory = $(this).attr('data-category');
-      
-              clearSelection();
-              $(this).find('.selected-indicator').show();
-      
-              filterPosts(selectedCategory);
-          });
-      
-          $('#blog-categories-mobile').change(function() {
-              var selectedCategory = $(this).val();
-      
-              filterPosts(selectedCategory);
-          });
-      
-          function filterPosts(selectedCategory) {
-              $('.blog-post').each(function() {
-                  var postTags = $(this).attr('data-tags').split(',');
-      
-                  if (selectedCategory === 'all' || postTags.includes(selectedCategory)) {
-                      $(this).show();
-                  } else {
-                      $(this).hide();
-                  }
-              });
-          }
-      });
-      </script>
+  <script>
+    $(document).ready(function() {
+    function clearSelection() {
+        $('.blog-category').each(function() {
+            $(this).find('.selected-indicator').removeClass('default-indicator').hide();
+        });
+    }
 
+    function filterPosts(selectedCategory) {
+        $('.blog-post').each(function() {
+            var postTags = $(this).attr('data-tags').split(',');
 
+            if (selectedCategory === 'all' || postTags.includes(selectedCategory)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+
+    function resetPageToOne(selectedCategory) {
+        var currentUrl = window.location.href;
+        var baseUrl = currentUrl.split('?')[0];
+        window.location.href = baseUrl + "?page=1&category=" + selectedCategory;
+    }
+
+    function getQueryParam(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    function scrollToSection(section) {
+        $('html, body').animate({
+            scrollTop: $(section).offset().top
+        }, 1000, "swing");
+    }
+
+    var selectedCategory = getQueryParam('category') || 'all';
+
+    filterPosts(selectedCategory);
+    var selectedIndicator = $('p.blog-category[data-category="' + selectedCategory + '"]').find('.selected-indicator');
+    selectedIndicator.show();
+
+    if (window.performance.navigation.type === 0) {
+        selectedIndicator.addClass('default-indicator');
+    }
+
+    // Scroll on page load if there is #scrollToBlog in the URL
+    if (window.location.hash == '#scrollToBlog' || selectedCategory !== 'all') {
+        scrollToSection(".EP-blog-main-wrapper");
+    }
+
+    $('.blog-category').click(function() {
+        selectedCategory = $(this).attr('data-category');
+        clearSelection();
+        $(this).find('.selected-indicator').show();
+        if (selectedCategory !== 'all') {
+            resetPageToOne(selectedCategory);
+        } else {
+            filterPosts(selectedCategory);
+        }
+    });
+
+    $('#blog-categories-mobile').change(function() {
+        selectedCategory = $(this).val();
+        clearSelection();
+        $(this).find('.selected-indicator').show();
+
+        if (selectedCategory !== 'all') {
+            resetPageToOne(selectedCategory);
+        } else {
+            filterPosts(selectedCategory);
+        }
+    });
+
+    // Add click event to the pagination links
+    $('.pagination a').click(function(e) {
+        e.preventDefault();
+        var targetUrl = $(this).attr('href');
+        window.location = targetUrl + '&category=' + selectedCategory + '#scrollToBlog';
+    });
+});
+</script>
 
 
