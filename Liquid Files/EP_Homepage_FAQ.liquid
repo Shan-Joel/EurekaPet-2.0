@@ -1,0 +1,576 @@
+<div class="EP_faq_bg" id="EP-Homepage__FAQ">
+<div class="container EP_faq_items">
+  <img src="{{ section.settings.EP_faq_body_left_image | image_url: width: auto }}" class="EP_faq_body_left_image"/>
+  <div class="EP-home_faq_heading">
+    <h2>FAQ</h2>
+  </div>
+  <div class="row">
+    <div class="accordion faq col-10 mx-auto ep__faq__body" id="panelsStayOpen">
+    {% for block in section.blocks %} 
+        <div class="accordion-item EP-accordion__item faq-item mb-2" data-category="{{ block.settings.EP_faq_topic }}">
+          <p class="accordion-header">
+            <button class="accordion-button collapsed py-5 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#{{ block.settings.EP_faq_question | handle }}" aria-expanded="false" aria-controls="{{ block.settings.EP_faq_question | handle }}">
+              {{ block.settings.EP_faq_question }}
+            </button>
+          </p>
+          <div id="{{ block.settings.EP_faq_question | handle  }}" class="accordion-collapse collapse" data-bs-parent="#panelsStayOpen">
+            <div class="accordion-body px-0 pt-0 pb-5">
+              {{ block.settings.EP_faq_answer }}
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
+  </div>
+  <img src="{{ section.settings.EP_faq_body_right_image | image_url: width: auto }}" class="EP_faq_body_right_image"/>
+</div>
+</div>
+{% schema %}
+  {
+    "name": "FAQ Homepage",
+    "class": "faq-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "EP_faq_hero_intro_text",
+        "label": "Hero intro text",
+        "default": "Hi, I'm Albert Canine-stein, but everyone calls me Berty."
+      },
+      {
+        "type": "text",
+        "id": "EP_faq_hero_sub_text",
+        "label": "Hero sub text",
+        "default": "Looking for answers? You're barking up the right tree."
+      },
+      {
+        "type": "image_picker",
+        "id": "EP_faq_hero_image",
+        "label": "Hero image"
+      },
+      {
+        "type": "image_picker",
+        "id": "EP_faq_body_left_image",
+        "label": "Body left image"
+      },
+      {
+        "type": "image_picker",
+        "id": "EP_faq_body_right_image",
+        "label": "Body right image"
+      },
+      {
+        "type": "text",
+        "id": "EP_faq_topics",
+        "label": "FAQ topics (Seperate by ,)"
+      }
+    ],
+    "presets": [
+      {
+        "name": "FAQ Homepage"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "FAQ Item",
+        "type": "slide",
+        "settings": [
+          {
+            "type": "text",
+            "id": "EP_faq_question",
+            "label": "Question"
+          },
+          {
+            "type": "text",
+            "id": "EP_faq_answer",
+            "label": "Answer"
+          },
+          {
+            "type": "text",
+            "id": "EP_faq_topic",
+            "label": "Topic"
+          }
+        ]
+
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  #EP-Homepage__FAQ.EP_faq_bg {
+    background-image: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1688033408/Banner_2_xmfhz0.svg');
+    background-size: cover;
+  }
+  #EP-Homepage__FAQ .ep__faq__body {
+    margin-top: 18%;
+    margin-bottom: 100px;
+  }
+
+  #EP-Homepage__FAQ .accordion-header button {
+    color: #FDF5E9 !important;
+    font-size: 25px;
+    font-family: 'OstiaAntica-Book';
+  }
+  
+  #EP-Homepage__FAQ .EP-accordion__item {
+    border-bottom: 1px solid #FAAE50;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  #EP-Homepage__FAQ .accordion-button:not(.collapsed) {
+    color: #FDF5E9;
+  }
+
+  #EP-Homepage__FAQ .accordion-body {
+    color: #FDF5E9 !important;
+    font-size: 20px;
+    font-family: var(--OSTR);
+    font-weight: 500;
+  }
+
+  #EP-Homepage__FAQ .accordion-button::after {
+    background: none !important;
+    background-image: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1688034676/faq-dropdown-down_kjgsts.svg') !important;
+    background-size: contain !important;
+    }
+
+  #EP-Homepage__FAQ .EP_faq_items .EP_faq_body_left_image {
+    left: -12%;
+    top: 38%;
+  }
+
+  #EP-Homepage__FAQ .EP_faq_items .EP_faq_body_right_image {
+    right: -5%;
+    bottom: 5%;
+    width: 300px;
+  }
+
+  .EP-home_faq_heading {
+    display: flex;
+    transform: translateY(160%);
+    justify-content: center;
+  }
+
+  .EP-home_faq_heading h2 {
+    font-size: 60px !important;
+    font-family: 'OstiaAntica-Book';
+    color: #000 ;
+  }
+
+  @media screen and (max-width: 1420px) {
+    #EP-Homepage__FAQ.EP_faq_bg {
+      background-position: 0 -28%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    #EP-Homepage__FAQ.EP_faq_bg {
+      background-position: 0px -115%;
+    }
+  }
+
+  @media screen and (max-width: 1050px) {
+    #EP-Homepage__FAQ.EP_faq_bg {
+      background-position: 0px 85px;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    #EP-Homepage__FAQ .ep__faq__body {
+      margin-top: 35%;
+    }
+
+    #EP-Homepage__FAQ.EP_faq_bg {
+      background-position: 50% 90px;
+    }
+
+    #EP-Homepage__FAQ .EP_faq_items {
+      padding: 0 !important;
+    }
+
+    #EP-Homepage__FAQ .accordion-header button {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #EP-Homepage__FAQ .ep__faq__body {
+      margin-top: 50%;
+    }
+
+    .EP-home_faq_heading {
+      transform: translateY(185%);
+    }
+
+    #EP-Homepage__FAQ .EP-accordion__item {
+      max-width: none !important;
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #EP-Homepage__FAQ.EP_faq_bg {
+      background-position: 50% 65px;;
+    }
+
+    #EP-Homepage__FAQ .ep__faq__body {
+      margin-top: 25%;
+    }
+
+    .EP-home_faq_heading h2 {
+      font-size: 45px !important;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #EP-Homepage__FAQ.EP_faq_bg {
+      background-position: 50% -85px;
+    }
+
+    #EP-Homepage__FAQ .ep__faq__body {
+      margin-top: 25%;
+    }
+
+    #EP-Homepage__FAQ .accordion-body {
+      font-size: 15px !important;
+      line-height: 22px !important;
+    }
+    
+    .EP-home_faq_heading {
+      transform: translateY(35%);
+    }
+  }
+</style>
+
+
+{% stylesheet %}
+  body{
+    background-color: var(--champagne) !important;
+  }
+
+
+
+  .EP_faq_section_container{
+    margin-top: 16px;
+  }
+
+  .EP_faq_items{
+    position: relative;
+  }
+
+  .EP_faq_items .EP_faq_body_left_image{
+    position: absolute;
+    display: block;
+    background-repeat: no-repeat;
+    z-index: 99;
+    left: 0;
+    top: 30%;
+  }
+
+  .EP_faq_items .EP_faq_body_right_image{
+    position: absolute;
+    display: block;
+    background-repeat: no-repeat;
+    z-index: 99;
+    right: 0;
+    bottom: 0;
+  }
+  
+
+  .EP_faq_hero_section{
+    background:var(--mango);
+    border-radius: 20px;
+    padding: 120px;
+  }
+
+  .EP_faq_hero_intro_text{
+    font-size: 40px !important;
+    line-height: 50px !important;
+    color: #ffffff;
+    margin-bottom: 31px !important;
+  }
+
+  .EP_faq_hero_sub_text{
+    font-size: 25px !important;
+    line-height: 34px !important;
+    margin-bottom: 38px !important;
+  }
+
+  .EP_faq_hero_right_column{
+    position: relative;
+    margin-bottom: -120px;
+  }
+
+  .EP_faq_hero_image{
+    width: 100%;
+    bottom: -11px;
+    position: absolute;
+  }
+
+  select.faq-topics,
+  .EP_faq_topic_selector .select2-selection{
+    height: 60px;
+    padding: 15px;
+    border-radius: 80px;
+    width: 100%;
+    appearance: none;
+    border: 1.5px solid #000000;
+    border-bottom-left-radius: 80px !important;
+    border-bottom-right-radius: 80px !important;
+  }
+
+  .EP_faq_topic_selector .select2-selection__arrow b{
+    display: none !important;
+  }
+
+  .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__arrow{
+    content: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    top: 30%;
+    right: 29px;
+    transition: ease 500ms;
+    rotate: 0deg;
+  }
+
+  .EP_faq_topic_selector .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow{
+    transition: ease 500ms;
+    rotate: -180deg;
+  }
+
+  .EP_faq_topic_selector .select2-container--default.select2-container--open.select2-container--above .select2-selection--single{
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+  }
+
+  #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__placeholder,
+  #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__rendered{
+    color: #000000 !important;
+    font-size: 18px !important;
+    line-height: 22px !important;
+  }
+
+  .select2-results__options#select2-faq-topics-results {
+    background-color: #403D36;
+    border: 1px solid #000000;
+    border-radius: 30px;
+  }
+
+  .select2-dropdown:has(.select2-results__options#select2-faq-topics-results){
+    border-radius: 30px !important;
+    margin-top: 6px;
+  }
+
+  .select2-results__options#select2-faq-topics-results .select2-results__option--selectable{
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 21px 24px;
+  }
+
+  .select2-container--default .select2-results__options#select2-faq-topics-results .select2-results__option--highlighted.select2-results__option--selectable{
+    background-color: transparent;
+    text-decoration: underline;
+    background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center right 29px;
+  }
+
+  .select2-container--default .select2-results__options#select2-faq-topics-results .select2-results__option--selected{
+    background-color: #000000 !important;
+  }
+
+  .faq.accordion{
+    --bs-accordion-bg: transparent !important;
+  }
+
+  .faq .accordion-button{
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .faq .accordion-button.collapsed::after {
+    background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .faq .accordion-button:not(.collapsed)::after {
+    background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .faq .accordion-button:focus {
+    box-shadow: unset !important;
+  }
+
+  .faq .accordion-body{
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .faq .accordion-item{
+    border: none;
+    border-bottom: 2px solid black;
+  }
+
+  .faq .accordion-button:not(.collapsed) {
+    color: unset !important;
+    background-color: unset !important;
+  }
+
+  @media screen and (max-width: 991px){
+
+    .EP_faq_hero_section{
+      padding: 60px;
+    }
+
+    .EP_faq_hero_intro_text{
+      line-height: 45px !important;
+      margin-bottom: 11px !important;
+      text-align: center;
+    }
+
+    .EP_faq_hero_sub_text{
+      line-height: 30px !important;
+      margin-bottom: 18px !important;
+      color: #ffffff !important;
+      text-align: center;
+    }
+
+    .EP_faq_hero_right_column {
+        height: 350px;
+        margin-bottom: -60px;
+    }
+
+    select.faq-topics,
+    .EP_faq_topic_selector .select2-selection {
+      height: 50px;
+      padding: 17px 18px;
+    }
+
+    #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__placeholder,
+    #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__rendered{
+      font-size: 14px !important;
+      line-height: 17px !important;
+    }
+
+    .select2-results__options#select2-faq-topics-results .select2-results__option--selectable{
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 25%;
+        right: 34px;
+    }
+
+    .faq .accordion-button{
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .faq .accordion-body{
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    .EP_faq_items .EP_faq_body_left_image,
+    .EP_faq_items .EP_faq_body_right_image{
+      display: none;
+    }
+
+
+  }
+
+  @media screen and (max-width: 767px){
+    .EP_faq_hero_section{
+      padding: 60px 26px;
+    }
+
+    .EP_faq_hero_right_column {
+        height: 260px;
+    }
+  }
+
+  @media screen and (max-width: 460px){
+    .EP_faq_hero_right_column {
+        height: 200px;
+    }
+  }
+
+  @media screen and (max-width: 390px){
+    .EP_faq_hero_right_column {
+        height: 160px;
+    }
+  }
+{% endstylesheet %}
+
+<script>
+var categories = "{{ section.settings.EP_faq_topics }}";
+var categoryArray = categories.split(",");
+
+// Getting the select element by ID
+var select = document.getElementById("faq-topics");
+
+// Clearing any existing options
+// select.innerHTML = "";
+
+// Creating an option element for "All"
+// var allOption = document.createElement("option");
+// allOption.value = "all";
+// allOption.text = "Search by topic";
+// select.appendChild(allOption);
+
+// Iterating over the category array
+for (var i = 0; i < categoryArray.length; i++) {
+  var category = categoryArray[i].trim();
+
+  // Creating an option element for each category
+  var option = document.createElement("option");
+  option.value = category;
+  option.text = category;
+
+  // Appending the option to the select element
+  select.appendChild(option);
+}
+</script>
+
+{% javascript %}
+  jQuery(document).ready(function($) {
+    $('#faq-topics').select2({
+      placeholder: 'Search by topic',
+      minimumResultsForSearch: Infinity
+    });
+
+    // When the dropdown value changes
+    $('#faq-topics').change(function() {
+      var selectedCategory = $(this).val();
+
+      // Show/hide FAQ items based on the selected category
+      if (selectedCategory === 'all') {
+        $('.faq-item').show(); // Show all FAQ items
+      } else {
+        $('.faq-item').hide(); // Hide all FAQ items
+
+        $('.faq-item').each(function(){
+          var categories = $(this).attr('data-category').split(',').map(item => {
+            return item.trim();
+          });
+
+          if(categories.includes(selectedCategory)){
+            $(this).show();
+          }else{
+            $(this).hide();
+          }
+        });
+        
+        $('.faq-item[data-category="' + selectedCategory + '"]').show(); // Show FAQ items matching the selected category
+      }
+    });
+  });
+{% endjavascript %}
