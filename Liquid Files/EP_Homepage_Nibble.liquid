@@ -1,0 +1,175 @@
+{% schema %}
+    {
+      "name": "EP Homepage Nibble",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "home_nibble_right_image",
+            "label": "Homepage Nibble Section Right Image"
+        },
+        {
+            "type": "text",
+            "id": "home_nibble_left_heading_1",
+            "label": "Homepage Nibble Section Left Main Heading"
+        },
+        {
+            "type": "text",
+            "id": "home_nibble_left_para_1",
+            "label": "Homepage Nibble Section Left Para 1"
+        },
+        {
+            "type": "text",
+            "id": "home_nibble_left_para_2",
+            "label": "Homepage Nibble Section Left Para 2"
+        },
+        {
+            "type": "text",
+            "id": "home_nibble_left_label",
+            "label": "Homepage Nibble Section Left Label"
+        },
+        {
+            "type": "url",
+            "id": "home_nibble_left_btn_link",
+            "label": "Homepage Nibble Section Left Button Link"
+        },
+        {
+            "type": "text",
+            "id": "home_nibble_left_btn_text",
+            "label": "Homepage Nibble Section Left Button Text"
+        }
+
+      ],
+      "presets":[
+        {
+            "name": "EP Homepage Nibble"
+        }
+      ]
+    }
+  {% endschema %}
+  
+  <style>
+    .EP-Nibble__container__main {
+        background-color: #FAAE50;
+        margin: 50px 0;
+        background-image: url("{{ section.settings.home_nibble_right_image | img_url: '800x' }}");
+        background-size: 52%;
+        background-repeat: no-repeat;
+        background-position: right bottom 2px;
+        overflow: hidden;
+    }
+
+    .EP-Nibble__container {
+        max-width: 1340px;
+        width: 90%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    .EP-Nibble__container .EP-Nibble__container__left {
+        flex: 1;
+        padding: 60px 0px;
+    }
+
+    .EP-Nibble__container .EP-Nibble__container__right {
+        flex: 1.5;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    .EP-Nibble__container .EP-Nibble__container__left h2 {
+        color: #FDF5E9 !important;
+        line-height: 90px !important;
+        text-align: center;
+        margin-bottom: 15px !important;
+    }
+
+    .EP-Nibble__container__left p {
+        color: #000;
+        text-align: center;
+        margin-bottom: 24px !important;
+    }
+    
+    .EP-Nibble__container__right img {
+        width: 100%;
+        opacity: 0;
+    }
+
+    .EP-Nibble__container__left .EP_btn {
+        max-width: 242px;
+        margin: auto;
+        margin-top: 32px !important;
+    }
+
+    .EP-Nibble__container__left label {
+        font-family: OstiaAntica-Light;
+        font-size: 13px;
+        color: #FDF5E9;
+        margin: auto;
+        display: block;
+        margin-top: 18px;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 1400px) {
+        .EP-Nibble__container__main {
+            background-size: 65%;
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        .EP-Nibble__container {
+            flex-direction: column;
+            gap: 32px;    
+        }
+
+        .EP-Nibble__container .EP-Nibble__container__left {
+            padding-top: 60px;
+            padding-bottom: 0 !important;
+        }
+
+        .EP-Nibble__container__main {
+            background-image: none;
+        }
+
+        .EP-Nibble__container__right img {
+            opacity: 1;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .EP-Nibble__container .EP-Nibble__container__left {
+            padding-top: 40px;
+        }
+
+        .EP-Nibble__container .EP-Nibble__container__left h2 {
+            font-size: 40px !important;
+            line-height: 45px !important;
+        }
+
+        .EP-Nibble__container__left p {
+            font-size: 14px !important;
+            line-height: 17px !important;
+        }
+    }
+    
+  </style>
+  
+  <script>
+  </script>
+
+  <div class="EP-Nibble__container__main">
+    <div class="EP-Nibble__container">
+        <div class="EP-Nibble__container__left">
+            <h2>{{ section.settings.home_nibble_left_heading_1 }}</h2>
+            <p>{{ section.settings.home_nibble_left_para_1 }}</p>
+            <p>{{ section.settings.home_nibble_left_para_2 }}</p>
+            <a href="{{ section.settings.home_nibble_left_btn_link }}" class="EP_btn EP_bg_0">{{ section.settings.home_nibble_left_btn_text }}</a>
+            <label>{{ section.settings.home_nibble_left_label }}</label>
+        </div>
+        <div class="EP-Nibble__container__right">
+           <!-- <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1688107559/Eureka_06_2x_ezcmby.png" alt=""> -->
+            <img src="{{ section.settings.home_nibble_right_image | img_url: '800x' }}" alt="">
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,271 @@
+{% schema %}
+    {
+      "name": "EP Home Related Articles",
+      "settings": [
+        {
+          "type": "text",
+          "id": "ep_releted-articals-titles",
+          "label": "Releted Article main title"
+        }
+      ],
+      "presets": [
+        {
+          "name": "EP Home Related Articles"
+        }
+      ]
+    }
+    {% endschema %}
+ 
+ <style>
+   .container.EP__related__container h3 {
+     font-size: 60px !important;
+     line-height: 75px !important;
+ }
+ 
+ .EP_Article_pg_full-width-relatad-article-section {
+     padding-top: 90px;
+ }
+    .EP__related__container .swiper-container {
+   overflow: hidden !important;
+ }
+ 
+ .EP_Article_pg_full-width-relatad-article-section {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    background: #fff;
+ }
+ 
+ .EP_Artical-section-top-wapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ 
+ .EP_relatedArticles {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: 1fr;
+   grid-column-gap: 14px;
+   grid-row-gap: 0px;
+ }
+ 
+ .EP_Releted_articale_Articale_Card img {
+   width: 100%;
+   max-height: 400px;
+   border-radius: 20px;
+   object-fit: cover;
+ }
+ 
+ .EP_Releted_articale_Articale_Card:nth-child(2) {
+   grid-area: 1 / 2 / 2 / 4;
+ }
+ 
+ .EP_Releted_articale_Articale_Card:nth-child(1) {
+   grid-area: 1 / 1 / 2 / 2;
+ }
+ 
+ .EP_Releted_articale_Articale_Card:nth-child(3) {
+   grid-area: 1 / 4 / 2 / 5;
+ }
+ 
+ .EP_Releted_articale_Articale_Card a {
+   text-decoration: none;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+ }
+ 
+ .EP_Releted_articale_Articale_Card a p {
+   color: var(--black);
+   padding-top: 40px;
+   text-align: center;
+   font-size: 22px !important;
+ }
+ 
+ .EP_Artical-releted-btn-wapper {
+   display: flex;
+   gap: 13px;
+   flex-direction: column;
+   margin-bottom: 53px;
+   margin-top: 27px;
+ }
+ 
+ .swiper-slide .EP_Releted_articale_Articale_Card p {
+   text-align: center;
+   line-height: 30px !important;
+   font-size: 20px !important;
+   padding-top: 30px;
+   font-family: 'OstiaAntica-Book' !important;
+   max-width: 294px;
+ }
+ 
+ .EP-read-article-btn {
+   max-width: 215px;
+   margin: auto;
+   margin-top: 30px;
+ }
+ 
+ .EP_Releted_articale_Articale_Card img {
+   width: 100%;
+   max-height: 400px;
+   border-radius: 20px;
+   object-fit: cover;
+ }
+ 
+ .swiper-slide {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ 
+ .ep-mobile-nav_homepage {
+    display: none !important;
+ }
+ 
+ .ep-mobile-nav_homepage svg {
+    width: 10px;
+    height: auto;
+ }
+ 
+ .ep-mobile-nav_homepage svg path {
+    fill: var(--butter) !important;
+ }
+ 
+ .ep-mobile-nav_homepage .home_related_articles_mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .ep-mobile-nav_homepage .home_related_articles_mobile .swiper-pagination-bullet {
+    background-color: transparent;
+    border: 1px solid #000;
+ }
+ 
+ .ep-mobile-nav_homepage .home_related_articles_mobile .swiper-pagination-bullet-active {
+    background-color: #000 !important;
+ }
+ 
+ @media screen and (min-width: 1280px) {
+    .swiper-slide-next .EP_Releted_articale_Articale_Card {
+       width: 600px !important;
+    }
+ 
+    .swiper-slide-next .EP_Releted_articale_Articale_Card img {
+       width: 100%;
+       min-height: 400px !important;
+    }
+ 
+    .swiper-slide-next .EP_Releted_articale_Articale_Card a p {
+       font-family: OstiaAntica-Book !important;
+       font-size: 40px !important;
+       line-height: 50px !important;
+    }
+ 
+    .EP__related__container {
+       min-height: 600px;
+    }
+ 
+    .EP_Article_pg_full-width-relatad-article-section .swiper-wrapper {
+       display: flex;
+       align-items: center;
+    }
+ }
+ 
+ @media only screen and (max-width: 980px) {
+   .EP_Releted_articale_Articale_Card img {
+      width: 318px;
+      min-height: 306px;
+      max-height: 306px;
+      border-radius: 20px;
+      object-fit: cover;
+   }
+ 
+   .ep-mobile-nav_homepage {
+    display: flex !important;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
+   }
+ }
+ 
+ </style>
+ 
+    <section class="EP_Article_pg_full-width-relatad-article-section">
+        <div class="EP__related__container">
+            <div class="row">
+            <div class="col-12 EP_Artical-section-top-wapper">
+                <h3>{{ section.settings.ep_releted-articals-titles }}</h3>
+            </div>
+            <div class="col-12 EP_desktop-only">
+ 
+                <div class='swiper-container'>
+                <div class="swiper-wrapper">
+                    {% for article in blogs['news'].articles %}
+                    <div class="swiper-slide">
+                        <div class="EP_Releted_articale_Articale_Card">
+                        <a href="{{ article.url }}">
+                            {% if article.image %}
+                            <img src="{{ article.image.src | img_url: 'master' }}" alt="{{ article.image.alt }}" />
+                            {% endif %}
+                            <p>{{ article.title }}</p>
+                        </a>
+                        <a href="{{ article.url }}" class="EP_Article_btn EP_btn EP_bg_0 EP-read-article-btn">Read Article</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                </div>
+ 
+                <div class="ep-mobile-nav_homepage">
+                   <span class="prev-trigger" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-f4bb35486e2a802a"><svg viewBox="0 0 18.676 31.816" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="a"><path d="M0 0h18.676v31.816H0z" data-name="Rectangle 206"></path></clipPath></defs><g data-name="Group 6369"><g clip-path="url(#a)" data-name="Group 6367" transform="rotate(180 9.338 15.908)"><path d="M2.768 31.816A2.768 2.768 0 01.81 27.09l11.184-11.182L.81 4.724A2.768 2.768 0 114.725.81l13.14 13.14a2.768 2.768 0 010 3.914L4.725 31.005a2.762 2.762 0 01-1.957.81" data-name="Path 6756"></path></g></g></svg></span>
+                   <div class="swiper-pagination-mobile home_related_articles_mobile"></div>
+                   <span class="next-trigger" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-f4bb35486e2a802a"><svg data-name="Group 6368" viewBox="0 0 18.676 31.816" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="a"><path d="M0 0h18.676v31.816H0z" data-name="Rectangle 206"></path></clipPath></defs><g clip-path="url(#a)" data-name="Group 6367"><path d="M2.768 31.816A2.768 2.768 0 01.81 27.09l11.184-11.182L.81 4.724A2.768 2.768 0 014.725.81l13.14 13.14a2.768 2.768 0 010 3.914L4.725 31.005a2.762 2.762 0 01-1.957.81" data-name="Path 6756"></path></g></svg></span>
+                </div>
+             </div>
+            </div>
+        </div>
+    </section>
+ 
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    autoplay: false,
+    spaceBetween: 50,
+    pagination: true,
+    navigation: {
+    prevEl: '.prev-trigger',
+    nextEl: '.next-trigger',
+    },
+    breakpoints: {
+    480: {
+      slidesPerView: 1,
+      spaceBetween: 40,},
+    640: {
+      slidesPerView: 1,
+      spaceBetween: 50, },
+    768: {
+       slidesPerView: 2,
+       spaceBetween: 50, },
+    951: {
+      slidesPerView: 2.8,
+      spaceBetween: 75, },
+    980: {
+      slidesPerView: 2.8,
+      spaceBetween: 15, },
+   1100: {
+      slidesPerView: 3,
+      spaceBetween: -15, },
+  },
+    pagination: {
+          el: '.swiper-pagination-mobile',
+          clickable: true,
+          renderBullet: function (index, className) {
+          return '<span class="' + className + '"></span>';
+       },
+    },
+ });
+ </script>
+ 

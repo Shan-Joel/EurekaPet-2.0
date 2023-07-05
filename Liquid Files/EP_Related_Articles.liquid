@@ -78,7 +78,11 @@
       padding-top: 30px;
       font-family: 'OstiaAntica-Book' !important;
       max-width: 294px;
-    
+  }
+
+  .cf-widget__image-slider-v2 .cf-slider-arrow .arrow-triangle:before {
+    background-image: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1688543144/Arrow_Right_zisg5j.svg') !important;
+    width: 30px !important;
   }
 
   .EP_responisve-devices-only {
@@ -112,12 +116,16 @@
             <h3>{{ section.settings.ep_releted-articals-titles }}</h3>
             <div class="EP_Artical-releted-btn-wapper">
               <a href="/blogs/news/" class="EP_Article_btn EP_btn EP_bg_0">Back to all articles</a>
+              {% comment %}
+                  {% if article.next_article %} 
+                  {% endif %}
+              {% endcomment %} 
               {% if blog.next_article %}
                 <a href="{{ blog.next_article.url }}" class="EP_Article_btn EP_btn EP_bg_0">Read next article</a>
               {% endif %}
             </div>
           </div>
-          <div class="col-12 EP_desktop-only">
+            <div class="col-12 EP_desktop-only">
   
             <div class='EP_relatedArticles'>
               {% assign max_related_articles = 3 %}
@@ -193,9 +201,9 @@
      var swiper = new Swiper('.swiper-container', {
       
       slidesPerView: 1, // Display only one slide at a time
-      centeredSlides: true, // Center the active slide
+      centeredSlides: false, // Center the active slide
       spaceBetween: -40, // Add a negative value to create the offset
-      loop: true, // Enable infinite loop
+      loop: false, // Enable infinite loop
       slidesOffsetBefore: 30, // Set offset for the previous slide
       slidesOffsetAfter: -30, // Set offset for the next slide
       breakpoints: {
@@ -205,12 +213,12 @@
               centeredSlides: true,
               },
               640: {
-              slidesPerView: 1.9,
+              slidesPerView: 1.5,
               spaceBetween: 25,
               centeredSlides: true,
               },
               768: {
-              slidesPerView: 2.8,
+              slidesPerView: 2,
               spaceBetween: 25,
               centeredSlides: false,
               },

@@ -1,0 +1,171 @@
+{% schema %}
+    {
+      "name": "EP Homepage Sustainable",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "home_sustainable_left_image",
+        "label": "Homepage Sustainable Left Image"
+      },
+      {
+        "type": "text",
+        "id": "home_sustainable_right_heading_underline_text",
+        "label": "Homepage Sustainable Right Heading Underline Text"
+      },
+      {
+        "type": "text",
+        "id": "home_sustainable_right_heading",
+        "label": "Homepage Sustainable Right Heading *(Add The Rest)"
+      },
+      {
+        "type": "text",
+        "id": "home_sustainable_right_para_1",
+        "label": "Homepage Sustainable Right Para 1"
+      },
+      {
+        "type": "text",
+        "id": "home_sustainable_right_para_2",
+        "label": "Homepage Sustainable Right Para 2"
+      },
+      {
+        "type": "text",
+        "id": "home_sustainable_right_button_text",
+        "label": "Homepage Sustainable Right Button Text"
+      },
+      {
+        "type": "url",
+        "id": "home_sustainable_right_button_link",
+        "label": "Homepage Sustainable Right Button Link"
+      }
+      ],
+      "presets": [
+        {
+            "name": "EP Homepage Sustainable"
+        }
+      ]
+    }
+  {% endschema %}
+  
+<style>
+    .EP-sustainable__main {
+        background: #FDF5E9;
+    }
+    
+    .EP-sustainable__main .EP-sustainable__main__container {
+        max-width: 1340px;
+        margin: auto;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        gap: 130px;
+    }
+    
+    .EP-sustainable__main .EP-sustainable__main__container .EP-sustainable__main__container__left,
+    .EP-sustainable__main .EP-sustainable__main__container .EP-sustainable__main__container__right {
+        flex: 1;
+    }
+    
+    .EP-sustainable__main .EP-sustainable__main__container .EP-sustainable__main__container__left img {
+        width: 100%;
+    }
+
+    .EP-sustainable__main__container__right .EP_btn{
+        max-width: 215px;
+    }
+
+    .EP-sustainable__main .EP-sustainable__main__container__right h3 {
+        font-size: 50px !important;
+        line-height: 60px !important;
+        max-width: 415px;
+        margin-bottom: 40px !important;
+    }
+
+    .EP-sustainable__main .EP-sustainable__main__container__right span {
+        font-size: 50px !important;
+        font-family: OstiaAntica-Book !important;
+        color: #000 !important;
+        line-height: 60px !important;
+    }
+
+    .EP-sustainable__main .EP-sustainable__main__container__right p {
+        margin-bottom: 24px !important;
+        color: #000 !important;
+        font-size: 20px !important;
+    }
+
+    .EP-sustainable__position {
+        position: relative;
+        margin-bottom: 28px;
+        max-width: 410px;
+    }
+
+    .EP-sustainable__position .EP-width {
+        display: inline-block;
+    }
+
+    .EP-below__line::after {
+        width: 100%;
+        border-bottom: 5px solid #FAAE50;
+        transform: rotate(358deg);
+        display: inline-block;
+    }
+
+    @media screen and (max-width: 990px) {
+        .EP-sustainable__main .EP-sustainable__main__container__right span {
+            font-size: 40px !important;
+            line-height: 49px !important;
+        }
+
+        .EP-sustainable__main .EP-sustainable__main__container__right h3 {
+            font-size: 40px !important;
+            line-height: 49px !important;
+        }
+
+        .EP-sustainable__main__container {
+            flex-direction: column;
+            gap: 32px !important;
+        }
+
+        .EP-sustainable__main .EP-sustainable__main__container__right h3 {
+            max-width: none;
+        }
+
+        .EP-sustainable__position {
+            margin-bottom: 15px;
+            max-width: none !important;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .EP-sustainable__main .EP-sustainable__main__container__right p {
+            font-size: 14px !important;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+    }
+
+
+</style>
+  
+<script>
+</script>
+
+<div class="EP-sustainable__main">
+    <div class="EP-sustainable__main__container">
+        <div class="EP-sustainable__main__container__left">
+            <img src="{{ section.settings.home_sustainable_left_image | img_url: '800x' }}" alt="">
+        </div>
+        <div class="EP-sustainable__main__container__right">
+            <div class="EP-sustainable__position">
+                <span>
+                    <span class="EP-below__line">{{ section.settings.home_sustainable_right_heading_underline_text }}</span> {{ section.settings.home_sustainable_right_heading }}
+                </span>
+               
+            </div>
+            <p>{{ section.settings.home_sustainable_right_para_1 }}</p>
+            <p>{{ section.settings.home_sustainable_right_para_2 }}</p>
+            <a href="{{ section.settings.home_sustainable_right_button_link }}" class="EP_btn EP_bg_0">{{ section.settings.home_sustainable_right_button_text }}</a>
+        </div>
+    </div>
+</div>

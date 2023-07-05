@@ -1,13 +1,30 @@
-<div class="EP_faq_bg" id="EP-Homepage__FAQ">
-<div class="container EP_faq_items">
-  <img src="{{ section.settings.EP_faq_body_left_image | image_url: width: auto }}" class="EP_faq_body_left_image"/>
-  <div class="EP-home_faq_heading">
-    <h2>FAQ</h2>
-  </div>
+<div class="container EP-faq-hero-container">
   <div class="row">
-    <div class="accordion faq col-10 mx-auto ep__faq__body" id="panelsStayOpen">
+    <div class="EP_faq_section_container">
+      <div class="EP_faq_hero_section col-12 d-lg-flex mx-auto">
+        <div class="EP_faq_hero_left_column col-md-12 col-lg-6">
+          <h1 class="EP_faq_hero_intro_text">{{ section.settings.EP_faq_hero_intro_text }}</h1>
+          <h3 class="EP_faq_hero_sub_text">{{ section.settings.EP_faq_hero_sub_text }}</h3>
+          {{ section.settings.EP_faq_hero_topic_selector }}
+          <div class="EP_faq_topic_selector">
+            <select class="faq-topics mt-3" id="faq-topics" name="faq-topics">
+              <option></option>
+            </select>
+          </div>
+        </div>
+        <div class="EP_faq_hero_right_column col-md-12 col-lg-6">
+          <img src="{{ section.settings.EP_faq_hero_image | image_url: width: auto }}" class="EP_faq_hero_image"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container EP_faq_items EP_faq_items__container">
+  <img src="{{ section.settings.EP_faq_body_left_image | image_url: width: auto }}" class="EP_faq_body_left_image"/>
+  <div class="row mt-5">
+    <div class="accordion faq col-10 mx-auto" id="panelsStayOpen">
     {% for block in section.blocks %} 
-        <div class="accordion-item EP-accordion__item faq-item mb-2" data-category="{{ block.settings.EP_faq_topic }}">
+        <div class="accordion-item faq-item mb-2" data-category="{{ block.settings.EP_faq_topic }}">
           <p class="accordion-header">
             <button class="accordion-button collapsed py-5 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#{{ block.settings.EP_faq_question | handle }}" aria-expanded="false" aria-controls="{{ block.settings.EP_faq_question | handle }}">
               {{ block.settings.EP_faq_question }}
@@ -24,10 +41,10 @@
   </div>
   <img src="{{ section.settings.EP_faq_body_right_image | image_url: width: auto }}" class="EP_faq_body_right_image"/>
 </div>
-</div>
+
 {% schema %}
   {
-    "name": "FAQ Homepage",
+    "name": "FAQ Section",
     "class": "faq-section",
     "settings": [
       {
@@ -65,7 +82,7 @@
     ],
     "presets": [
       {
-        "name": "FAQ Homepage"
+        "name": "FAQ Section"
       }
     ],
     "blocks": [
@@ -96,179 +113,9 @@
 {% endschema %}
 
 <style>
-  #EP-Homepage__FAQ.EP_faq_bg {
-    background-image: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1688033408/Banner_2_xmfhz0.svg');
-    background-size: cover;
-  }
-  #EP-Homepage__FAQ .ep__faq__body {
-    margin-top: 18%;
-    margin-bottom: 100px;
-  }
-
-  #EP-Homepage__FAQ .accordion-header button {
-    color: #FDF5E9 !important;
-    font-size: 25px;
-    font-family: 'OstiaAntica-Book';
-  }
-  
-  #EP-Homepage__FAQ .EP-accordion__item {
-    border-bottom: 1px solid #FAAE50;
-    max-width: 700px;
-    margin: auto;
-  }
-
-  #EP-Homepage__FAQ .accordion-button:not(.collapsed) {
-    color: #FDF5E9;
-  }
-
-  #EP-Homepage__FAQ .accordion-body {
-    color: #FDF5E9 !important;
-    font-size: 20px;
-    font-family: var(--OSTR);
-    font-weight: 500;
-  }
-
-  #EP-Homepage__FAQ .accordion-button::after {
-    background: none !important;
-    background-image: url('https://res.cloudinary.com/duecvwrkz/image/upload/v1688034676/faq-dropdown-down_kjgsts.svg') !important;
-    background-size: contain !important;
-    }
-
-  #EP-Homepage__FAQ .EP_faq_items .EP_faq_body_left_image {
-    left: -12%;
-    top: 38%;
-  }
-
-  #EP-Homepage__FAQ .EP_faq_items .EP_faq_body_right_image {
-    right: -5%;
-    bottom: 5%;
-    width: 300px;
-  }
-
-  .EP-home_faq_heading {
-    display: flex;
-    transform: translateY(160%);
-    justify-content: center;
-  }
-
-  .EP-home_faq_heading h2 {
-    font-size: 60px !important;
-    font-family: 'OstiaAntica-Book';
-    color: #000 ;
-  }
-
-  @media screen and (max-width: 1420px) {
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 0 -28%;
-      background-repeat: no-repeat;
-    }
-  }
-
-  @media screen and (max-width: 1290px) {
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 0 -40%;
-    }
-  }
-
-  @media screen and (max-width: 1200px) {
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 0px -115%;
-    }
-  }
-
-  @media screen and (max-width: 1170px) {
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 0px 75px;
-    }
-  }
-
-  @media screen and (max-width: 1050px) {
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 0px 85px;
-    }
-  }
-
-  @media screen and (max-width: 990px) {
-    #EP-Homepage__FAQ .ep__faq__body {
-      margin-top: 35%;
-    }
-
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 50% 90px;
-    }
-
-    #EP-Homepage__FAQ .EP_faq_items {
-      padding: 0 !important;
-    }
-
-    #EP-Homepage__FAQ .accordion-header button {
-      font-size: 18px;
-      line-height: 22px;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    #EP-Homepage__FAQ .ep__faq__body {
-      margin-top: 50%;
-    }
-
-    .EP-home_faq_heading {
-      transform: translateY(185%);
-    }
-
-    #EP-Homepage__FAQ .EP-accordion__item {
-      max-width: none !important;
-      width: 100%;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 50% 65px;;
-    }
-
-    #EP-Homepage__FAQ .ep__faq__body {
-      margin-top: 25%;
-    }
-
-    .EP-home_faq_heading h2 {
-      font-size: 45px !important;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 50% -30px;
-    }
-
-    #EP-Homepage__FAQ .ep__faq__body {
-      margin-top: 25%;
-    }
-
-    #EP-Homepage__FAQ .accordion-body {
-      font-size: 15px !important;
-      line-height: 22px !important;
-    }
-    
-    .EP-home_faq_heading {
-      transform: translateY(35%);
-    }
-  }
-
-  @media screen and (max-width: 400px) {
-    #EP-Homepage__FAQ.EP_faq_bg {
-      background-position: 50% -58px;
-    }
-  }
-</style>
-
-
-{% stylesheet %}
   body{
     background-color: var(--champagne) !important;
   }
-
-
 
   .EP_faq_section_container{
     margin-top: 16px;
@@ -296,11 +143,14 @@
     bottom: 0;
   }
   
+.EP_faq_items__container {
+    margin: 85px auto 108px auto;
+}
 
   .EP_faq_hero_section{
-    background:var(--mango);
+    background: #FAAE50;
     border-radius: 20px;
-    padding: 120px;
+    padding: 101px 113px;
   }
 
   .EP_faq_hero_intro_text{
@@ -323,7 +173,8 @@
 
   .EP_faq_hero_image{
     width: 100%;
-    bottom: -11px;
+    bottom: 10px;
+    right: -50px;
     position: absolute;
   }
 
@@ -406,6 +257,7 @@
   .faq .accordion-button{
     font-size: 30px;
     line-height: 40px;
+    font-weight: 600;
   }
 
   .faq .accordion-button.collapsed::after {
@@ -433,7 +285,8 @@
 
   .faq .accordion-item{
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #000;
+    margin: auto;
   }
 
   .faq .accordion-button:not(.collapsed) {
@@ -441,14 +294,29 @@
     background-color: unset !important;
   }
 
-  @media screen and (max-width: 991px){
+  @media screen and (min-width: 1312px) {
+    .faq .accordion-item{
+        min-width: 1114px !important;
+    }
+ 
+    .EP_faq_hero_section .EP_faq_hero_left_column {
+        width: 550px;
+    }
+    
+  }
 
+  @media screen and (max-width: 991px){
     .EP_faq_hero_section{
       padding: 60px;
     }
 
+    .EP_faq_hero_section .EP_faq_hero_left_column {
+        width: auto;
+    }
+
     .EP_faq_hero_intro_text{
-      line-height: 45px !important;
+      font-size: 35px !important;
+      line-height: 40px !important;
       margin-bottom: 11px !important;
       text-align: center;
     }
@@ -463,12 +331,20 @@
     .EP_faq_hero_right_column {
         height: 350px;
         margin-bottom: -60px;
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     select.faq-topics,
     .EP_faq_topic_selector .select2-selection {
       height: 50px;
       padding: 17px 18px;
+    }
+
+    .EP_faq_topic_selector .select2-selection {
+        display: flex;
+        align-items: center;
     }
 
     #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__placeholder,
@@ -502,7 +378,43 @@
       display: none;
     }
 
+    .EP_faq_section_container {
+        margin-top: 0 !important;
+    }
 
+    .faq-section .EP-faq-hero-container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .EP_faq_hero_section {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .faq .accordion-item {
+        min-width: auto !important;
+    }
+
+    .faq .accordion-item .accordion-button {
+        padding: 24px 0 !important;
+    }
+
+    .faq.accordion {
+        min-width: auto !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .EP_faq_hero_image {
+        right: 0;
+        bottom: 0;
+    }
+
+    .EP_faq_items__container {
+        margin: 45px auto 60px auto !important; 
+    }
   }
 
   @media screen and (max-width: 767px){
@@ -512,6 +424,9 @@
 
     .EP_faq_hero_right_column {
         height: 260px;
+        max-width: 100%;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
     }
   }
 
@@ -526,7 +441,7 @@
         height: 160px;
     }
   }
-{% endstylesheet %}
+</style>
 
 <script>
 var categories = "{{ section.settings.EP_faq_topics }}";
