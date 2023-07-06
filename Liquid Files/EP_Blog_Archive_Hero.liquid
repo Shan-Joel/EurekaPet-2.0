@@ -1,138 +1,232 @@
-{% schema %}
-    {
-      "name": "EP_Blog_Archive_Hero",
-      "settings": [
+    {% schema %}
         {
-            "type": "image_picker",
-            "id": "ep_blog_archive_hero_image",
-            "label": "Blog Archive Hero Image"
-        },
-        {
-            "type": "text",
-            "id": "ep_blog_archive_hero_main_heading",
-            "label": "Blog Archive Hero Main Heading",
-            "default": "Canine Corner"
-        },
-        {
-            "type": "text",
-            "id": "ep_blog_archive_hero_para1",
-            "label": "Blog Archive Hero Para 1",
-            "default": "Welcome, fellow dog lovers, to our cozy corner of the internet – a haven for all things canine."
-        },
-        {
-            "type": "text",
-            "id": "ep_blog_archive_hero_para2",
-            "label": "Blog Archive Hero Para 2",
-            "default": "Our blog is a delightful collection of heartwarming stories and expert advice, curated to nurture the special bond between you and your furry companion. As you explore our content, you’ll uncover invaluable insights on our air dired dog food, pet care, nutrition, digestive care and the latest trends to keep your beloved pup thriving. "
-        },
-        {
-            "type": "text",
-            "id": "ep_blog_archive_hero_para3",
-            "label": "Blog Archive Hero Para 3",
-            "default": "So, come along and explore our blog as we celebrate the love, joy and happiness our four-legged friends bring into our lives, empowering you to create an even stronger bond with your furry family member."
+        "name": "EP_Blog_Archive_Hero",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "ep_blog_archive_hero_image",
+                "label": "Blog Archive Hero Image"
+            },
+            {
+                "type": "text",
+                "id": "ep_blog_archive_hero_main_heading",
+                "label": "Blog Archive Hero Main Heading",
+                "default": "Canine Corner"
+            },
+            {
+                "type": "text",
+                "id": "ep_blog_archive_hero_para1",
+                "label": "Blog Archive Hero Para 1",
+                "default": "Welcome, fellow dog lovers, to our cozy corner of the internet – a haven for all things canine."
+            },
+            {
+                "type": "text",
+                "id": "ep_blog_archive_hero_para2",
+                "label": "Blog Archive Hero Para 2",
+                "default": "Our blog is a delightful collection of heartwarming stories and expert advice, curated to nurture the special bond between you and your furry companion. As you explore our content, you’ll uncover invaluable insights on our air dired dog food, pet care, nutrition, digestive care and the latest trends to keep your beloved pup thriving. "
+            },
+            {
+                "type": "text",
+                "id": "ep_blog_archive_hero_para3",
+                "label": "Blog Archive Hero Para 3",
+                "default": "So, come along and explore our blog as we celebrate the love, joy and happiness our four-legged friends bring into our lives, empowering you to create an even stronger bond with your furry family member."
+            }
+        ],
+        "presets": [
+            {
+                "name": "EP_Blog_Archive_Hero"
+            }
+        ]
         }
-      ],
-      "presets": [
-        {
-            "name": "EP_Blog_Archive_Hero"
+    {% endschema %}
+    
+    <style>
+        .EP-blog__archive__hero {
+            margin-top: 22px;
         }
-      ]
-    }
-  {% endschema %}
-  
- <style>
-    .EP-blog__archive__hero {
-        margin-top: 22px;
-    }
 
-    .EP-blog__archive__hero__container {
-        max-width: 1340px;
-        width: 90%;
-        margin: auto;
-        display: flex;
-        background-color: #FAAE50;
-        border-radius: 20px;
-        padding-left: 112px;
-        padding-top: 75px;
-        overflow: hidden;
-    }
-
-    .EP-blog__archive__hero__container > div {
-        flex: 1;
-    }
-
-    #EP-blog__archive__hero .EP-blog__archive__hero__left h2 {
-        color: #FDF5E9;
-        margin-bottom: 12px;
-    }
-
-    #EP-blog__archive__hero .EP-blog__archive__hero__left p {
-        color: #FFFFFF;
-        margin-bottom: 24px;
-    }
-
-    #EP-blog__archive__hero .EP-blog__archive__hero__left p:last-of-type {
-        margin-bottom: 0;
-    }
-
-    #EP-blog__archive__hero .EP-blog__archive__hero__right img {
-        width: 100%;
-    }
-
-    #EP-blog__archive__hero .EP-blog__archive__hero__left {
-        padding-bottom: 75px;
-    }
-
-    #EP-blog__archive__hero .EP-blog__archive__hero__right {
-        display: flex;
-        align-items: flex-end;
-    }
-
-    @media screen and (max-width: 980px) {
-        #EP-blog__archive__hero .EP-blog__archive__hero__container {
-            flex-direction: column;
-            padding-left: 26px;
-            padding-right: 26px;
-            padding-top: 30px;
-            gap: 24px;
+        .EP-blog__archive__hero__container {
+            max-width: 1340px;
+            width: 94%;
+            margin: auto;
+            display: flex;
+            background-color: #FAAE50;
+            border-radius: 20px;
+            padding-left: 112px;
+            padding-top: 75px;
             overflow: hidden;
+            max-height: 822px;
+            position: relative;
         }
 
-        #EP-blog__archive__hero h2 {
-            font-size: 42px;
-            line-height: 42px;
+        .EP-blog__archive__hero__container .EP-blog__archive__hero__curve {
+            transform: translate(-11%, 42%);
+            position: absolute;
         }
 
-        #EP-blog__archive__hero p {
-            font-size: 14px;
-            line-height: 17px;  
+        .EP-blog__archive__hero__container > div {
+            flex: 1;
+        }
+
+        .EP-blog-main-wrapper {
+            z-index: 99;
+            position: relative;
+            margin-top: -10%;
+        }
+
+        #EP-blog__archive__hero .EP-blog__archive__hero__left h2 {
+            color: #FDF5E9;
+            margin-bottom: 12px;
+        }
+
+        #EP-blog__archive__hero .EP-blog__archive__hero__left p {
+            color: #FFFFFF;
+            margin-bottom: 24px;
+        }
+
+        #EP-blog__archive__hero .EP-blog__archive__hero__left p:last-of-type {
+            margin-bottom: 0;
         }
 
         #EP-blog__archive__hero .EP-blog__archive__hero__right img {
-            transform: translateX(8%);
+            transform: translateY(-8%);
+            height: 95%;
         }
-        
+
         #EP-blog__archive__hero .EP-blog__archive__hero__left {
-            padding-bottom: 0;
+            padding-bottom: 75px;
+            max-width: 550px;
         }
-    }
 
- </style>
-  
-  {% javascript %}
-  {% endjavascript %}
+        #EP-blog__archive__hero .EP-blog__archive__hero__right {
+            display: flex;
+            align-items: center;
+        }
 
-  <div class="EP-blog__archive__hero" id="EP-blog__archive__hero">
-    <div class="EP-blog__archive__hero__container">
-        <div class="EP-blog__archive__hero__left">
-            <h2>{{ section.settings.ep_blog_archive_hero_main_heading }}</h2>
-            <p>{{ section.settings.ep_blog_archive_hero_para1 }}</p>
-            <p>{{ section.settings.ep_blog_archive_hero_para2 }}</p>
-            <p>{{ section.settings.ep_blog_archive_hero_para3 }}</p>
+        /* Hero sec curvy shape effecr */
+        div#EP-blog__archive__hero {
+            position: relative;
+        }
+
+        div#EP-blog__archive__hero .EP-blog__archive__hero__container {
+            min-height: 822px;
+        }
+
+        .EP-blog__archive__hero__container__doggy__container {
+            display: flex;
+            justify-content: center;
+        }
+
+        div#EP-blog__archive__hero .EP-blog__archive__hero__container__doggy {
+            position: absolute;
+            top: 70%;
+           /* left: 13%; */
+        }
+
+        @media screen and (max-width: 1440px) {
+            div#EP-blog__archive__hero .EP-blog__archive__hero__container__doggy {
+              position: absolute;
+              top: 70%;
+              left: 0%;
+              width: 100%;
+            }
+          }
+
+        @media screen and (max-width: 1320px) {
+            #EP-blog__archive__hero .EP-blog__archive__hero__left {
+                max-width: auto;
+            }
+        }
+
+        @media screen and (max-width: 1280px) {
+            .EP-blog__archive__hero__container {
+                min-height: 1000px !important;
+            }
+        }
+
+        @media screen and (max-width: 980px) {
+            .EP-blog__archive__hero__container {
+                min-height: initial !important;
+            } 
+
+            .EP-blog__archive__hero {
+                margin-top: 0;
+            }
+
+            #EP-blog__archive__hero .EP-blog__archive__hero__container {
+                flex-direction: column;
+                padding-left: 36px;
+                padding-right: 36px;
+                padding-top: 44px;
+                gap: 5px;
+                overflow: hidden;
+            }
+
+            #EP-blog__archive__hero h2 {
+                font-size: 42px;
+                line-height: 42px;
+                }
+                
+            #EP-blog__archive__hero .EP-blog__archive__hero__left h2 {
+                margin-bottom: 26px;
+            }
+
+            #EP-blog__archive__hero p {
+                font-size: 14px;
+                line-height: 17px;  
+            }
+
+            #EP-blog__archive__hero .EP-blog__archive__hero__right img {
+                transform: translate(12%, 4%);
+            }
+            
+            #EP-blog__archive__hero .EP-blog__archive__hero__left {
+                padding-bottom: 0;
+            }
+
+            #EP-blog__archive__hero .EP-blog__archive__hero__left {
+                max-width: none;
+            }
+
+            #EP-blog__archive__hero h2 {
+                font-family: OstiaAntica-Book !important;
+                font-size: 35px;
+                line-height: 42px;
+                letter-spacing: -0.7px;
+                text-align: center;
+                color: #fff !important;
+            }
+
+            div#EP-blog__archive__hero .EP-blog__archive__hero__container__doggy {
+                top: 88%;
+                left: 0;
+                width: 100%;
+            }
+
+            #EP-blog__archive__hero .EP-blog__archive__hero__right img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    </style>
+    
+    {% javascript %}
+    {% endjavascript %}
+
+    <div class="EP-blog__archive__hero" id="EP-blog__archive__hero">
+        <div class="EP-blog__archive__hero__container">
+            <div class="EP-blog__archive__hero__left">
+                <h2>{{ section.settings.ep_blog_archive_hero_main_heading }}</h2>
+                <p>{{ section.settings.ep_blog_archive_hero_para1 }}</p>
+                <p>{{ section.settings.ep_blog_archive_hero_para2 }}</p>
+                <p>{{ section.settings.ep_blog_archive_hero_para3 }}</p>
+            </div>
+            <div class="EP-blog__archive__hero__right">
+                <img src="{{ section.settings.ep_blog_archive_hero_image | img_url: '800x' }}" alt="EP Blog Archive Hero Image" />
+            </div>
         </div>
-        <div class="EP-blog__archive__hero__right">
-            <img src="{{ section.settings.ep_blog_archive_hero_image | img_url: '800x' }}" alt="EP Blog Archive Hero Image" />
+        <div class="EP-blog__archive__hero__container__doggy__container">
+            <img class="EP-blog__archive__hero__container__doggy" src="https://res.cloudinary.com/duecvwrkz/image/upload/v1688619536/Banner_4_White_wxuj3q.svg" alt="">
         </div>
     </div>
-  </div>
-

@@ -1,509 +1,509 @@
-<div class="container EP-faq-hero-container">
-  <div class="row">
-    <div class="EP_faq_section_container">
-      <div class="EP_faq_hero_section col-12 d-lg-flex mx-auto">
-        <div class="EP_faq_hero_left_column col-md-12 col-lg-6">
-          <h1 class="EP_faq_hero_intro_text">{{ section.settings.EP_faq_hero_intro_text }}</h1>
-          <h3 class="EP_faq_hero_sub_text">{{ section.settings.EP_faq_hero_sub_text }}</h3>
-          {{ section.settings.EP_faq_hero_topic_selector }}
-          <div class="EP_faq_topic_selector">
-            <select class="faq-topics mt-3" id="faq-topics" name="faq-topics">
-              <option></option>
-            </select>
-          </div>
-        </div>
-        <div class="EP_faq_hero_right_column col-md-12 col-lg-6">
-          <img src="{{ section.settings.EP_faq_hero_image | image_url: width: auto }}" class="EP_faq_hero_image"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container EP_faq_items EP_faq_items__container">
-  <img src="{{ section.settings.EP_faq_body_left_image | image_url: width: auto }}" class="EP_faq_body_left_image"/>
-  <div class="row mt-5">
-    <div class="accordion faq col-10 mx-auto" id="panelsStayOpen">
-    {% for block in section.blocks %} 
-        <div class="accordion-item faq-item mb-2" data-category="{{ block.settings.EP_faq_topic }}">
-          <p class="accordion-header">
-            <button class="accordion-button collapsed py-5 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#{{ block.settings.EP_faq_question | handle }}" aria-expanded="false" aria-controls="{{ block.settings.EP_faq_question | handle }}">
-              {{ block.settings.EP_faq_question }}
-            </button>
-          </p>
-          <div id="{{ block.settings.EP_faq_question | handle  }}" class="accordion-collapse collapse" data-bs-parent="#panelsStayOpen">
-            <div class="accordion-body px-0 pt-0 pb-5">
-              {{ block.settings.EP_faq_answer }}
+    <div class="container EP-faq-hero-container">
+    <div class="row">
+        <div class="EP_faq_section_container">
+        <div class="EP_faq_hero_section col-12 d-lg-flex mx-auto">
+            <div class="EP_faq_hero_left_column col-md-12 col-lg-6">
+            <h1 class="EP_faq_hero_intro_text">{{ section.settings.EP_faq_hero_intro_text }}</h1>
+            <h3 class="EP_faq_hero_sub_text">{{ section.settings.EP_faq_hero_sub_text }}</h3>
+            {{ section.settings.EP_faq_hero_topic_selector }}
+            <div class="EP_faq_topic_selector">
+                <select class="faq-topics mt-3" id="faq-topics" name="faq-topics">
+                <option></option>
+                </select>
             </div>
-          </div>
+            </div>
+            <div class="EP_faq_hero_right_column col-md-12 col-lg-6">
+            <img src="{{ section.settings.EP_faq_hero_image | image_url: width: auto }}" class="EP_faq_hero_image"/>
+            </div>
         </div>
-    {% endfor %}
+        </div>
     </div>
-  </div>
-  <img src="{{ section.settings.EP_faq_body_right_image | image_url: width: auto }}" class="EP_faq_body_right_image"/>
-</div>
+    </div>
+    <div class="container EP_faq_items EP_faq_items__container">
+    <img src="{{ section.settings.EP_faq_body_left_image | image_url: width: auto }}" class="EP_faq_body_left_image"/>
+    <div class="row mt-5">
+        <div class="accordion faq col-10 mx-auto" id="panelsStayOpen">
+        {% for block in section.blocks %} 
+            <div class="accordion-item faq-item mb-2" data-category="{{ block.settings.EP_faq_topic }}">
+            <p class="accordion-header">
+                <button class="accordion-button collapsed py-5 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#{{ block.settings.EP_faq_question | handle }}" aria-expanded="false" aria-controls="{{ block.settings.EP_faq_question | handle }}">
+                {{ block.settings.EP_faq_question }}
+                </button>
+            </p>
+            <div id="{{ block.settings.EP_faq_question | handle  }}" class="accordion-collapse collapse" data-bs-parent="#panelsStayOpen">
+                <div class="accordion-body px-0 pt-0 pb-5">
+                {{ block.settings.EP_faq_answer }}
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <img src="{{ section.settings.EP_faq_body_right_image | image_url: width: auto }}" class="EP_faq_body_right_image"/>
+    </div>
 
-{% schema %}
-  {
-    "name": "FAQ Section",
-    "class": "faq-section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "EP_faq_hero_intro_text",
-        "label": "Hero intro text",
-        "default": "Hi, I'm Albert Canine-stein, but everyone calls me Berty."
-      },
-      {
-        "type": "text",
-        "id": "EP_faq_hero_sub_text",
-        "label": "Hero sub text",
-        "default": "Looking for answers? You're barking up the right tree."
-      },
-      {
-        "type": "image_picker",
-        "id": "EP_faq_hero_image",
-        "label": "Hero image"
-      },
-      {
-        "type": "image_picker",
-        "id": "EP_faq_body_left_image",
-        "label": "Body left image"
-      },
-      {
-        "type": "image_picker",
-        "id": "EP_faq_body_right_image",
-        "label": "Body right image"
-      },
-      {
-        "type": "text",
-        "id": "EP_faq_topics",
-        "label": "FAQ topics (Seperate by ,)"
-      }
-    ],
-    "presets": [
-      {
-        "name": "FAQ Section"
-      }
-    ],
-    "blocks": [
-      {
-        "name": "FAQ Item",
-        "type": "slide",
+    {% schema %}
+    {
+        "name": "FAQ Section",
+        "class": "faq-section",
         "settings": [
-          {
+        {
             "type": "text",
-            "id": "EP_faq_question",
-            "label": "Question"
-          },
-          {
+            "id": "EP_faq_hero_intro_text",
+            "label": "Hero intro text",
+            "default": "Hi, I'm Albert Canine-stein, but everyone calls me Berty."
+        },
+        {
             "type": "text",
-            "id": "EP_faq_answer",
-            "label": "Answer"
-          },
-          {
+            "id": "EP_faq_hero_sub_text",
+            "label": "Hero sub text",
+            "default": "Looking for answers? You're barking up the right tree."
+        },
+        {
+            "type": "image_picker",
+            "id": "EP_faq_hero_image",
+            "label": "Hero image"
+        },
+        {
+            "type": "image_picker",
+            "id": "EP_faq_body_left_image",
+            "label": "Body left image"
+        },
+        {
+            "type": "image_picker",
+            "id": "EP_faq_body_right_image",
+            "label": "Body right image"
+        },
+        {
             "type": "text",
-            "id": "EP_faq_topic",
-            "label": "Topic"
-          }
+            "id": "EP_faq_topics",
+            "label": "FAQ topics (Seperate by ,)"
+        }
+        ],
+        "presets": [
+        {
+            "name": "FAQ Section"
+        }
+        ],
+        "blocks": [
+        {
+            "name": "FAQ Item",
+            "type": "slide",
+            "settings": [
+            {
+                "type": "text",
+                "id": "EP_faq_question",
+                "label": "Question"
+            },
+            {
+                "type": "text",
+                "id": "EP_faq_answer",
+                "label": "Answer"
+            },
+            {
+                "type": "text",
+                "id": "EP_faq_topic",
+                "label": "Topic"
+            }
+            ]
+
+        }
         ]
-
-      }
-    ]
-  }
-{% endschema %}
-
-<style>
-  body{
-    background-color: var(--champagne) !important;
-  }
-
-  .EP_faq_section_container{
-    margin-top: 16px;
-  }
-
-  .EP_faq_items{
-    position: relative;
-  }
-
-  .EP_faq_items .EP_faq_body_left_image{
-    position: absolute;
-    display: block;
-    background-repeat: no-repeat;
-    z-index: 99;
-    left: 0;
-    top: 30%;
-  }
-
-  .EP_faq_items .EP_faq_body_right_image{
-    position: absolute;
-    display: block;
-    background-repeat: no-repeat;
-    z-index: 99;
-    right: 0;
-    bottom: 0;
-  }
-  
-.EP_faq_items__container {
-    margin: 85px auto 108px auto;
-}
-
-  .EP_faq_hero_section{
-    background: #FAAE50;
-    border-radius: 20px;
-    padding: 101px 113px;
-  }
-
-  .EP_faq_hero_intro_text{
-    font-size: 40px !important;
-    line-height: 50px !important;
-    color: #ffffff;
-    margin-bottom: 31px !important;
-  }
-
-  .EP_faq_hero_sub_text{
-    font-size: 25px !important;
-    line-height: 34px !important;
-    margin-bottom: 38px !important;
-  }
-
-  .EP_faq_hero_right_column{
-    position: relative;
-    margin-bottom: -120px;
-  }
-
-  .EP_faq_hero_image{
-    width: 100%;
-    bottom: 10px;
-    right: -50px;
-    position: absolute;
-  }
-
-  select.faq-topics,
-  .EP_faq_topic_selector .select2-selection{
-    height: 60px;
-    padding: 15px;
-    border-radius: 80px;
-    width: 100%;
-    appearance: none;
-    border: 1.5px solid #000000;
-    border-bottom-left-radius: 80px !important;
-    border-bottom-right-radius: 80px !important;
-  }
-
-  .EP_faq_topic_selector .select2-selection__arrow b{
-    display: none !important;
-  }
-
-  .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__arrow{
-    content: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    top: 30%;
-    right: 29px;
-    transition: ease 500ms;
-    rotate: 0deg;
-  }
-
-  .EP_faq_topic_selector .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow{
-    transition: ease 500ms;
-    rotate: -180deg;
-  }
-
-  .EP_faq_topic_selector .select2-container--default.select2-container--open.select2-container--above .select2-selection--single{
-    border-top-left-radius: 80px;
-    border-top-right-radius: 80px;
-  }
-
-  #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__placeholder,
-  #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__rendered{
-    color: #000000 !important;
-    font-size: 18px !important;
-    line-height: 22px !important;
-  }
-
-  .select2-results__options#select2-faq-topics-results {
-    background-color: #403D36;
-    border: 1px solid #000000;
-    border-radius: 30px;
-  }
-
-  .select2-dropdown:has(.select2-results__options#select2-faq-topics-results){
-    border-radius: 30px !important;
-    margin-top: 6px;
-  }
-
-  .select2-results__options#select2-faq-topics-results .select2-results__option--selectable{
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 22px;
-    padding: 21px 24px;
-  }
-
-  .select2-container--default .select2-results__options#select2-faq-topics-results .select2-results__option--highlighted.select2-results__option--selectable{
-    background-color: transparent;
-    text-decoration: underline;
-    background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position: center right 29px;
-  }
-
-  .select2-container--default .select2-results__options#select2-faq-topics-results .select2-results__option--selected{
-    background-color: #000000 !important;
-  }
-
-  .faq.accordion{
-    --bs-accordion-bg: transparent !important;
-  }
-
-  .faq .accordion-button{
-    font-size: 30px;
-    line-height: 40px;
-    font-weight: 600;
-  }
-
-  .faq .accordion-button.collapsed::after {
-    background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-size: 20px;
-    width: 20px;
-    height: 20px;
-  }
-
-  .faq .accordion-button:not(.collapsed)::after {
-    background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-size: 20px;
-    width: 20px;
-    height: 20px;
-  }
-
-  .faq .accordion-button:focus {
-    box-shadow: unset !important;
-  }
-
-  .faq .accordion-body{
-    font-size: 22px;
-    line-height: 30px;
-  }
-
-  .faq .accordion-item{
-    border: none;
-    border-bottom: 2px solid #000;
-    margin: auto;
-  }
-
-  .faq .accordion-button:not(.collapsed) {
-    color: unset !important;
-    background-color: unset !important;
-  }
-
-  @media screen and (min-width: 1312px) {
-    .faq .accordion-item{
-        min-width: 1114px !important;
     }
- 
-    .EP_faq_hero_section .EP_faq_hero_left_column {
-        width: 550px;
+    {% endschema %}
+
+    <style>
+    body{
+        background-color: var(--champagne) !important;
+    }
+
+    .EP_faq_section_container{
+        margin-top: 16px;
+    }
+
+    .EP_faq_items{
+        position: relative;
+    }
+
+    .EP_faq_items .EP_faq_body_left_image{
+        position: absolute;
+        display: block;
+        background-repeat: no-repeat;
+        z-index: 99;
+        left: 0;
+        top: 30%;
+    }
+
+    .EP_faq_items .EP_faq_body_right_image{
+        position: absolute;
+        display: block;
+        background-repeat: no-repeat;
+        z-index: 99;
+        right: 0;
+        bottom: 0;
     }
     
-  }
-
-  @media screen and (max-width: 991px){
-    .EP_faq_hero_section{
-      padding: 60px;
+    .EP_faq_items__container {
+        margin: 85px auto 108px auto;
     }
 
-    .EP_faq_hero_section .EP_faq_hero_left_column {
-        width: auto;
+    .EP_faq_hero_section{
+        background: #FAAE50;
+        border-radius: 20px;
+        padding: 101px 113px;
     }
 
     .EP_faq_hero_intro_text{
-      font-size: 35px !important;
-      line-height: 40px !important;
-      margin-bottom: 11px !important;
-      text-align: center;
+        font-size: 40px !important;
+        line-height: 50px !important;
+        color: #ffffff;
+        margin-bottom: 31px !important;
     }
 
     .EP_faq_hero_sub_text{
-      line-height: 30px !important;
-      margin-bottom: 18px !important;
-      color: #ffffff !important;
-      text-align: center;
+        font-size: 25px !important;
+        line-height: 34px !important;
+        margin-bottom: 38px !important;
     }
 
-    .EP_faq_hero_right_column {
-        height: 350px;
-        margin-bottom: -60px;
-        max-width: 70%;
-        margin-left: auto;
-        margin-right: auto;
+    .EP_faq_hero_right_column{
+        position: relative;
+        margin-bottom: -120px;
+    }
+
+    .EP_faq_hero_image{
+        width: 100%;
+        bottom: 10px;
+        right: -50px;
+        position: absolute;
     }
 
     select.faq-topics,
-    .EP_faq_topic_selector .select2-selection {
-      height: 50px;
-      padding: 17px 18px;
+    .EP_faq_topic_selector .select2-selection{
+        height: 60px;
+        padding: 15px;
+        border-radius: 80px;
+        width: 100%;
+        appearance: none;
+        border: 1.5px solid #000000;
+        border-bottom-left-radius: 80px !important;
+        border-bottom-right-radius: 80px !important;
     }
 
-    .EP_faq_topic_selector .select2-selection {
-        display: flex;
-        align-items: center;
+    .EP_faq_topic_selector .select2-selection__arrow b{
+        display: none !important;
+    }
+
+    .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__arrow{
+        content: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        top: 30%;
+        right: 29px;
+        transition: ease 500ms;
+        rotate: 0deg;
+    }
+
+    .EP_faq_topic_selector .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow{
+        transition: ease 500ms;
+        rotate: -180deg;
+    }
+
+    .EP_faq_topic_selector .select2-container--default.select2-container--open.select2-container--above .select2-selection--single{
+        border-top-left-radius: 80px;
+        border-top-right-radius: 80px;
     }
 
     #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__placeholder,
     #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__rendered{
-      font-size: 14px !important;
-      line-height: 17px !important;
+        color: #000000 !important;
+        font-size: 18px !important;
+        line-height: 22px !important;
+    }
+
+    .select2-results__options#select2-faq-topics-results {
+        background-color: #403D36;
+        border: 1px solid #000000;
+        border-radius: 30px;
+    }
+
+    .select2-dropdown:has(.select2-results__options#select2-faq-topics-results){
+        border-radius: 30px !important;
+        margin-top: 6px;
     }
 
     .select2-results__options#select2-faq-topics-results .select2-results__option--selectable{
-      font-size: 14px;
-      line-height: 17px;
+        color: #ffffff;
+        font-size: 18px;
+        line-height: 22px;
+        padding: 21px 24px;
     }
 
-    .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__arrow {
-        top: 25%;
-        right: 34px;
+    .select2-container--default .select2-results__options#select2-faq-topics-results .select2-results__option--highlighted.select2-results__option--selectable{
+        background-color: transparent;
+        text-decoration: underline;
+        background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: center right 29px;
+    }
+
+    .select2-container--default .select2-results__options#select2-faq-topics-results .select2-results__option--selected{
+        background-color: #000000 !important;
+    }
+
+    .faq.accordion{
+        --bs-accordion-bg: transparent !important;
     }
 
     .faq .accordion-button{
-      font-size: 18px;
-      line-height: 22px;
+        font-size: 30px;
+        line-height: 40px;
+        font-weight: 600;
+    }
+
+    .faq .accordion-button.collapsed::after {
+        background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .faq .accordion-button:not(.collapsed)::after {
+        background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .faq .accordion-button:focus {
+        box-shadow: unset !important;
     }
 
     .faq .accordion-body{
-      font-size: 14px;
-      line-height: 17px;
+        font-size: 22px;
+        line-height: 30px;
     }
 
-    .EP_faq_items .EP_faq_body_left_image,
-    .EP_faq_items .EP_faq_body_right_image{
-      display: none;
+    .faq .accordion-item{
+        border: none;
+        border-bottom: 2px solid #000;
+        margin: auto;
     }
 
-    .EP_faq_section_container {
-        margin-top: 0 !important;
+    .faq .accordion-button:not(.collapsed) {
+        color: unset !important;
+        background-color: unset !important;
     }
 
-    .faq-section .EP-faq-hero-container {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-    }
-
-    .EP_faq_hero_section {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .faq .accordion-item {
-        min-width: auto !important;
-    }
-
-    .faq .accordion-item .accordion-button {
-        padding: 24px 0 !important;
-    }
-
-    .faq.accordion {
-        min-width: auto !important;
-        width: 100% !important;
-        padding: 0 !important;
-    }
-
-    .EP_faq_hero_image {
-        right: 0;
-        bottom: 0;
-    }
-
-    .EP_faq_items__container {
-        margin: 45px auto 60px auto !important; 
-    }
-  }
-
-  @media screen and (max-width: 767px){
-    .EP_faq_hero_section{
-      padding: 60px 26px;
-    }
-
-    .EP_faq_hero_right_column {
-        height: 260px;
-        max-width: 100%;
-        margin-left: 5px !important;
-        margin-right: 5px !important;
-    }
-  }
-
-  @media screen and (max-width: 460px){
-    .EP_faq_hero_right_column {
-        height: 200px;
-    }
-  }
-
-  @media screen and (max-width: 390px){
-    .EP_faq_hero_right_column {
-        height: 160px;
-    }
-  }
-</style>
-
-<script>
-var categories = "{{ section.settings.EP_faq_topics }}";
-var categoryArray = categories.split(",");
-
-// Getting the select element by ID
-var select = document.getElementById("faq-topics");
-
-// Clearing any existing options
-// select.innerHTML = "";
-
-// Creating an option element for "All"
-// var allOption = document.createElement("option");
-// allOption.value = "all";
-// allOption.text = "Search by topic";
-// select.appendChild(allOption);
-
-// Iterating over the category array
-for (var i = 0; i < categoryArray.length; i++) {
-  var category = categoryArray[i].trim();
-
-  // Creating an option element for each category
-  var option = document.createElement("option");
-  option.value = category;
-  option.text = category;
-
-  // Appending the option to the select element
-  select.appendChild(option);
-}
-</script>
-
-{% javascript %}
-  jQuery(document).ready(function($) {
-    $('#faq-topics').select2({
-      placeholder: 'Search by topic',
-      minimumResultsForSearch: Infinity
-    });
-
-    // When the dropdown value changes
-    $('#faq-topics').change(function() {
-      var selectedCategory = $(this).val();
-
-      // Show/hide FAQ items based on the selected category
-      if (selectedCategory === 'all') {
-        $('.faq-item').show(); // Show all FAQ items
-      } else {
-        $('.faq-item').hide(); // Hide all FAQ items
-
-        $('.faq-item').each(function(){
-          var categories = $(this).attr('data-category').split(',').map(item => {
-            return item.trim();
-          });
-
-          if(categories.includes(selectedCategory)){
-            $(this).show();
-          }else{
-            $(this).hide();
-          }
-        });
+    @media screen and (min-width: 1312px) {
+        .faq .accordion-item{
+            min-width: 1114px !important;
+        }
+    
+        .EP_faq_hero_section .EP_faq_hero_left_column {
+            width: 550px;
+        }
         
-        $('.faq-item[data-category="' + selectedCategory + '"]').show(); // Show FAQ items matching the selected category
-      }
+    }
+
+    @media screen and (max-width: 1100px){
+        .EP_faq_hero_section{
+        padding: 60px;
+        }
+
+        .EP_faq_hero_section .EP_faq_hero_left_column {
+            width: auto;
+        }
+
+        .EP_faq_hero_intro_text{
+        font-size: 35px !important;
+        line-height: 40px !important;
+        margin-bottom: 11px !important;
+        text-align: center;
+        }
+
+        .EP_faq_hero_sub_text{
+        line-height: 30px !important;
+        margin-bottom: 18px !important;
+        color: #ffffff !important;
+        text-align: center;
+        }
+
+        .EP_faq_hero_right_column {
+            height: 350px;
+            margin-bottom: -60px;
+            max-width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        select.faq-topics,
+        .EP_faq_topic_selector .select2-selection {
+        height: 50px;
+        padding: 17px 18px;
+        }
+
+        .EP_faq_topic_selector .select2-selection {
+            display: flex;
+            align-items: center;
+        }
+
+        #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__placeholder,
+        #ep_body .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__rendered{
+        font-size: 14px !important;
+        line-height: 17px !important;
+        }
+
+        .select2-results__options#select2-faq-topics-results .select2-results__option--selectable{
+        font-size: 14px;
+        line-height: 17px;
+        }
+
+        .EP_faq_topic_selector .select2-container--default .select2-selection--single .select2-selection__arrow {
+            top: 25%;
+            right: 34px;
+        }
+
+        .faq .accordion-button{
+        font-size: 18px;
+        line-height: 22px;
+        }
+
+        .faq .accordion-body{
+        font-size: 14px;
+        line-height: 17px;
+        }
+
+        .EP_faq_items .EP_faq_body_left_image,
+        .EP_faq_items .EP_faq_body_right_image{
+        display: none;
+        }
+
+        .EP_faq_section_container {
+            margin-top: 0 !important;
+        }
+
+        .faq-section .EP-faq-hero-container {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        .EP_faq_hero_section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .faq .accordion-item {
+            min-width: auto !important;
+        }
+
+        .faq .accordion-item .accordion-button {
+            padding: 24px 0 !important;
+        }
+
+        .faq.accordion {
+            min-width: auto !important;
+            width: 100% !important;
+            padding: 0 !important;
+        }
+
+        .EP_faq_hero_image {
+            right: 0;
+            bottom: 0;
+        }
+
+        .EP_faq_items__container {
+            margin: 45px auto 60px auto !important; 
+        }
+    }
+
+    @media screen and (max-width: 767px){
+        .EP_faq_hero_section{
+        padding: 60px 26px;
+        }
+
+        .EP_faq_hero_right_column {
+            height: 260px;
+            max-width: 100%;
+            margin-left: 5px !important;
+            margin-right: 5px !important;
+        }
+    }
+
+    @media screen and (max-width: 460px){
+        .EP_faq_hero_right_column {
+            height: 200px;
+        }
+    }
+
+    @media screen and (max-width: 390px){
+        .EP_faq_hero_right_column {
+            height: 160px;
+        }
+    }
+    </style>
+
+    <script>
+    var categories = "{{ section.settings.EP_faq_topics }}";
+    var categoryArray = categories.split(",");
+
+    // Getting the select element by ID
+    var select = document.getElementById("faq-topics");
+
+    // Clearing any existing options
+    // select.innerHTML = "";
+
+    // Creating an option element for "All"
+    // var allOption = document.createElement("option");
+    // allOption.value = "all";
+    // allOption.text = "Search by topic";
+    // select.appendChild(allOption);
+
+    // Iterating over the category array
+    for (var i = 0; i < categoryArray.length; i++) {
+    var category = categoryArray[i].trim();
+
+    // Creating an option element for each category
+    var option = document.createElement("option");
+    option.value = category;
+    option.text = category;
+
+    // Appending the option to the select element
+    select.appendChild(option);
+    }
+    </script>
+
+    {% javascript %}
+    jQuery(document).ready(function($) {
+        $('#faq-topics').select2({
+        placeholder: 'Search by topic',
+        minimumResultsForSearch: Infinity
+        });
+
+        // When the dropdown value changes
+        $('#faq-topics').change(function() {
+        var selectedCategory = $(this).val();
+
+        // Show/hide FAQ items based on the selected category
+        if (selectedCategory === 'all') {
+            $('.faq-item').show(); // Show all FAQ items
+        } else {
+            $('.faq-item').hide(); // Hide all FAQ items
+
+            $('.faq-item').each(function(){
+            var categories = $(this).attr('data-category').split(',').map(item => {
+                return item.trim();
+            });
+
+            if(categories.includes(selectedCategory)){
+                $(this).show();
+            }else{
+                $(this).hide();
+            }
+            });
+            
+            $('.faq-item[data-category="' + selectedCategory + '"]').show(); // Show FAQ items matching the selected category
+        }
+        });
     });
-  });
-{% endjavascript %}
+    {% endjavascript %}

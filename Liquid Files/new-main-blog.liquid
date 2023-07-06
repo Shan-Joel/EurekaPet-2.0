@@ -1,8 +1,9 @@
 <style>
   .EP-blog-main-wrapper {
     max-width: 1340px;
-    width: 90%;
+    width: 80%;
     margin: auto;
+    margin-top: -165px;
   }
 
   .EP-blog-main-wrapper #blog-categories {
@@ -19,19 +20,37 @@
     text-align: center;
   }
 
+  .EP-blog-main-wrapper #blog-categories p:nth-child(1) {
+    order: 1;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(2) {
+    order: 5;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(3) {
+    order: 2;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(4) {
+    order: 4;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(5) {
+    order: 6;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(6) {
+    order: 3;
+  }
+
   .EP-blog-grid-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 16px;
-    grid-row-gap: 40px;
-    margin-top: 65px;
-    margin-bottom: 65px;
+    grid-row-gap: 30px;
+    margin-top: 41px;
+    margin-bottom: 118px;
   }
 
   .EP-blog-main-wrapper .blog-categories__heading {
     display: flex;
     justify-content: center;
-    margin-top: 82px;
   }
 
   #EP-blog-main-wrapper .blog-post > a {
@@ -108,7 +127,7 @@
 }
 
 .EP-blog-main-wrapper nav.navigation {
-  margin-bottom: 65px;
+  margin-bottom: 85px;
 }
 
 .EP-blog-main-wrapper .disabled img {
@@ -120,11 +139,19 @@
   cursor: default; /* Change the cursor appearance on hover */
 }
 
+.EP-blog-main-wrapper .pagination li:first-of-type {
+    margin-right: 5%;
+}
+
+.EP-blog-main-wrapper .pagination li:last-of-type {
+    margin-left: 5%;
+}
+
 select#blog-categories-mobile {
   border: 1px solid #000000;
   border-radius: 80px;
   opacity: 1;
-  width: 90%;
+  width: 100%;
   height: 50px;
   padding: 0 26px;
   display: flex;
@@ -194,11 +221,26 @@ select#blog-categories-mobile {
 
   .EP-blog-grid-wrapper {
     margin-top: 45px;
+    margin-bottom: 25px;
+  }
+
+  .EP-blog-main-wrapper nav.navigation {
+    margin-bottom: 40px;
   }
 
   #EP-blog-main-wrapper .EP-blog__heading {
     font-size: 20px;
     font-weight: 600;
+  }
+
+  .EP-blog-main-wrapper {
+    margin-top: -64px;
+  }
+
+  div#EP-blog__archive__hero .EP-blog__archive__hero__container__doggy {
+    top: 88%;
+    left: 0;
+    width: 100%;
   }
 }
 
@@ -259,14 +301,14 @@ select#blog-categories-mobile {
             </div>
         {% endfor %}
     </div>
-     
+    
         {%- if paginate.pages > 1 -%}
           <nav class="navigation" role="navigation">
             <ol class="pagination">
               {%- if paginate.previous-%}
                 <li>
                   <a href="{{ paginate.previous.url }}">
-                   <!-- <span aria-hidden="true">&laquo;</span> -->
+                  <!-- <span aria-hidden="true">&laquo;</span> -->
                     <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-left_lyx6tw.svg" alt=""> 
                     <span class="visuallyhidden">page</span>
                   </a>
