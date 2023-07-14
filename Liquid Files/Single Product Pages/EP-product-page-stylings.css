@@ -1,0 +1,293 @@
+.slider-button--next,
+.slider-button--prev {
+   display: none;
+}
+
+#EP__product__info__pagination_container {
+   display: flex;
+   justify-content: center;
+   margin-top: 12px;
+   margin-bottom: 28px;
+}
+
+.product__media-wrapper ul {
+   padding: 0;
+}
+
+.product__media-wrapper li button {
+   border-radius: 20px;
+}
+
+#EP__product__info__pagination_container .dot {
+   height: 7px;
+   width: 7px;
+   margin: 0 2px;
+   background-color: #fff !important;
+   border-radius: 50%;
+   display: inline-block;
+   border: 1px solid #000;
+   transition: background-color 0.6s ease !important;
+   cursor: pointer;
+}
+
+#EP__product__info__pagination_container .dot.active {
+   background-color: #000 !important;
+}
+
+.product__media-wrapper .slider-button--prev {
+   display: none !important;
+}
+
+.product__media-wrapper .slider-button--next {
+   display: none !important;
+}
+
+.product-form__input input[type='radio']:checked + label {
+   background-color: #faae50 !important;
+   border: none !important;
+}
+
+.product__info-wrapper variant-radios {
+   display: inline-block;
+   width: 70% !important;
+   margin: 0;
+}
+
+.product__info-wrapper .product-form__quantity {
+   display: inline-block;
+   width: 25%;
+   margin: 0;
+   transform: translateY(-35px);
+}
+
+.quantity__button {
+   border-radius: 100% !important;
+   border: 1px solid #000 !important;
+   width: 38px;
+   height: 38px;
+}
+
+#EP_product_info_right .EP_product-star-container {
+   display: flex;
+   gap: 20px;
+   align-items: center;
+   margin: 0;
+}
+
+#EP_product_info_right .EP_product-quick_cal_container .EP_btn {
+   min-width: 280px;
+   max-height: 45px;
+   display: flex;
+   justify-content: center;
+}
+
+#EP_product_info_right .EP_product-star-container img {
+   height: auto;
+   width: 100px;
+}
+
+#EP_product_info_right .EP_product-quick_cal_container {
+   display: flex;
+   gap: 62px;
+   align-items: center;
+   margin: 0;
+   justify-content: space-between;
+   margin-top: 10px;
+   margin-bottom: 32px;
+}
+
+#EP_product_info_right .EP_product-quick_cal_container p {
+   max-width: 165px;
+   font-size: 18px;
+   line-height: 22px;
+}
+
+#EP_product_info_right {
+   margin-top: 3%;
+}
+
+#EP_product_info_right .product__title {
+   margin: 0;
+}
+
+.EP-product-title__label {
+   font-family: OstiaAntica-Light;
+   font-size: 17px;
+   color: #000;
+   line-height: 21px;
+}
+
+#EP_product_info_right .product__title h1 {
+   font-family: 'OstiaAntica-book';
+   font-size: 40px;
+   line-height: 50px;
+   color: #000;
+   max-width: 300px;
+}
+
+#EP_product_info_right .EP_product-star-container p {
+   font-family: OstiaAntica-Light;
+}
+
+#EP_product_info_right legend.form__label,
+#EP_product_info_right .quantity__label {
+   font-family: 'OstiaAntica-book';
+   font-size: 20px;
+   line-height: 22px;
+   color: #000;
+}
+
+#EP_product_info_right .quantity:after {
+   box-shadow: none;
+}
+
+#EP_product_info_right quantity-input {
+   display: flex;
+   align-items: center;
+}
+
+.EP-price-and-weight__label {
+   color: #000;
+   font-size: 15px;
+   line-height: 19px;
+   margin: 10px 0 0 0;
+}
+
+.EP-product-page-custom__add__to__cart .EP_btn {
+   max-height: 45px;
+   display: flex;
+   justify-content: center;
+   width: 100%;
+}
+
+/* Product page main flex layout */
+.product.product--small {
+   display: flex;
+   justify-content: space-between;
+   gap: 130px !important;
+   margin-bottom: 72px;
+}
+
+.product.product--small #EP_product_info_left {
+   width: auto;
+   max-width: 100%;
+   flex: 1;
+}
+
+.product.product--small #EP_product_info_right {
+   width: auto;
+   max-width: none;
+   flex: 1;
+   padding: 0;
+}
+
+.EP-product_description_2 p {
+   font-size: 20px !important;
+   color: #000 !important;
+   line-height: 25px !important;
+}
+
+#EP_product_info_right .EP_product-quick_cal_container .EP-product-quick_cal {
+   display: none;
+}
+
+.EP-product_description_2_mobile {
+   display: none;
+}
+
+.EP-price-and-weight__label_mobile {
+   display: none;
+}
+
+@media screen and (max-width: 1400px) {
+   .product__info-wrapper variant-radios {
+      display: block;
+      width: auto;
+   }
+
+   .product__info-wrapper .product-form__quantity {
+      display: block;
+      width: auto;
+      transform: none;
+   }
+}
+
+@media screen and (max-width: 1400px) {
+   .product.product--small {
+      display: block;
+   }
+
+   .product.product--small .product__media-wrapper {
+      max-width: none !important;
+      width: auto !important;
+   }
+
+   #EP_product_info_right .product__title h1 {
+      max-width: none;
+      font-size: 35px;
+      line-height: 43px;
+   }
+
+   #EP_product_info_right .EP_product-star-container p {
+      font-size: 14px;
+      line-height: 17px;
+   }
+
+   #EP_product_info_right .EP_product-quick_cal_container p {
+      max-width: none;
+      font-size: 13px;
+      line-height: 16px;
+   }
+
+   #EP_product_info_right .EP_product-quick_cal_container .EP_btn {
+      display: none;
+   }
+
+   #EP_product_info_right .EP_product-quick_cal_container .EP-product-quick_cal {
+      display: block;
+      color: #faae50;
+      font-size: 13px;
+      line-height: 16px;
+   }
+
+   #EP_product_info_right .EP_product-quick_cal_container {
+      justify-content: initial;
+      gap: 5px;
+   }
+
+   #EP_product_info_right .EP_product-quick_cal_container .EP-product-quick_cal::after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: #faae50;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      transform: rotate(358deg);
+   }
+
+   .EP-product_description_2 {
+      display: none;
+   }
+
+   .EP-product_description_2_mobile {
+      display: block;
+   }
+
+   .EP-price-and-weight__label_mobile {
+      display: block;
+      font-size: 11px;
+      line-height: 13px;
+      color: #000;
+      text-align: center;
+      font-family: 'OstiaAntica-Light';
+   }
+
+   .EP-price-and-weight__label {
+      display: none;
+   }
+
+   .product__info-wrapper variant-radios {
+      width: 100%;
+   }
+}

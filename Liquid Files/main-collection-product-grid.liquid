@@ -1,0 +1,239 @@
+{% schema %}
+    {
+      "name": "EP All Products Page",
+      "settings": [
+        {
+            "type": "text",
+            "id": "all_products_page_hero_heading",
+            "label": "Shop Page Hero Heading - Word without the underline",
+            "default": "All"
+        },
+        {
+            "type": "text",
+            "id": "all_products_page_hero_heading_underline",
+            "label": "Shop Page Hero Heading - Word with the underline",
+            "default": "Products"
+        }
+      ],
+      "presets": [
+        {
+            "name": "EP All Products Page"
+        }
+      ]
+    }
+{% endschema %}
+  
+<div class="EP-main__product__collection__wrapper" id="EP-collection-wrapper">
+    <h1 class="EP-main__product__collection__heading">
+        {{ section.settings.all_products_page_hero_heading }} 
+        <span class="EP_ut">{{ section.settings.all_products_page_hero_heading_underline }}</span> 
+    </h1>
+    <div class="EP-main__product__collection__wrapper__container">
+        {% comment %} Display main products first {% endcomment %}
+        {% for product in collection.products %}
+            {% if product.tags contains 'Main Product 1' %}
+                <div class="EP-main__product__single__product">
+                    <div class="shop-now-button__container">
+                        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title | escape }}">
+                        <a href="{{ product.url }}" class="shop-now-button">Shop Now</a>
+                    </div>
+                    <h4>{{ product.title }}</h4>
+                    <p>From {{ product.price | money }}</p>
+                </div>
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        {% for product in collection.products %}
+            {% if product.tags contains 'Main Product 2' %}
+                <div class="EP-main__product__single__product">
+                    <div class="shop-now-button__container">
+                        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title | escape }}">
+                        <a href="{{ product.url }}" class="shop-now-button">Shop Now</a>
+                    </div>
+                    <h4>{{ product.title }}</h4>
+                    <p>From {{ product.price | money }}</p>
+                </div>
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        {% for product in collection.products %}
+            {% if product.tags contains 'Main Product 3' %}
+                <div class="EP-main__product__single__product">
+                    <div class="shop-now-button__container">
+                        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title | escape }}">
+                        <a href="{{ product.url }}" class="shop-now-button">Shop Now</a>
+                    </div>
+                    <h4>{{ product.title }}</h4>
+                    <p>From {{ product.price | money }}</p>
+                </div>
+                {% break %}
+            {% endif %}
+        {% endfor %}
+
+        {% comment %} Display other products {% endcomment %}
+        {% for product in collection.products %}
+            {% unless product.tags contains 'Main Product 1' or product.tags contains 'Main Product 2' or product.tags contains 'Main Product 3' %}
+                <div class="EP-main__product__single__product">
+                    <div class="shop-now-button__container">
+                        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title | escape }}">
+                        <a href="{{ product.url }}" class="shop-now-button">Shop Now</a>
+                    </div>
+                    <h4>{{ product.title }}</h4>
+                    <p>From {{ product.price | money }}</p>
+                </div>
+            {% endunless %}
+        {% endfor %}
+    </div>
+</div>
+
+
+<style>
+    .EP-main__product__collection__wrapper {
+        background-color: #FDF5E9;
+    }
+
+    #EP-collection-wrapper .EP-main__product__collection__heading {
+        font-size: 50px;
+        color: #000;
+        line-height: 60px;
+        margin: auto;
+        padding-top: 62px;
+        text-align: center;
+    }
+
+    #EP-collection-wrapper .EP-main__product__collection__heading .EP_ut {
+        font-family: OstiaAntica-Book;
+        font-size: 50px;
+        color: #000;
+        line-height: 60px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .EP-main__product__collection__wrapper__container {
+        max-width: 1340px;
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 18px;
+        padding-top: 82px;
+        padding-bottom: 144px;
+    }
+
+    #EP-collection-wrapper .EP-main__product__single__product .shop-now-button__container {
+       position: relative;
+       display: flex;
+       justify-content: center;
+    }
+
+    #EP-collection-wrapper .EP-main__product__single__product a.shop-now-button {
+        position: absolute;
+        bottom: 8%;
+        transition: opacity 0.3s ease-in-out;
+        background: #FDF5E9;
+        color: #000;
+        font-size: 20px;
+        line-height: 25px;
+        border-radius: 80px;
+        border: 1px solid #000000;
+        min-width: 285px;
+        min-height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: OstiaAntica-Book;
+        opacity: 0;
+    }
+
+    #EP-collection-wrapper .EP-main__product__single__product:hover a.shop-now-button {
+        display: flex;
+        opacity: 1; 
+        cursor: pointer;
+    }
+
+    #EP-collection-wrapper .EP-main__product__single__product h4 {
+        font-size: 25px; 
+        line-height: 33px;
+        color: #000;
+        text-align: center;
+        margin-top: 18px;
+    }
+
+    #EP-collection-wrapper .EP-main__product__single__product p {
+        font-size: 20px;
+        line-height: 25px;
+        color: #000;
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    #EP-collection-wrapper .EP-main__product__single__product img {
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        max-width: 328px;
+        max-height: 270px;
+        min-height: 270px;
+    }
+
+    #EP-collection-wrapper .EP-main__product__single__product img:nth-child(1),
+    #EP-collection-wrapper .EP-main__product__single__product img:nth-child(2),
+    #EP-collection-wrapper .EP-main__product__single__product img:nth-child(3) {
+        border-radius: 40px;
+    }
+
+    @media screen and (max-width: 1300px) { 
+        .EP-main__product__collection__wrapper__container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        .EP-main__product__collection__wrapper__container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 30px;
+        }
+
+        #EP-collection-wrapper .EP-main__product__single__product img {
+            max-width: none;
+        }
+
+        #EP-collection-wrapper .EP-main__product__single__product a.shop-now-button {
+            min-width: 200px;
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        .EP-main__product__collection__wrapper__container {
+            grid-template-columns: 1fr;
+        }
+
+        #EP-collection-wrapper .EP-main__product__single__product h4 {
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        #EP-collection-wrapper .EP-main__product__single__product p {
+            font-size: 14px;
+            line-height: 17px;
+        }
+
+        #EP-collection-wrapper .EP-main__product__collection__heading {
+            padding-top: 24px;
+            font-size: 40px;
+            line-height: 45px;
+        }
+
+        #EP-collection-wrapper .EP-main__product__collection__heading .EP_ut {
+            font-size: 40px;
+            line-height: 45px;
+        }
+
+        .EP-main__product__collection__wrapper__container { 
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    }
+</style>
