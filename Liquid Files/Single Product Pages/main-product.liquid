@@ -94,8 +94,8 @@
             </div>
             <div class="EP_product-quick_cal_container">
               <P>How much should I feed my dog?</P>
-              <a href="#" class="EP_btn EP_bg_0 Ep_open_quick_cal">Quick Calculator</a>
-              <a href="#" class="EP-product-quick_cal Ep_open_quick_cal">Quick Calculator</a>
+              <button href="#" class="EP_btn EP_bg_0 Ep_open_quick_cal">Quick Calculator</button>
+              <button href="#" class="EP-product-quick_cal Ep_open_quick_cal">Quick Calculator</button>
             </div>
              {%- when 'description' -%}
               {%- if product.description != blank -%}
@@ -208,11 +208,8 @@
               </div>
 
             {%- when 'quantity_selector' -%}
-              
-            <label class="EP-price-and-weight__label_mobile"> 
-              $5.94/100g
-            </label>
-              <div
+
+            <div
                 id="Quantity-Form-{{ section.id }}"
                 class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                 {{ block.shopify_attributes }}
@@ -297,6 +294,28 @@
                   {%- endif -%}
                 </div>
               </div>
+
+          <!-- Mobile varient dropdown select -->
+            {% for option in product.options_with_values %}
+            <div class="EP-product-custom-select">
+              <label class="EP-varient-mobile-select-label"> {{ option.name }}</label>
+              <select class="EP-product-varient-mobile-select">
+                  {% for value in option.values %}
+                      <option value="{{ value }}">{{ value }}</option>
+                  {% endfor %}
+              </select>
+              <div class="EP-product-varient-select-arrow"></div>
+            </div>
+          {% endfor %}
+          
+            <label class="EP-price-and-weight__label_mobile"> 
+              $5.94/100g
+            </label>
+            <div class="custom-subs-widget">
+              <a href="#123">Subscription + Save</a>
+              <a href="#23">One time</a>
+            </div>
+              
             <label class="EP-price-and-weight__label"> 
               $5.94/100g
             </label>
@@ -599,7 +618,6 @@
         {%- endfor -%}
       ]
     }
-
   </script>
 </section>
 
