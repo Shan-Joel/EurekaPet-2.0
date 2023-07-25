@@ -1,0 +1,465 @@
+<style>
+  .EP-blog-main-wrapper {
+    max-width: 1340px;
+    width: 80%;
+    margin: auto;
+/*     margin-top: -178px; */
+    margin-top: -155px;
+  }
+
+  .EP-blog-main-wrapper #blog-categories {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+
+  .EP-blog-main-wrapper #blog-categories .blog-category {
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000000;
+    text-align: center;
+  }
+
+  .EP-blog-main-wrapper #blog-categories p:nth-child(1) {
+    order: 1;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(2) {
+    order: 5;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(3) {
+    order: 2;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(4) {
+    order: 4;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(5) {
+    order: 6;
+  }
+  .EP-blog-main-wrapper #blog-categories p:nth-child(6) {
+    order: 3;
+  }
+
+  .EP-blog-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 30px;
+    margin-top: 41px;
+    margin-bottom: 118px;
+  }
+
+  .EP-blog-main-wrapper .blog-categories__heading {
+    display: flex;
+    justify-content: center;
+  }
+
+  #EP-blog-main-wrapper .blog-post > a {
+    text-decoration: none;
+  }
+
+  #EP-blog-main-wrapper .blog-post .EP-blog__image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  #EP-blog-main-wrapper .EP-blog__heading {
+    font-size: 22px;
+    color: #000000;
+    line-height: 30px;
+    text-decoration: none;
+    margin-top: 35px;
+    text-align: center;
+  }
+
+  .selected-indicator {
+    display: none; /* Hidden by default */
+    width: 100%;
+    border: 3px solid #FAAE50;
+    transform: rotate(358deg);
+}
+
+.default-indicator {
+    display: block; /* Visible by default */
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.EP-blog-main-wrapper .pagination {
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+  
+.EP-blog-main-wrapper .pagination li {
+  display: inline; 
+  margin: 0 5px;
+  font-size: 20px;
+  font-family: Windsor;
+}
+
+.EP-blog-main-wrapper .pagination li.active {
+  background: #FAAE50;
+  color: #fff;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.EP-blog-main-wrapper .pagination li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;.
+    font-family: Windsor;
+}
+
+.EP-blog-main-wrapper nav.navigation {
+  margin-bottom: 85px;
+}
+
+.EP-blog-main-wrapper .disabled img {
+  opacity: 0.2; /* Decrease the opacity of the images */
+}
+
+.EP-blog-main-wrapper .disabled {
+  pointer-events: none; /* Make sure disabled elements are not clickable */
+  cursor: default; /* Change the cursor appearance on hover */
+}
+
+.EP-blog-main-wrapper .pagination li:first-of-type {
+    margin-right: 5%;
+}
+
+.EP-blog-main-wrapper .pagination li:last-of-type {
+    margin-left: 5%;
+}
+
+select#blog-categories-mobile {
+  border: 1px solid #000000;
+  border-radius: 80px;
+  opacity: 1;
+  width: 100%;
+  height: 50px;
+  padding: 0 26px;
+  display: flex;
+  align-items: center;
+  font-family: OstiaAntica-Light;
+  font-size: 14px;
+  color: #000000;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#EP-blog-main-wrapper *:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+} 
+
+.select-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+#blog-categories-mobile {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent url(https://res.cloudinary.com/duecvwrkz/image/upload/v1687939331/SVG_Dropdown_for_Select_eupadt.svg) no-repeat 95% center;
+  width: 100%;
+  padding-right: 20px;
+  background-size: 22px;
+  cursor: pointer;
+}
+
+/* for IE */
+#blog-categories-mobile::-ms-expand {
+    display: none;
+}
+
+.EP-blog-main-wrapper .blog-post {
+  position: relative;
+}
+
+.EP-blog-main-wrapper .blog-post .featured-blog-post {
+  position: absolute;
+  right: 2%;
+  top: -4%;
+}
+
+
+@media screen and (max-width: 980px) {
+  .EP-blog-grid-wrapper  {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blog-categories__heading {
+    display: none !important;
+  }
+
+  .desktop-view {
+    display: none !important;
+  }
+
+  select#blog-categories-mobile {
+    margin-top: 45px;
+  }
+
+  .EP-blog-grid-wrapper {
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
+
+  .EP-blog-main-wrapper nav.navigation {
+    margin-bottom: 40px;
+  }
+
+  #EP-blog-main-wrapper .EP-blog__heading {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .EP-blog-main-wrapper {
+    margin-top: -40px;
+  }
+
+  div#EP-blog__archive__hero .EP-blog__archive__hero__container__doggy {
+    top: 88%;
+    left: 0;
+    width: 100%;
+  }
+}
+
+
+@media screen and (min-width: 981px) {
+    /* Hide mobile view on desktop */
+    .mobile-view {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  .EP-blog-grid-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .EP-blog-main-wrapper {
+    margin-top: -64px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 980px) {
+  div#EP-blog__archive__hero .EP-blog__archive__hero__container__doggy {
+    top: 85% !important;
+  }
+}
+
+</style>
+
+    <div class="EP-blog-main-wrapper" id="EP-blog-main-wrapper">
+        <div class="blog-categories__heading">
+            <h3>Filter by</h3>
+        </div>
+            <!-- Div tags for desktop view -->
+        <div id="blog-categories" class="desktop-view">
+          <p class="blog-category" data-category="all">All<span class="selected-indicator"></span></p>
+          {% for tag in blog.all_tags %}
+              <p class="blog-category" data-category="{{ tag }}">{{ tag }}<span class="selected-indicator"></span></p>
+          {% endfor %}
+        </div>
+
+        <!-- Select dropdown for mobile view -->
+        <div class="select-container">
+          <select id="blog-categories-mobile" class="mobile-view">
+            <option value="" disabled selected>Filter by</option>
+            <option value="all">All</option>
+            {% for tag in blog.all_tags %}
+                <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+       {%- paginate blog.articles by 8 -%} 
+          <div class="EP-blog-grid-wrapper">
+        {% for article in blog.articles %}
+            <div class="blog-post" data-tags="{{ article.tags | join: ',' }}">
+                <a href="{{ article.url }}">
+                    {% if article.image %}
+                    <img class="EP-blog__image" src="{{ article.image | img_url: '322x'}}" alt="{{ article.title }}">
+                    {% endif %}
+
+                    <!-- Check for the custom field -->
+                    {% if article.metafields.custom.is_this_a_featured_blog_post %}
+                        <img class="featured-blog-post" src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687941301/Featured_Post_b24yuy.svg" />
+                    {% endif %}
+
+                    <p class="EP-blog__heading">{{ article.title }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    
+        {%- if paginate.pages > 1 -%}
+          <nav class="navigation" role="navigation">
+            <ol class="pagination">
+              {%- if paginate.previous-%}
+                <li>
+                  <a href="{{ paginate.previous.url }}">
+                  <!-- <span aria-hidden="true">&laquo;</span> -->
+                    <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-left_lyx6tw.svg" alt=""> 
+                    <span class="visuallyhidden">page</span>
+                  </a>
+                </li>
+              {%- else -%}
+                <li class="disabled">
+                  <!-- <span aria-hidden="true">&laquo;</span> -->
+                  <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-left_lyx6tw.svg" alt=""> 
+                  <span class="visuallyhidden">page</span>
+                </li>
+              {%- endif -%}
+
+              {%- for part in paginate.parts -%}
+                {%- if part.is_link -%}
+                  <li>
+                    <a href="{{ part.url }}">
+                      <span class="visuallyhidden">page</span> {{ part.title }}
+                    </a>
+                  </li>
+                {%- else -%}
+                  {%- if part.title == paginate.current_page -%}
+                    <li class="active" aria-current="page">
+                      <span class="visuallyhidden">page</span> {{ part.title }}
+                    </li>
+                  {%- else -%}
+                    <li>
+                      <span class="visuallyhidden">page</span> {{ part.title }}
+                    </li>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              {%- if paginate.next -%}
+                <li>
+                  <a href="{{ paginate.next.url }}">
+                    <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-right_jge7nk.svg" alt="">
+                    <span class="visuallyhidden">page</span>
+                  <!--  <span aria-hidden="true">&raquo;</span> -->
+                  </a>
+                </li>
+              {%- else -%}
+                <li class="disabled">
+                  <img src="https://res.cloudinary.com/duecvwrkz/image/upload/v1687929214/arrow-right_jge7nk.svg" alt="">  
+                  <span class="visuallyhidden">page</span>
+                  <!-- <span aria-hidden="true">&raquo;</span>-->
+                </li>
+              {%- endif -%}
+            </ol>
+          </nav>
+        {%- endif -%}
+    {%- endpaginate -%} 
+    
+    </div>
+      
+<script>
+    $(document).ready(function() {    
+            
+    function clearSelection() {
+        $('.blog-category').each(function() {
+            $(this).find('.selected-indicator').removeClass('default-indicator').hide();
+        });
+    }
+
+    function filterPosts(selectedCategory) {
+        $('.blog-post').each(function() {
+            var postTags = $(this).attr('data-tags').split(',');
+
+            if (selectedCategory === 'all' || postTags.includes(selectedCategory)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+
+    function resetPageToOne(selectedCategory) {
+        var currentUrl = window.location.href;
+        var baseUrl = currentUrl.split('?')[0];
+        window.location.href = baseUrl + "?page=1&category=" + selectedCategory;
+    }
+
+    function getQueryParam(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    function scrollToSection(section) {
+        $('html, body').animate({
+            scrollTop: $(section).offset().top
+        }, 1000, "swing");
+    }
+
+    var selectedCategory = getQueryParam('category') || 'all';
+
+    filterPosts(selectedCategory);
+    var selectedIndicator = $('p.blog-category[data-category="' + selectedCategory + '"]').find('.selected-indicator');
+    selectedIndicator.show();
+
+    if (window.performance.navigation.type === 0) {
+        selectedIndicator.addClass('default-indicator');
+    }
+
+    // Scroll on page load if there is #scrollToBlog in the URL
+    if (window.location.hash == '#scrollToBlog' || selectedCategory !== 'all') {
+        scrollToSection(".EP-blog-main-wrapper");
+    }
+
+    $('.blog-category').click(function() {
+        selectedCategory = $(this).attr('data-category');
+        clearSelection();
+        $(this).find('.selected-indicator').show();
+        if (selectedCategory !== 'all') {
+            resetPageToOne(selectedCategory);
+        } else {
+            filterPosts(selectedCategory);
+        }
+    });
+
+    $('#blog-categories-mobile').change(function() {
+        selectedCategory = $(this).val();
+        clearSelection();
+        $(this).find('.selected-indicator').show();
+
+        if (selectedCategory !== 'all') {
+            resetPageToOne(selectedCategory);
+        } else {
+            filterPosts(selectedCategory);
+        }
+    });
+
+    // Add click event to the pagination links
+    $('.pagination a').click(function(e) {
+        e.preventDefault();
+        var targetUrl = $(this).attr('href');
+        window.location = targetUrl + '&category=' + selectedCategory + '#scrollToBlog';
+    });
+});
+</script>
+
+
